@@ -74,10 +74,10 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=localhost;dbname=livre_d_appel',
+	'dsn'	=> 'mysql:host=164.138.29.106; dbname=eportfolio; charset=utf8;',
 	'hostname' => '',
-	'username' => 'root',
-	'password' => '',
+	'username' => 'dgls',
+	'password' => 'dglsweb#2016',
 	'database' => '',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
