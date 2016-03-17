@@ -15,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <title>Bootstrap</title>
 </head>
 <body>
@@ -49,7 +50,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li><a href="#">Inscription</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-                <a href="<?=site_url('Login/connection')?>" style="text-decoration: none;"><button type="button" class="btn btn-default navbar-btn navbar-right">Se connecter</button></a>
+                <form class="navbar-form navbar-right" role="form">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                        <input type="text" class="form-control" placeholder="Email" name="mail" size="10">
+                        <!--<span class="input-group-addon"><i class="fa fa-key"></i></span>
+                        <input type="password" class="form-control" placeholder="Mot de passe" name="password" size="10">-->
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit" style="margin-left: 10px;"><i class="glyphicon glyphicon-circle-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </form>
+                <!--<a href="<?=site_url('Login/connection')?>" style="text-decoration: none;"><button type="button" class="btn btn-default navbar-btn navbar-right">Se connecter</button></a>-->
             </div>
         </div>
     </nav>
