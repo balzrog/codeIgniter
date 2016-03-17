@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-$db['default'] = array( 
+$db['default'] = array(
 	'dsn'	=> 'mysql:host=164.138.29.106; dbname=eportfolio; charset=utf8;',
 	'hostname' => '',
 	'username' => 'dgls',
