@@ -6,9 +6,13 @@
  * Time: 10:54
  */
 
-class Login_mode extends CI_Model {
+class Login_model extends CI_Model {
 
-    public function __construct() {
+    /*public function __construct() {
         parent::__construct();
+    }*/
+
+    public function check_user_credentials($mail, $password) {
+        return $this->db->query("CALL sp_checkUserCredentials(?, ?)", array($mail, $password))->result();
     }
 }
