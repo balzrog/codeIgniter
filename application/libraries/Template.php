@@ -15,9 +15,9 @@ class Template extends CI_Loader
         $this->ci_loader = &get_instance();
     }
 
-    function template($template_nom, $vars =array(), $return = FALSE){
+    function template($view_name, $vars =array(), $return = FALSE){
         $content = $this->view('includes/header_view.php', $vars,$return);
-        $content .= $this->view($template_nom, $vars, $return);
+        $content .= $this->view($view_name, $vars, $return);
         $content .= $this->view('includes/footer_view.php', $vars, $return);
 
         return $content;
