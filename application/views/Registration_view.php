@@ -19,8 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Bootstrap</title>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container">
+    <!--<nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
                     <span class="sr-only">Navigation</span>
@@ -50,21 +50,77 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li><a href="#">Inscription</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-                <form class="navbar-form navbar-right" role="form">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                        <input type="text" class="form-control" placeholder="Email" name="mail" size="10">
-                        <!--<span class="input-group-addon"><i class="fa fa-key"></i></span>
-                        <input type="password" class="form-control" placeholder="Mot de passe" name="password" size="10">-->
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit" style="margin-left: 10px;"><i class="glyphicon glyphicon-circle-arrow-right"></i></button>
-                        </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <div class="navbar-right col-sm-9">
+                        <form action="#" class="navbar-form row" method="post" role="form">
+                            <div class="col-sm-3 col-sm-offset-5">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                    <input type="text" class="form-control" placeholder="Email" name="mail" size="10">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                    <input type="password" class="form-control" placeholder="Mot de passe" name="password" size="10">
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="btn btn-default" type="submit" style="margin-left: 10px;"><i class="glyphicon glyphicon-circle-arrow-right"></i></button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>-->
                 <!--<a href="<?=site_url('Login/connection')?>" style="text-decoration: none;"><button type="button" class="btn btn-default navbar-btn navbar-right">Se connecter</button></a>-->
+            <!--</div>
+        </div>
+    </nav>-->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-target="#navbar-collapse" data-toggle="collapse" type="button">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    <img style="max-width:100px; margin-top: -7px;" src="#" alt="Logo" width="100px" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Inscription</a></li>
+                    <li><a href="#">Consultatio</a></li>
+                </ul>
+                <div class="navbar-right col-sm-7">
+                    <form action="#" class="navbar-form row" method="post" role="form">
+                        <div class="col-sm-3 col-sm-offset-5">
+                            <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-user"></i>
+                        </span>
+                                <input class="form-control" name="andrew_id" placeholder="Andrew ID" type="text">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                                <input class="form-control" name="secret" placeholder="Secret Words" type="password">
+                            </div>
+
+                        </div>
+                        <div class="col-sm-1">
+                            <button class="btn btn-primary" type="submit">Log In</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
     <div class="container">
         <div class="row">
             <div class="page-header">
