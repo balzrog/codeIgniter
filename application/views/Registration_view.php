@@ -7,7 +7,7 @@
  */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+?><!--<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -19,62 +19,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Bootstrap</title>
 </head>
 <body>
-    <!--<nav class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
-                    <span class="sr-only">Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand">
-                    <img style="max-width:100px; margin-top: -7px;" src="#" alt="Logo" width="100px" />
-                </a>
-            </div>
-            <div class="collapse navbar-collapse" id="collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Accueil</a></li>
-                    <li>
-                        <a href="#" class="dropdown-toggle"
-                           data-toggle="dropdown" role="button"
-                           aria-haspopup="true"
-                           aria-expanded="false">Annonces
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Offreurs</a></li>
-                            <li><a href="#">Demandeurs</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Inscription</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <div class="collapse navbar-collapse" id="navbar-collapse">
-                    <div class="navbar-right col-sm-9">
-                        <form action="#" class="navbar-form row" method="post" role="form">
-                            <div class="col-sm-3 col-sm-offset-5">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                                    <input type="text" class="form-control" placeholder="Email" name="mail" size="10">
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                    <input type="password" class="form-control" placeholder="Mot de passe" name="password" size="10">
-                                </div>
-                            </div>
-                            <div class="col-sm-1">
-                                <button class="btn btn-default" type="submit" style="margin-left: 10px;"><i class="glyphicon glyphicon-circle-arrow-right"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>-->
-                <!--<a href="<?=site_url('Login/connection')?>" style="text-decoration: none;"><button type="button" class="btn btn-default navbar-btn navbar-right">Se connecter</button></a>-->
-            <!--</div>
-        </div>
-    </nav>-->
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -121,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-    <div class="container">
+    <section class="container">-->
         <div class="row">
             <div class="page-header">
                 <h1><?=$h1?></h1>
@@ -195,11 +139,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?=form_close()?>
             </div>
         </div>
-    </div>
+    <!--</section>
     <footer>
         <div style="margin-top: 100px;"></div>
     </footer>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </body>
-</html>
+</html>-->
