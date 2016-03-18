@@ -28,15 +28,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" class="navbar-brand">
+                <a href="<?= site_url('/Home')?>" class="navbar-brand">
                     <img style="max-width:100px; margin-top: -7px;" src="#" alt="Logo" width="100px" />
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Inscription</a></li>
-                    <li><a href="#">Consultatio</a></li>
+                    <li><a href="<?= site_url('/Home')?>">Accueil</a></li>
+                    <li><a href="<?= site_url('/Registration')?>">Inscription</a></li>
+                    <li><a href="<?= site_url('/ProfileSearch')?>">Consultation</a></li>
                 </ul>
                 <div class="navbar-right col-sm-7">
                     <form action="#" class="navbar-form row" method="post" role="form">
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span class="input-group-addon">
                           <i class="glyphicon glyphicon-user"></i>
                         </span>
-                                <input class="form-control" name="andrew_id" placeholder="Andrew ID" type="text">
+                                <input class="form-control" name="andrew_id" placeholder="Nom d'utilisateur" type="text">
                             </div>
                         </div>
                         <div class="col-sm-3">
@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span class="input-group-addon">
                           <i class="glyphicon glyphicon-lock"></i>
                         </span>
-                                <input class="form-control" name="secret" placeholder="Secret Words" type="password">
+                                <input class="form-control" name="secret" placeholder="Mot de passe" type="password">
                             </div>
 
                         </div>
