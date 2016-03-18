@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="nav navbar-nav">
                     <li><a href="#">Accueil</a></li>
                     <li><a href="#">Inscription</a></li>
-                    <li><a href="#">Consultation</a></li>
+                    <li><a href="#">Consultatio</a></li>
                 </ul>
                 <div class="navbar-right col-sm-7">
                     <form action="#" class="navbar-form row" method="post" role="form">
