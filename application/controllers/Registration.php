@@ -18,7 +18,7 @@ class Registration extends CI_Controller {
     }
 
     public function index() {
-        echo "Registration";
+        $this->register();
     }
 
     /**
