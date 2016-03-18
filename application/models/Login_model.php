@@ -12,7 +12,10 @@ class Login_model extends CI_Model {
         parent::__construct();
     }*/
 
-    public function check_user_credentials($mail, $password) {
-        return $this->db->query("CALL sp_checkUserCredentials(?, ?)", array($mail, $password))->result();
+    public function check_user_credentials($mail) {
+        //return $this->db->query("CALL sp_checkUserCredentials(?, ?)", array($mail, $password))->result();
+
+        $query = "SELECT id_utilisateur, password FROM utilisateur WHERE mail = ?";
+        return $this->db->query($query, array($mail))->result();
     }
 }

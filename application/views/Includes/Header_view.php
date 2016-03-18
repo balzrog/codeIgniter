@@ -108,21 +108,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li><a href="#">Consultation</a></li>
                 </ul>
                 <div class="navbar-right col-sm-7">
-                    <form action="#" class="navbar-form row" method="post" role="form">
+                    <form action="<?=site_url('Login/connection')?>" class="navbar-form row" method="post" role="form">
                         <div class="col-sm-3 col-sm-offset-5">
                             <div class="input-group">
                         <span class="input-group-addon">
-                          <i class="glyphicon glyphicon-user"></i>
+                          <i class="fa fa-envelope-o"></i>
                         </span>
-                                <input class="form-control" name="andrew_id" placeholder="Andrew ID" type="text">
+                                <input class="form-control" name="mail" placeholder="Email" type="text">
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="input-group">
                         <span class="input-group-addon">
-                          <i class="glyphicon glyphicon-lock"></i>
+                          <i class="fa fa-key"></i>
                         </span>
-                                <input class="form-control" name="secret" placeholder="Secret Words" type="password">
+                                <input class="form-control" name="password" placeholder="Mot de passe" type="password">
                             </div>
 
                         </div>
