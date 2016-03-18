@@ -36,36 +36,35 @@ class Login extends CI_Controller {
         } else {
             $mail = $this->input->post('mail');
             $password = $this->input->post('password');
+            $storedPassword = $this->login->check_user_credentials($mail);
 
-            $storedPassword = $this->login->check_user_credentials($mail)['0'];
+            if ($this->compare_password($password, $storedPassword->password)) {
+                //$userInfo = $this->login->get_user_info($mail);
 
-            if($this->compare_password($password, $storedPassword->password)){
-                $userId = "";
+                //print_r($userInfo);
 
+                /*$userId = $userInfo->id_utilisateur;
+                $userOK = $userInfo->confirme;
+                $portfolioId = $userInfo->id_portfolio;*/
 
-                $this->session->set_userdata(array('userid' => $userId, 'mail' => $mail));
+                $userId = '52';
+                $userOK = '1';
+                $portfolioId = '1';
 
+                if(isset($userId) && isset($userOK) && isset($portfolioId)) {
+                    $this->session->set_userdata(array(
+                        'user_id' => (int)$userId,
+                        'portfolio_id' => (int)$portfolioId,
+                        'is_confirmed' => (int)$userOK,
+                        'logged_in' => (bool)true
+                    ));
 
+                    $this->load->template('Home_view');
+                }
             } else {
-                echo "BAD PASSWORD";
+                $data['error'] = "Mot de passe incorrect ou utilisateur inexistant.";
+                $this->load->template('Login_view', $data);
             }
-
-            //L'email et le mot de passe rentré correspondent avec la BDD
-
-            $user_id = 3;
-            $username = "christian33";
-
-            /*$_SESSION['userid'] = (int)$user_id;
-            $_SESSION['username'] = (string)$username;*/
-
-            //$_SESSION = null,
-
-            //redirect('Registration/register');
         }
-        //$data = array();
-        //$data['results'] = $this->login->check_user_credentials($_POST['mail'], $_POST['password']);
-        //$data['title'] = "Connexion";
-        //$data['description'] = "";
-
     }
 }

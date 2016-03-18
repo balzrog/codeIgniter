@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Bootstrap</title>
 </head>
 <body>
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button class="navbar-toggle" data-target="#navbar-collapse" data-toggle="collapse" type="button">
@@ -38,30 +38,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li><a href="<?= site_url('/Registration')?>">Inscription</a></li>
                     <li><a href="<?= site_url('/ProfileSearch')?>">Consultation</a></li>
                 </ul>
+                <?php if(count($this->session->user_id) > 0 && $this->session->logged_in == true) : ?>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <div class="btn-nav" style="margin-right: 67px;">
+                            <a class="btn btn-primary btn-small navbar-btn" href="#">Déconnexion</a>
+                        </div>
+                    </li>
+                </ul>
+                <?php else : ?>
                 <div class="navbar-right col-sm-7">
                     <form action="#" class="navbar-form row" method="post" role="form">
-                        <div class="col-sm-3 col-sm-offset-5">
+                        <div class="col-sm-3 col-sm-offset-5" style="margin-right: -20px;">
                             <div class="input-group">
                         <span class="input-group-addon">
-                          <i class="glyphicon glyphicon-user"></i>
+                          <i class="fa fa-envelope"></i>
                         </span>
-                                <input class="form-control" name="andrew_id" placeholder="Nom d'utilisateur" type="text">
+                                <input class="form-control" name="mail" placeholder="Email" type="text">
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-3" style="margin-right: -30px;">
                             <div class="input-group">
                         <span class="input-group-addon">
                           <i class="glyphicon glyphicon-lock"></i>
                         </span>
-                                <input class="form-control" name="secret" placeholder="Mot de passe" type="password">
+                                <input class="form-control" name="password" placeholder="Mot de passe" type="password">
                             </div>
-
                         </div>
                         <div class="col-sm-1">
-                            <button class="btn btn-primary" type="submit">Log In</button>
+                            <button class="btn btn-primary" type="submit">Connexion</button>
                         </div>
                     </form>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
-    </div>
+    </nav>

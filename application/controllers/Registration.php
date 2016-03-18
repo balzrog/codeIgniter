@@ -51,9 +51,6 @@ class Registration extends CI_Controller {
         $this->form_validation->set_rules('addressextra', 'Complément', 'trim|alpha|min_length[5]');
 
         if($this->form_validation->run() == false) {
-            /*$this->load->view('Includes/Header_view');
-            $this->load->view('Registration_view', $data);
-            $this->load->view('Includes/Footer_view');*/
             $this->load->template('Registration_view', $data);
         } else {
             $name           = $this->input->post('name');
