@@ -22,9 +22,9 @@ class Template extends CI_Loader
      * @return object|string
      */
     function template($view_name, $vars =array(), $return = FALSE){
-        $content = $this->view('includes/Header_view.php', $vars,$return);
+        $content = $this->view('Includes/Header_view.php', $vars,$return);
         $content .= $this->view($view_name, $vars, $return);
-        $content .= $this->view('includes/Footer_view.php', $vars, $return);
+        $content .= $this->view('Includes/Footer_view.php', $vars, $return);
 
         return $content;
     }
