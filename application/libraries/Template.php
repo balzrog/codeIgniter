@@ -15,10 +15,16 @@ class Template extends CI_Loader
         $this->ci_loader = &get_instance();
     }
 
+    /**
+     * @param $view_name
+     * @param array $vars
+     * @param bool $return
+     * @return object|string
+     */
     function template($view_name, $vars =array(), $return = FALSE){
-        $content = $this->view('includes/header_view.php', $vars,$return);
+        $content = $this->view('includes/Header_view.php', $vars,$return);
         $content .= $this->view($view_name, $vars, $return);
-        $content .= $this->view('includes/footer_view.php', $vars, $return);
+        $content .= $this->view('includes/Footer_view.php', $vars, $return);
 
         return $content;
     }
