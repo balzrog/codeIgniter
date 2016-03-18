@@ -84,9 +84,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">My Site</a>
+                <a href="#" class="navbar-brand">
+                    <img style="max-width:100px; margin-top: -7px;" src="#" alt="Logo" width="100px" />
+                </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Inscription</a></li>
+                    <li><a href="#">Consultation</a></li>
+                </ul>
                 <div class="navbar-right col-sm-7">
                     <form action="#" class="navbar-form row" method="post" role="form">
                         <div class="col-sm-3 col-sm-offset-5">
