@@ -13,5 +13,10 @@ class Administration extends CI_Controller
         parent::__construct();
     }
 
+    function index(){
+        echo "Administration";
+    }
+
+    
 
 }
