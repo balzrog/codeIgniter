@@ -11,10 +11,13 @@ class Administration extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->helper('form');
+        $this->load->model('Administration_model','admin_model');
     }
 
     function index(){
-        $this->load->template("Administration_view");
+        $data['results'] = $this->admin_model->get_user_info();
+        $this->load->template("Administration_view", $data);
     }
 
     

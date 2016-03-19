@@ -8,5 +8,11 @@
  */
 class Administration_model extends CI_Model
 {
+    public function get_user_info() {
+        $query = $this->db->select('`nom`,`prenom`')
+            ->where(array('id_utilisateur' => 51))
+            ->get('utilisateur');
 
+        return $query->result_array();
+    }
 }

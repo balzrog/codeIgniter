@@ -35,7 +35,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="<?= site_url('/Home')?>">Accueil</a></li>
-                    <li><a href="<?= site_url('/Registration')?>">Inscription</a></li>
+                    <?php if(count($this->session->user_id) > 0 && $this->session->logged_in == true) : ?>
+                        <li><a href="<?= site_url('/Administration')?>">Administration</a></li>
+                    <?php else : ?>
+                        <li><a href="<?= site_url('/Registration')?>">Inscription</a></li>
+                    <?php endif; ?>
                     <li><a href="<?= site_url('/ProfileSearch/search')?>">Consultation</a></li>
                 </ul>
                 <?php if(count($this->session->user_id) > 0 && $this->session->logged_in == true) : ?>
