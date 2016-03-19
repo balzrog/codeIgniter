@@ -23,9 +23,9 @@ class ProfileSearch extends CI_Controller{
     public function search() {
         $data['results'] = array();
 
-        /*if(empty($this->input->post('keyword'))) {
+        if(empty($this->input->post('keyword'))) {
             $data['results'] = $this->profilesearch->get_all_seekers();
-        }*/
+        }
 
         $this->form_validation->set_rules('keyword', 'Recherche', 'trim|required');
         if($this->form_validation->run() == false) {
@@ -35,12 +35,12 @@ class ProfileSearch extends CI_Controller{
 
             //$data['results'] = $this->profilesearch->get_results($keywords);
 
-            $results = array( array('id_utilisateur' => '52', 'nom' => 'Goisset', 'prenom' => 'Guillaume', 'about' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'url_image' => '/assets/images/cat.jpg', 'alt' => 'Cat', 'url' => '/Registration/register'),
-                array('id_utilisateur' => '53', 'nom' => 'Laffargue', 'prenom' => 'Adrien', 'about' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'url_image' => '/assets/images/cat.jpg', 'alt' => 'Cat', 'url' => '/Registration/register'),
-                array('id_utilisateur' => '54', 'nom' => 'Sabuco', 'prenom' => 'Baptiste', 'about' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'url_image' => '/assets/images/cat.jpg', 'alt' => 'Cat', 'url' => '/Registration/register'),
-                array('id_utilisateur' => '55', 'nom' => 'Dubois', 'prenom' => 'Nicolas', 'about' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'url_image' => '/assets/images/cat.jpg', 'alt' => 'Cat', 'url' => '/Registration/register'),
-                array('id_utilisateur' => '56', 'nom' => 'Dark', 'prenom' => 'Dylan', 'about' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'url_image' => '/assets/images/cat.jpg', 'alt' => 'Cat', 'url' => '/Registration/register')
-            );
+//            $results = array( array('id_utilisateur' => '52', 'nom' => 'Goisset', 'prenom' => 'Guillaume', 'about' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'url_image' => '/assets/images/cat.jpg', 'alt' => 'Cat', 'url' => '/Registration/register'),
+//                array('id_utilisateur' => '53', 'nom' => 'Laffargue', 'prenom' => 'Adrien', 'about' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'url_image' => '/assets/images/cat.jpg', 'alt' => 'Cat', 'url' => '/Registration/register'),
+//                array('id_utilisateur' => '54', 'nom' => 'Sabuco', 'prenom' => 'Baptiste', 'about' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'url_image' => '/assets/images/cat.jpg', 'alt' => 'Cat', 'url' => '/Registration/register'),
+//                array('id_utilisateur' => '55', 'nom' => 'Dubois', 'prenom' => 'Nicolas', 'about' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'url_image' => '/assets/images/cat.jpg', 'alt' => 'Cat', 'url' => '/Registration/register'),
+//                array('id_utilisateur' => '56', 'nom' => 'Dark', 'prenom' => 'Dylan', 'about' => 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.', 'url_image' => '/assets/images/cat.jpg', 'alt' => 'Cat', 'url' => '/Registration/register')
+//            );
 
             $data['results'] = $results;
 

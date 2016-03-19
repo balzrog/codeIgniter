@@ -9,7 +9,7 @@
 class ProfileSearch_model extends CI_Model{
 
     public function get_all_seekers() {
-        return $this->db->query("CALL sp_getAllJobSeekers()")->result();
+        return $this->db->query("CALL sp_getAllJobSeekers()")->result_array();
     }
 
     public function get_results($keyword) {
