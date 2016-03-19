@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="nav navbar-nav">
                     <li><a href="<?= site_url('/Home')?>">Accueil</a></li>
                     <li><a href="<?= site_url('/Registration')?>">Inscription</a></li>
-                    <li><a href="<?= site_url('/ProfileSearch')?>">Consultation</a></li>
+                    <li><a href="<?= site_url('/ProfileSearch/search')?>">Consultation</a></li>
                 </ul>
                 <?php if(count($this->session->user_id) > 0 && $this->session->logged_in == true) : ?>
                 <ul class="nav navbar-nav navbar-right">
@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
                 <?php else : ?>
                 <div class="navbar-right col-sm-7">
-                    <form action="#" class="navbar-form row" method="post" role="form">
+                    <form action="<?=site_url('Login/connection')?>" class="navbar-form row" method="post" role="form">
                         <div class="col-sm-3 col-sm-offset-5" style="margin-right: -20px;">
                             <div class="input-group">
                         <span class="input-group-addon">
