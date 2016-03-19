@@ -6,10 +6,13 @@
  * Date: 18/03/2016
  * Time: 14:06
  */
-class ProfileSearch extends CI_Model{
+class ProfileSearch_model extends CI_Model{
 
-    public function get_results($keyword) {
-        return $this->db->query("CALL sp_getResultsFromKeyword(?)", $keyword)->result();
+    public function get_all_seekers() {
+        return $this->db->query("CALL sp_getAllJobSeekers()")->result();
     }
 
+    public function get_results($keyword) {
+        return $this->db->query("CALL sp_getResultsFromKeyword(?)", $keyword);
+    }
 }
