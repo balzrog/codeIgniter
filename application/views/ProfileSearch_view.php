@@ -39,7 +39,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
                 <div class="row">
-                    <?php /*if(empty($this->input->post('keyword'))) :*/?>
                     <?php foreach($results as $result) : ;?>
                         <div class="col-lg-3 col-sm-6 col-md-4 col-xs-6">
                             <div class=thumbnail>
@@ -52,7 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     <?php endforeach ;?>
-                    <?php /*endif*/ ?>
                 </div>
             </div>
         </div>
