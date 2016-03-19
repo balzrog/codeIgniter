@@ -13,6 +13,6 @@ class ProfileSearch_model extends CI_Model{
     }
 
     public function get_results($keyword) {
-        return $this->db->query("CALL sp_getResultsFromKeyword(?)", $keyword);
+        return $this->db->query("CALL sp_getResultsFromKeyword(?)", $keyword)->result_array();
     }
 }
