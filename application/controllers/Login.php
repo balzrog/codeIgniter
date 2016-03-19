@@ -18,7 +18,7 @@ class Login extends CI_Controller {
     }
 
     public function index() {
-        echo "Login";
+        $this->connection();
     }
 
     public function compare_password($storedPassword, $actualPassword) {
@@ -67,5 +67,10 @@ class Login extends CI_Controller {
                 $this->load->template('Login_view', $data);
             }
         }
+    }
+
+    public function disconnection(){
+        $this->session->sess_destroy();
+        redirect(site_url('Home'));
     }
 }
