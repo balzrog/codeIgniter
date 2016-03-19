@@ -59,9 +59,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="col-sm-3" style="margin-right: -30px;">
                             <div class="input-group">
-                        <span class="input-group-addon">
-                          <i class="glyphicon glyphicon-lock"></i>
-                        </span>
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-lock"></i>
+                                </span>
                                 <input class="form-control" name="password" placeholder="Mot de passe" type="password">
                             </div>
                         </div>

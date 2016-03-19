@@ -13,11 +13,11 @@ class Login_model extends CI_Model {
     }
 
     public function get_user_info($mail) {
-        $this->db->select(array('utilisateur.id_utilisateur', 'confirme', 'utilisateur.id_portfolio'));
+        /*$this->db->select(array('utilisateur.id_utilisateur', 'confirme', 'utilisateur.id_portfolio'));
         $this->db->from('utilisateur');
         $this->db->join('portfolio', 'utilisateur.id_utilisateur = portfolio.id_utilisateur', 'inner');
+        $result = $this->db->get()->result();*/
 
-        return $this->db->get()->result();
-        //return $this->db->query("CALL sp_getUserInfo(?)", $mail)->result()['0'];
+        return $this->db->query("CALL sp_getUserInfo(?)", $mail)->result()['0'];
     }
 }
