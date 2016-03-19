@@ -14,7 +14,7 @@ class Administration extends CI_Controller
     }
 
     function index(){
-        $this->load->view("Administration_views");
+        $this->load->template("Administration_view");
     }
 
     
