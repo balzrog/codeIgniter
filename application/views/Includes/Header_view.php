@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <div class="btn-nav" style="margin-right: 67px;">
-                            <a class="btn btn-primary btn-small navbar-btn" href="#">Déconnexion</a>
+                            <a class="btn btn-primary btn-small navbar-btn" href="<?= site_url("Login/disconnection")?>">Déconnexion</a>
                         </div>
                     </li>
                 </ul>
