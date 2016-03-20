@@ -59,3 +59,15 @@
     width: 75%;
     padding-top: 8px;
 }
+
+#list-group-admin .list-group-item {
+    border-radius: 0
+}
+
+@media (min-width: 1200px) {
+    .panel-custom-height {
+        height: 545px;
+        overflow-y: scroll;
+    }
+
+}

@@ -60,28 +60,50 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
+                    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 panel-custom-height">
                         <div class="panel panel-primary">
                             <div class="panel-heading" style="padding: 5px;">
                                 <h3 class="panel-title pull-left">
-                                    Baccalauréat Scientifique
+                                    BTS Commerce International
                                 </h3>
                                 <button class="btn btn-default pull-right" style="margin-left: 10px;"><i class="fa fa-trash"></i></button>
                                 <button class="btn btn-default pull-right"><i class="fa fa-pencil-square"></i></button>
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="panel-body">Panel content</div>
+                            <div class="panel-body">
+                                <ul class="list-group" id="list_group_admin" style="margin-bottom: 0;">
+                                    <li class="list-group-item"><b>Diplôme :</b> Bac +2</li>
+                                    <li class="list-group-item"><b>Année :</b> 2014</li>
+                                    <li class="list-group-item"><b>Ville :</b> Bordeaux</li>
+                                    <li class="list-group-item">
+                                        <b>Descriptif</b>
+                                        <br>
+                                        <p>Le titulaire de ce BTS est un professionnel de l'import-export travaillant généralement pour une société de négoce.</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="panel panel-primary">
                             <div class="panel-heading" style="padding: 5px;">
                                 <h3 class="panel-title pull-left">
-                                    Bac+5 Météorologiste
+                                    BTS Commerce International
                                 </h3>
                                 <button class="btn btn-default pull-right" style="margin-left: 10px;"><i class="fa fa-trash"></i></button>
                                 <button class="btn btn-default pull-right"><i class="fa fa-pencil-square"></i></button>
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="panel-body">Panel content</div>
+                            <div class="panel-body">
+                                <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
+                                    <li class="list-group-item"><b>Diplôme :</b> Bac +2</li>
+                                    <li class="list-group-item"><b>Année :</b> 2014</li>
+                                    <li class="list-group-item"><b>Ville :</b> Bordeaux</li>
+                                    <li class="list-group-item">
+                                        <b>Descriptif :</b>
+                                        <br>
+                                        <p>Le titulaire de ce BTS est un professionnel de l'import-export travaillant généralement pour une société de négoce.</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
@@ -93,15 +115,15 @@
                                             <legend>Ajouter une formation</legend>
                                             <div class="form-group">
                                                 <label for="company" class="control-label">Titre de la formation</label>
-                                                <input type="text" id="company" class="form-control" placeholder="Entreprise">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="year" class="control-label">Année</label>
-                                                <input type="text" id="year" class="form-control" placeholder="Année">
+                                                <input type="text" id="company" class="form-control" placeholder="Formation">
                                             </div>
                                             <div class="form-group">
                                                 <label for="diploma" class="control-label">Diplôme</label>
                                                 <input type="text" id="diploma" class="form-control" placeholder="Diplôme">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="year" class="control-label">Année</label>
+                                                <input type="text" id="year" class="form-control" placeholder="Année">
                                             </div>
                                             <div class="form-group">
                                                 <label for="city" class="control-label">Ville</label>
