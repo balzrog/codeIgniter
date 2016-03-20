@@ -1,8 +1,8 @@
 .addInCart{
-    font-size: 25pt;
-    color: limegreen;
-    cursor: Pointer;
-}
+     font-size: 25pt;
+     color: limegreen;
+     cursor: Pointer;
+ }
 
 #logo img{
     width: 50px;
@@ -40,6 +40,10 @@
         padding-top: 12px;
         padding-bottom: 12px;
     }
+
+    .panel-custom-title {
+        margin-right: -22px;
+    }
 }
 
 /*.col-lg-3{
@@ -63,4 +67,43 @@
     line-height: normal;
     width: 75%;
     padding-top: 8px;
+}
+
+#list-group-admin .list-group-item {
+    border-radius: 0
+}
+
+@media (min-width: 1200px) {
+    .panel-custom-height {
+        height: 590px;
+        overflow-y: scroll;
+    }
+
+    .panel-custom-title {
+        margin-right: -41px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .panel-custom-title {
+        margin-right: 1px;
+    }
+}
+
+@media screen and (min-width: 561px) and (max-width: 767px) {
+    .panel-custom-title {
+        margin-right: -25px;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 560px) {
+    .panel-custom-title {
+        margin-right: -64px;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 560px) {
+    .panel-custom-title {
+        margin-right: -64px;
+    }
 }

@@ -85,11 +85,13 @@
                         </div>
                         <div class="panel panel-primary">
                             <div class="panel-heading" style="padding: 5px;">
-                                <h3 class="panel-title pull-left">
+                                <h3 class="panel-title panel-custom-title pull-left">
                                     BTS Commerce International
                                 </h3>
-                                <button class="btn btn-default pull-right" style="margin-left: 10px;"><i class="fa fa-trash"></i></button>
-                                <button class="btn btn-default pull-right"><i class="fa fa-pencil-square"></i></button>
+                                <button class="btn btn-default"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-default"><i class="fa fa-pencil-square"></i></button>
+                                <button class="btn btn-default"><i class="fa fa-arrow-up"></i></button>
+                                <button class="btn btn-default"><i class="fa fa-arrow-down"></i></button>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="panel-body">
@@ -132,6 +134,9 @@
                                             <div class="form-group">
                                                 <label for="details" class="control-label">Descriptif</label>
                                                 <textarea class="form-control" id="details" rows="3"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="visible" class="control-label">Visible  <input type="checkbox" id="visible"></label>
                                             </div>
                                             <button type="submit" id="submit" class="btn btn-primary pull-right">Ajouter</button>
                                         </fieldset>
