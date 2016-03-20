@@ -29,7 +29,7 @@
 
 <section class="container">
     <section id="Projets">
-       <div class="panel panel-primary">
+       <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-leanpub"></i> Mes projets</div>
             <div class="panel-body">
                 <?= "Voici mes projets" ?>
@@ -54,7 +54,7 @@
         </div>
     </section>
     <section id="Formations">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-university"></i> Mes formations</div>
             <div class="panel-body">
                 <?= "Voici mes formations" ?>
@@ -76,29 +76,42 @@
         </div>
     </section>
     <section id="Compétences">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-check"></i> Mes compétences</div>
             <div class="panel-body">
-                <?= "Voici mes compétences" ?>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                <div class="panel panel-default col-lg-3">
+                    <div class="panel-heading"> Catégorie 1</div>
+                        <ul class="list-group">
+                            <li class="list-group-item"> Compétence 1 </li>
+                            <li class="list-group-item"> Compétence 2 </li>
+                        </ul>
+                </div>
+                <div class="panel panel-default col-lg-3">
+                    <div class="panel-heading"> Catégorie 2</div>
+                        <ul class="list-group">
+                            <li class="list-group-item"> Compétence 1 </li>
+                            <li class="list-group-item"> Compétence 2 </li>
+                        </ul>
+                </div>
+                <div class="panel panel-default col-lg-3">
+                    <div class="panel-heading"> Catégorie 3</div>
+                        <ul class="list-group">
+                            <li class="list-group-item"> Compétence 1 </li>
+                            <li class="list-group-item"> Compétence 2 </li>
+                        </ul>
+                </div>
+                <div class="panel panel-default col-lg-3">
+                    <div class="panel-heading"> Catégorie 4</div>
+                        <ul class="list-group">
+                            <li class="list-group-item"> Compétence 1 </li>
+                            <li class="list-group-item"> Compétence 2 </li>
+                        </ul>
+                </div>
             </div>
         </div>
     </section>
      <section id="Expériences">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-cogs"></i> Mes expériences</div>
             <div class="panel-body">
                 <?= "Voici mes expériences" ?>
@@ -117,7 +130,7 @@
         </div>
     </section>
     <section id="Contact">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-user"></i> Mes informations personnelles</div>
             <div class="panel-body">
                 <?=form_open()?>
