@@ -245,6 +245,20 @@
                 <?php endforeach ;?>
                 <?=form_fieldset_close()?>
                 <?=form_close()?>
+
+                <div class="form-group">
+                    <label class="col-md-1 control-label">Nom</label>
+                    <div class="col-md-9">
+                        <label class="radio-inline">
+                            <input  name="name_visible" type="radio">
+                            Visible
+                        </label>
+                        <label class="radio-inline">
+                            <input name="name_visible" type="radio">
+                            Invisible
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
