@@ -148,28 +148,28 @@
         <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-check"></i> Mes compétences</div>
             <div class="panel-body">
-                <div class="panel panel-default col-lg-3">
+                <div class="panel panel-default col-lg-3" id="panelSkill">
                     <div class="panel-heading"> Catégorie 1</div>
                         <ul class="list-group">
                             <li class="list-group-item"> Compétence 1 </li>
                             <li class="list-group-item"> Compétence 2 </li>
                         </ul>
                 </div>
-                <div class="panel panel-default col-lg-3">
+                <div class="panel panel-default col-lg-3" id="panelSkill">
                     <div class="panel-heading"> Catégorie 2</div>
                         <ul class="list-group">
                             <li class="list-group-item"> Compétence 1 </li>
                             <li class="list-group-item"> Compétence 2 </li>
                         </ul>
                 </div>
-                <div class="panel panel-default col-lg-3">
+                <div class="panel panel-default col-lg-3" id="panelSkill">
                     <div class="panel-heading"> Catégorie 3</div>
                         <ul class="list-group">
                             <li class="list-group-item"> Compétence 1 </li>
                             <li class="list-group-item"> Compétence 2 </li>
                         </ul>
                 </div>
-                <div class="panel panel-default col-lg-3">
+                <div class="panel panel-default col-lg-3" id="panelSkill">
                     <div class="panel-heading"> Catégorie 4</div>
                         <ul class="list-group">
                             <li class="list-group-item"> Compétence 1 </li>
@@ -208,26 +208,22 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <?=form_label('Nom', 'name', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => $result['nom'],'name' => 'name', 'class' => 'form-control', 'id' => 'name', 'placeholder' => '', 'tabindex' => '1' , 'disabled' => 'true'))?>
+                        <?=form_input(array('value' => $result['nom'],'name' => 'name', 'class' => 'form-control', 'id' => 'name', 'placeholder' => '', 'tabindex' => '1' ))?>
                     </div>
                     <div class="form-group">
                         <?=form_label('Prénom', 'firstname', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => $result['prenom'],'name' => 'firstname', 'class' => 'form-control', 'id' => 'firstname', 'placeholder' => '', 'tabindex' => '2', 'disabled' => 'true'))?>
+                        <?=form_input(array('value' => $result['prenom'],'name' => 'firstname', 'class' => 'form-control', 'id' => 'firstname', 'placeholder' => '', 'tabindex' => '2'))?>
                     </div>
                     <div class="form-group">
                         <?=form_label('Téléphone', 'phone', array('class' => 'control-label'))?>
                         <?=form_input(array('value' => $result['telephone'],'name' => 'phone', 'class' => 'form-control', 'id' => 'phone', 'placeholder' => '', 'tabindex' => '3'))?>
                     </div>
                     <div class="form-group">
-                        <?=form_label('Mot de passe', 'password', array('class' => 'control-label'))?>
-                        <?=form_password(array('name' => 'password', 'class' => 'form-control', 'id' => 'password', 'placeholder' => '', 'tabindex' => '4', 'disabled' => 'true'))?>
+                        <?=form_label('Adresse email', 'mail', array('class' => 'control-label'))?>
+                        <?=form_input(array('value' => $result['mail'],'name' => 'mail', 'class' => 'form-control', 'id' => 'mail', 'placeholder' => '', 'tabindex' => '6'))?>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="form-group">
-                        <?=form_label('Adresse email', 'mail', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => $result['mail'],'name' => 'mail', 'class' => 'form-control', 'id' => 'mail', 'placeholder' => '', 'tabindex' => '6', 'disabled' => 'true'))?>
-                    </div>
                     <div class="form-group">
                         <?=form_label('Adresse', 'address', array('class' => 'control-label'))?>
                         <?=form_input(array('value' => $result['adresse'],'name' => 'address', 'class' => 'form-control', 'id' => 'address', 'placeholder' => '', 'tabindex' => '7'))?>

@@ -51,6 +51,11 @@
     position:fixed;
 }
 
+#panelSkill{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .panel-heading h3 {
     white-space: nowrap;
     overflow: hidden;
@@ -58,16 +63,4 @@
     line-height: normal;
     width: 75%;
     padding-top: 8px;
-}
-
-#list-group-admin .list-group-item {
-    border-radius: 0
-}
-
-@media (min-width: 1200px) {
-    .panel-custom-height {
-        height: 545px;
-        overflow-y: scroll;
-    }
-
 }
