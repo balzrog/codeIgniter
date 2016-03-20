@@ -139,41 +139,41 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <?=form_label('Nom', 'name', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => $result['nom'],'name' => 'name', 'class' => 'form-control', 'id' => 'name', 'placeholder' => 'Nom', 'tabindex' => '1' , 'disabled' => 'true'))?>
+                        <?=form_input(array('value' => $result['nom'],'name' => 'name', 'class' => 'form-control', 'id' => 'name', 'placeholder' => '', 'tabindex' => '1' , 'disabled' => 'true'))?>
                     </div>
                     <div class="form-group">
                         <?=form_label('Prénom', 'firstname', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => $result['prenom'],'name' => 'firstname', 'class' => 'form-control', 'id' => 'firstname', 'placeholder' => 'Prénom', 'tabindex' => '2', 'disabled' => 'true'))?>
+                        <?=form_input(array('value' => $result['prenom'],'name' => 'firstname', 'class' => 'form-control', 'id' => 'firstname', 'placeholder' => '', 'tabindex' => '2', 'disabled' => 'true'))?>
                     </div>
                     <div class="form-group">
                         <?=form_label('Téléphone', 'phone', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => 'Salut','name' => 'phone', 'class' => 'form-control', 'id' => 'phone', 'placeholder' => 'Téléphone', 'tabindex' => '3'))?>
+                        <?=form_input(array('value' => $result['telephone'],'name' => 'phone', 'class' => 'form-control', 'id' => 'phone', 'placeholder' => '', 'tabindex' => '3'))?>
                     </div>
                     <div class="form-group">
                         <?=form_label('Mot de passe', 'password', array('class' => 'control-label'))?>
-                        <?=form_password(array('name' => 'password', 'class' => 'form-control', 'id' => 'password', 'placeholder' => 'Mot de passe', 'tabindex' => '4', 'disabled' => 'true'))?>
+                        <?=form_password(array('name' => 'password', 'class' => 'form-control', 'id' => 'password', 'placeholder' => '', 'tabindex' => '4', 'disabled' => 'true'))?>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
                         <?=form_label('Adresse email', 'mail', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => 'Salut','name' => 'mail', 'class' => 'form-control', 'id' => 'mail', 'placeholder' => 'exemple@domaine.fr', 'tabindex' => '6', 'disabled' => 'true'))?>
+                        <?=form_input(array('value' => $result['mail'],'name' => 'mail', 'class' => 'form-control', 'id' => 'mail', 'placeholder' => '', 'tabindex' => '6', 'disabled' => 'true'))?>
                     </div>
                     <div class="form-group">
                         <?=form_label('Adresse', 'address', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => 'Salut','name' => 'address', 'class' => 'form-control', 'id' => 'address', 'placeholder' => 'Adresse', 'tabindex' => '7'))?>
+                        <?=form_input(array('value' => $result['adresse'],'name' => 'address', 'class' => 'form-control', 'id' => 'address', 'placeholder' => '', 'tabindex' => '7'))?>
                     </div>
                     <div class="form-group">
                         <?=form_label('Code postal', 'zipcode', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => 'Salut','name' => 'zipcode', 'class' => 'form-control', 'id' => 'zipcode', 'placeholder' => 'Code postal', 'tabindex' => '8'))?>
+                        <?=form_input(array('value' => $result['code_postal'],'name' => 'zipcode', 'class' => 'form-control', 'id' => 'zipcode', 'placeholder' => '', 'tabindex' => '8'))?>
                     </div>
                     <div class="form-group">
                         <?=form_label('Ville', 'city', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => 'Salut','name' => 'city', 'class' => 'form-control', 'id' => 'city', 'placeholder' => 'Ville', 'tabindex' => '9'))?>
+                        <?=form_input(array('value' => $result['ville'],'name' => 'city', 'class' => 'form-control', 'id' => 'city', 'placeholder' => '', 'tabindex' => '9'))?>
                     </div>
                     <div class="form-group">
                         <?=form_label('Complément d\'adresse', 'addressextra', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => 'Salut','name' => 'addressextra', 'class' => 'form-control', 'id' => 'addressextra', 'placeholder' => 'Complément d\'adresse', 'tabindex' => '10'))?>
+                        <?=form_input(array('value' => $result['complement'],'name' => 'addressextra', 'class' => 'form-control', 'id' => 'addressextra', 'placeholder' => '', 'tabindex' => '10'))?>
                     </div>
                     <?=form_submit('', 'Modifier', array('class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
                 </div>

@@ -16,7 +16,7 @@ class Administration extends CI_Controller
     }
 
     function index(){
-        $data['results'] = $this->admin_model->get_user_info();
+        $data['results'] = $this->admin_model->get_user_max_infos();
         $this->load->template("Administration_view", $data);
     }
 
