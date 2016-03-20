@@ -71,7 +71,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="panel-body">
-                                <ul class="list-group" id="list_group_admin" style="margin-bottom: 0;">
+                                <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
                                     <li class="list-group-item"><b>Diplôme :</b> Bac +2</li>
                                     <li class="list-group-item"><b>Année :</b> 2014</li>
                                     <li class="list-group-item"><b>Ville :</b> Bordeaux</li>
@@ -94,7 +94,7 @@
                             </div>
                             <div class="panel-body">
                                 <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-                                    <li class="list-group-item"><b>Diplôme :</b> Bac +2</li>
+                                    <li class="list-group-item "><b>Diplôme :</b> Bac +2</li>
                                     <li class="list-group-item"><b>Année :</b> 2014</li>
                                     <li class="list-group-item"><b>Ville :</b> Bordeaux</li>
                                     <li class="list-group-item">
