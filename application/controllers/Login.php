@@ -34,17 +34,21 @@ class Login extends CI_Controller {
         if($this->form_validation->run() == false){
             $this->load->template('Login_view', $data);
         } else {
+
+            // Check if user exists before testing password
             $mail = $this->input->post('mail');
             $password = $this->input->post('password');
-            $storedPassword = $this->login->check_user_credentials($mail);
+            //$storedPassword = $this->login->check_user_credentials($mail);
 
-            if ($this->compare_password($password, $storedPassword->password)) {
+            //if ($this->compare_password($password, $storedPassword->password)) {
 
-                /*$userInfo = $this->login->get_user_info($mail);
+                $userInfo = $this->login->get_user_info($mail);
 
                 print_r($userInfo);
 
-                $userId = $userInfo->id_utilisateur;
+                //die();
+
+                /*$userId = $userInfo->id_utilisateur;
                 $userOK = $userInfo->confirme;
                 $portfolioId = $userInfo->id_portfolio;*/
 
@@ -60,12 +64,12 @@ class Login extends CI_Controller {
                         'logged_in' => (bool)true
                     ));
 
-                    $this->load->template('Administration_view');
+                    //$this->load->template('Administration_view');
                 }
-            } else {
-                $data['error'] = "Mot de passe incorrect ou utilisateur inexistant.";
-                $this->load->template('Login_view', $data);
-            }
+            //} else {
+                //$data['error'] = "Mot de passe incorrect ou utilisateur inexistant.";
+                //$this->load->template('Login_view', $data);
+            //}
         }
     }
 

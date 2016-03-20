@@ -55,23 +55,70 @@
     </section>
     <section id="Formations">
         <div class="panel panel-default">
-            <div class="panel-heading"><i class="fa fa-university"></i> Mes formations</div>
+            <div class="panel-heading">
+                <i class="fa fa-university"></i> Mes formations
+            </div>
             <div class="panel-body">
-                <?= "Voici mes formations" ?>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" style="padding: 5px;">
+                                <h3 class="panel-title pull-left">
+                                    Baccalauréat Scientifique
+                                </h3>
+                                <button class="btn btn-default pull-right" style="margin-left: 10px;"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-default pull-right"><i class="fa fa-pencil-square"></i></button>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="panel-body">Panel content</div>
+                        </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" style="padding: 5px;">
+                                <h3 class="panel-title pull-left">
+                                    Bac+5 Météorologiste
+                                </h3>
+                                <button class="btn btn-default pull-right" style="margin-left: 10px;"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-default pull-right"><i class="fa fa-pencil-square"></i></button>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="panel-body">Panel content</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
+                        <div class="panel-body">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <form>
+                                        <fieldset>
+                                            <legend>Ajouter une formation</legend>
+                                            <div class="form-group">
+                                                <label for="company" class="control-label">Titre de la formation</label>
+                                                <input type="text" id="company" class="form-control" placeholder="Entreprise">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="year" class="control-label">Année</label>
+                                                <input type="text" id="year" class="form-control" placeholder="Année">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="diploma" class="control-label">Diplôme</label>
+                                                <input type="text" id="diploma" class="form-control" placeholder="Diplôme">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="city" class="control-label">Ville</label>
+                                                <input type="text" id="city" class="form-control" placeholder="Ville">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="details" class="control-label">Descriptif</label>
+                                                <textarea class="form-control" id="details" rows="3"></textarea>
+                                            </div>
+                                            <button type="submit" id="submit" class="btn btn-primary pull-right">Ajouter</button>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

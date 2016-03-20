@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             <?php endif; ?>
 
-            <div class="col-md-6 col-md-offset-2">
+            <div class="col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-6">
                 <?=form_open()?>
                     <?=form_fieldset('Accéder à l\'espace d\'administration')?>
                     <div class="form-group">
@@ -45,4 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?=form_close()?>
             </div>
         </div>
+        
     </section>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //alert('Hello World!');
+            //refreshNavBar();
+        });
+    </script>

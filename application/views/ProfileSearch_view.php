@@ -4,26 +4,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
     <section class="container">
         <div class="row">
-            <div class="page-header">
-                <h1>Recherche</h1>
-            </div>
-
-            <?php if(validation_errors()) : ?>
-                <div class="col-md-12">
-                    <div class="alert alert-warning" role="alert">
-                        <?=validation_errors()?>
-                    </div>
-                </div>
-            <?php endif; ?>
-            <?php if(isset($error)) : ?>
-                <div class="col-md-12">
-                    <div class="alert alert-warning" role="alert">
-                        <?=$error?>
-                    </div>
-                </div>
-            <?php endif; ?>
-
             <div class="col-lg-12">
+                <div class="page-header">
+                    <h1>Recherche</h1>
+                </div>
+
+                <?php if(validation_errors()) : ?>
+                    <div class="col-md-12">
+                        <div class="alert alert-warning" role="alert">
+                            <?=validation_errors()?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <?php if(isset($error)) : ?>
+                    <div class="col-md-12">
+                        <div class="alert alert-warning" role="alert">
+                            <?=$error?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+
                 <div class="row">
                     <div class="col-lg-12">
                         <?=form_open('ProfileSearch/search', array('class' => 'form-horizontal'))?>
@@ -40,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <div class="row">
                     <?php foreach($results as $result) : ;?>
-                        <div class="col-lg-3 col-sm-6 col-md-4 col-xs-6">
+                        <div class="col-lg-3 col-sm-6 col-xs-6">
                             <div class=thumbnail>
                                 <img src="<?=site_url($result['url_image'])?>" alt="<?=$result['alt']?>" />
                                 <div class=caption>

@@ -9,7 +9,7 @@
 class Login_model extends CI_Model {
 
     public function check_user_credentials($mail) {
-        return $this->db->query("CALL sp_checkUserCredentials(?)", $mail)->result()['0'];
+        return $this->db->query("CALL sp_checkUserCredentials(?)", $mail)->row();
     }
 
     public function get_user_info($mail) {
@@ -18,6 +18,6 @@ class Login_model extends CI_Model {
         $this->db->join('portfolio', 'utilisateur.id_utilisateur = portfolio.id_utilisateur', 'inner');
         $result = $this->db->get()->result();*/
 
-        return $this->db->query("CALL sp_getUserInfo(?)", $mail)->result()['0'];
+        return $this->db->query("CALL sp_getUserInfo(?)", $mail)->result_array();
     }
 }
