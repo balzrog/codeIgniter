@@ -210,7 +210,7 @@
         <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-user"></i> Mes informations personnelles</div>
             <div class="panel-body">
-                <?=form_open()?>
+                <?=form_open("Administration/save")?>
                 <?=form_fieldset('Informations personnelles')?>
                 <?php foreach($results as $result) : ;?>
                 <div class="col-lg-6">

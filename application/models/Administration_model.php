@@ -12,7 +12,7 @@ class Administration_model extends CI_Model
         return $this->db->query("CALL sp_getUserMaxInfos(?)", '51')->result_array();
     }
 
-    public function update_user_infos(){
-
+    public function update_user_infos($id, $name, $firstname,$phone, $address, $zipcode,$city, $addressextra){
+        $this->db->query('CALL sp_updateUserInfos(?,?,?,?,?,?,?,?)',array($id, $name, $firstname,$phone, $address, $zipcode, $city, $addressextra));
     }
 }
