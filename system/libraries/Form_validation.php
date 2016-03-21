@@ -1097,6 +1097,15 @@ class CI_Form_validation {
 
 	// --------------------------------------------------------------------
 
+	public function customAlpha($str)
+	{
+		return (bool) preg_match('/^[A-z ]+$/i',$str);
+	}
+
+	public function customAlphaNumeric($str)
+	{
+		return (bool) preg_match('/^[A-z1-9 ]+$/i',$str);
+	}
 	/**
 	 * Differs from another field
 	 *
