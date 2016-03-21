@@ -38,29 +38,29 @@ class Login extends CI_Controller {
             // Check if user exists before testing password
             $mail = $this->input->post('mail');
             $password = $this->input->post('password');
-            //$storedPassword = $this->login->check_user_credentials($mail);
+            //$stored_password = $this->login->check_user_credentials($mail);
 
-            //if ($this->compare_password($password, $storedPassword->password)) {
+            //if ($this->compare_password($password, $stored_password->password)) {
 
-                $userInfo = $this->login->get_user_info($mail);
+                $user_info = $this->login->get_user_info($mail);
 
-                print_r($userInfo);
+                print_r($user_info);
 
                 //die();
 
-                /*$userId = $userInfo->id_utilisateur;
-                $userOK = $userInfo->confirme;
-                $portfolioId = $userInfo->id_portfolio;*/
+                /*$user_id = $userInfo->id_utilisateur;
+                $user_ok = $userInfo->confirme;
+                $portfolio_id = $userInfo->id_portfolio;*/
 
-                $userId = '52';
-                $userOK = '1';
-                $portfolioId = '1';
+                $user_id = '52';
+                $user_ok = '1';
+                $portfolio_id = '1';
 
-                if(isset($userId) && isset($userOK) && isset($portfolioId)) {
+                if(isset($user_id) && isset($user_ok) && isset($portfolio_id)) {
                     $this->session->set_userdata(array(
-                        'user_id' => (int)$userId,
-                        'portfolio_id' => (int)$portfolioId,
-                        'is_confirmed' => (int)$userOK,
+                        'user_id' => (int)$user_id,
+                        'portfolio_id' => (int)$portfolio_id,
+                        'is_confirmed' => (int)$user_ok,
                         'logged_in' => (bool)true
                     ));
 

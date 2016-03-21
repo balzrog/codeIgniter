@@ -321,7 +321,6 @@
     }, false);
 
     function upCard(card) {
-        console.dir("OKOK");
         var movedCard = card.cloneNode(true);
         attachEventToCard(movedCard);
         if(card.previousElementSibling) {
@@ -329,6 +328,13 @@
             card.parentNode.removeChild(card);
         }
 
+    }
+
+    function downCard(card) {
+        var movedCard = card.cloneCard(true);
+        attachEvenToCard(movedCard);
+
+        card.parentNode.
     }
 
     function attachEventToCard(newCard) {
@@ -342,11 +348,6 @@
             attachEventToCard(allCards[i]);
         }
     }
-
-    //upOrderButton.parentNode.insertBefore(newCard, newCard.previousSibling);
-    /*upOrderButton.addEventListener("click", function() {
-        upOrderButton.parentNode.insertBefore(newCard, newCard.previousSibling);
-    }, false);*/
 
     init();
 

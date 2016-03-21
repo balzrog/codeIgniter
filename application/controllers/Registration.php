@@ -61,7 +61,7 @@ class Registration extends CI_Controller {
             $address        = $this->input->post('address');
             $city           = $this->input->post('city');
             $zipcode        = $this->input->post('zipcode');
-            $addressExtra   = $this->input->post('addressextra');
+            $address_extra   = $this->input->post('addressextra');
             $timestamp      = time();
 
             if($this->registration->add_user(
@@ -73,7 +73,7 @@ class Registration extends CI_Controller {
                 $address,
                 $city,
                 $zipcode,
-                $addressExtra,
+                $address_extra,
                 $timestamp
             )) {
                 redirect('Registration');
