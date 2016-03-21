@@ -334,7 +334,7 @@
         var movedCard = card.cloneCard(true);
         attachEvenToCard(movedCard);
 
-        card.parentNode.
+        card.parentNode.insertBefore(movedCard, card.nextElementSibling);
     }
 
     function attachEventToCard(newCard) {
