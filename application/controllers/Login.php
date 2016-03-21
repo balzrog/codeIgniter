@@ -38,23 +38,16 @@ class Login extends CI_Controller {
             // Check if user exists before testing password
             $mail = $this->input->post('mail');
             $password = $this->input->post('password');
-            //$stored_password = $this->login->check_user_credentials($mail);
+            $stored_password = $this->login->check_user_credentials($mail);
 
-            //if ($this->compare_password($password, $stored_password->password)) {
-
+            if ($this->compare_password($password, $stored_password->password)) {
                 $user_info = $this->login->get_user_info($mail);
 
-                print_r($user_info);
 
-                //die();
+                $user_id = $user_info[0]['id_utilisateur'];
+                $user_ok = $user_info[0]['confirme'];
+                $portfolio_id = $user_info[0]['id_portfolio'];
 
-                /*$user_id = $userInfo->id_utilisateur;
-                $user_ok = $userInfo->confirme;
-                $portfolio_id = $userInfo->id_portfolio;*/
-
-                $user_id = '52';
-                $user_ok = '1';
-                $portfolio_id = '1';
 
                 if(isset($user_id) && isset($user_ok) && isset($portfolio_id)) {
                     $this->session->set_userdata(array(
@@ -64,12 +57,12 @@ class Login extends CI_Controller {
                         'logged_in' => (bool)true
                     ));
 
-                    //$this->load->template('Administration_view');
+                    $this->load->template('Administration_view');
                 }
-            //} else {
-                //$data['error'] = "Mot de passe incorrect ou utilisateur inexistant.";
-                //$this->load->template('Login_view', $data);
-            //}
+            } else {
+                $data['error'] = "Mot de passe incorrect ou utilisateur inexistant.";
+                $this->load->template('Login_view', $data);
+            }
         }
     }
 

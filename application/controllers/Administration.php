@@ -21,6 +21,35 @@ class Administration extends CI_Controller
         $this->load->template("Administration_view", $data);
     }
 
+    public function add_user_training() {
+        $data = array();
+
+        $this->form_validation->set_rules('training', 'Formation', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('diploma', 'Diplôme', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('year', 'Année', 'trim|required|numeric|min_length[4]');
+        $this->form_validation->set_rules('city', 'Ville', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('details', 'Détails', 'trim|min_length[3]');
+        $this->form_validation->set_rules('visible', 'Visible', 'trim|numeric|max_length[1]');
+        if($this->form_validation->run() == false) {
+            echo "ERREUR";
+        } else {
+            $training   = $this->input->post('training');
+            $diploma    = $this->input->post('diploma');
+            $year       = $this->input->post('year');
+            $city       = $this->input->post('city');
+            $details    = $this->input->post('details');
+            $visible    = $this->input->post('visible');
+            $portfolio_id    = $this->session->userdata['portfolio_id'];
+
+            $response = $this->admin_model->add_training($portfolio_id, $training, $diploma, $year, $city, $details);
+            echo $response;
+        }
+
+
+
+
+    }
+
     function save(){
 
         $this->form_validation->set_rules('name', 'Nom', 'trim|required|alpha|min_length[2]');

@@ -9,7 +9,9 @@
 class Login_model extends CI_Model {
 
     public function check_user_credentials($mail) {
-        return $this->db->query("CALL sp_checkUserCredentials(?)", $mail)->row();
+        $query = $this->db->query("CALL sp_checkUserCredentials(?)", $mail)->result()[0];
+        $this->db->free_result();
+        return $query;
     }
 
     public function get_user_info($mail) {

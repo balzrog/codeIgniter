@@ -13,7 +13,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="page-header">
                 <h1>Connexion</h1>
             </div>
-
             <?php if(validation_errors()) : ?>
                 <div class="col-md-12">
                     <div class="alert alert-warning" role="alert">
