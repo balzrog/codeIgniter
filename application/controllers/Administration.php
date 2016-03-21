@@ -44,18 +44,12 @@ class Administration extends CI_Controller
             $response = $this->admin_model->add_training($portfolio_id, $training, $diploma, $year, $city, $details);
             echo $response;
         }
-
-
-
-
     }
 
     function save(){
-
-        $this->form_validation->set_rules('name', 'Nom', 'trim|required|alpha|min_length[2]');
-        $this->form_validation->set_rules('firstname', 'Prénom', 'trim|required|alpha|min_length[2]');
+        $this->form_validation->set_rules('name', 'Nom', 'trim|required|customAlpha|min_length[2]');
+        $this->form_validation->set_rules('firstname', 'Prénom', 'trim|required|customAlpha|min_length[2]');
         $this->form_validation->set_rules('phone', 'Téléphone', 'trim|max_length[10]');
-        $this->form_validation->set_rules('mail', 'Adresse email', 'trim|required|valid_email');
         $this->form_validation->set_rules('address', 'Adresse', 'trim|required|min_length[5]');
         $this->form_validation->set_rules('city', 'Ville', 'trim|required|min_length[2]');
         $this->form_validation->set_rules('zipcode', 'Code postal', 'trim|required|numeric|max_length[5]');
@@ -83,8 +77,8 @@ class Administration extends CI_Controller
                 $city,
                 $address_extra);
 
-            $data['results'] = $this->admin_model->get_user_max_infos();
-            $this->load->template("Administration_view", $data);
+            redirect(base_url('Administration/index#Contact'));
         }
     }
+
 }

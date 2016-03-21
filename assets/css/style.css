@@ -107,3 +107,11 @@
         margin-right: -64px;
     }
 }
+
+#visibleInfos{
+    width :210px;
+}
+
+#visibleInfos #nom_visible{
+    float: right;
+}

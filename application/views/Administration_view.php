@@ -227,10 +227,6 @@
                         <?=form_label('Téléphone', 'phone', array('class' => 'control-label'))?>
                         <?=form_input(array('value' => $result['telephone'],'name' => 'phone', 'class' => 'form-control', 'id' => 'phone', 'placeholder' => '', 'tabindex' => '3'))?>
                     </div>
-                    <div class="form-group">
-                        <?=form_label('Adresse email', 'mail', array('class' => 'control-label'))?>
-                        <?=form_input(array('value' => $result['mail'],'name' => 'mail', 'class' => 'form-control', 'id' => 'mail', 'placeholder' => '', 'tabindex' => '6'))?>
-                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-group">
@@ -249,25 +245,43 @@
                         <?=form_label('Complément d\'adresse', 'addressextra', array('class' => 'control-label'))?>
                         <?=form_input(array('value' => $result['complement'],'name' => 'addressextra', 'class' => 'form-control', 'id' => 'addressextra', 'placeholder' => '', 'tabindex' => '10'))?>
                     </div>
-                    <?=form_submit('', 'Modifier', array('class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
                 </div>
                 <?php endforeach ;?>
                 <?=form_fieldset_close()?>
-                <?=form_close()?>
-
-                <div class="form-group">
-                    <label class="col-md-1 control-label">Nom</label>
-                    <div class="col-md-9">
-                        <label class="radio-inline">
-                            <input  name="name_visible" type="radio">
-                            Visible
-                        </label>
-                        <label class="radio-inline">
-                            <input name="name_visible" type="radio">
-                            Invisible
-                        </label>
+                <?=form_fieldset('Visibilité des informations personnelles')?>
+                <div id="visibleInfos">
+                    <div class="form-group">
+                        <?=form_label('Nom', 'name', array('class' => 'control-label'))?>
+                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['nom_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Prénom', 'firstname', array('class' => 'control-label'))?>
+                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['prenom_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Téléphone', 'phone', array('class' => 'control-label'))?>
+                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['phone_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Adresse', 'adress', array('class' => 'control-label'))?>
+                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['adresse_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Code postal', 'zipcode', array('class' => 'control-label'))?>
+                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['code_postal_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Ville', 'city', array('class' => 'control-label'))?>
+                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['ville_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Complément d\'adresse', 'addressextra', array('class' => 'control-label'))?>
+                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['complement_visible']))?>
                     </div>
                 </div>
+                <?=form_fieldset_close()?>
+                <?=form_submit('', 'Modifier', array('class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
+                <?=form_close()?>
             </div>
         </div>
     </section>
