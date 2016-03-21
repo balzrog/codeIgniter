@@ -61,36 +61,38 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 panel-custom-height">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading" style="padding: 5px;">
-                                <h3 class="panel-title pull-left">
-                                    BTS Commerce International
-                                </h3>
-                                <button class="btn btn-default pull-right" style="margin-left: 10px;"><i class="fa fa-trash"></i></button>
-                                <button class="btn btn-default pull-right"><i class="fa fa-pencil-square"></i></button>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="panel-body">
-                                <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-                                    <li class="list-group-item"><b>Diplôme :</b> Bac +2</li>
-                                    <li class="list-group-item"><b>Année :</b> 2014</li>
-                                    <li class="list-group-item"><b>Ville :</b> Bordeaux</li>
-                                    <li class="list-group-item">
-                                        <b>Descriptif</b>
-                                        <br>
-                                        <p>Le titulaire de ce BTS est un professionnel de l'import-export travaillant généralement pour une société de négoce.</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="panel panel-primary">
+                        <div class="panel panel-primary training-cards">
                             <div class="panel-heading" style="padding: 5px;">
                                 <h3 class="panel-title panel-custom-title pull-left">
                                     BTS Commerce International
                                 </h3>
-                                <button class="btn btn-default"><i class="fa fa-trash"></i></button>
                                 <button class="btn btn-default"><i class="fa fa-pencil-square"></i></button>
-                                <button class="btn btn-default"><i class="fa fa-arrow-up"></i></button>
+                                <button class="btn btn-default"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-default training-up-order"><i class="fa fa-arrow-up"></i></button>
+                                <button class="btn btn-default"><i class="fa fa-arrow-down"></i></button>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
+                                    <li class="list-group-item"><b>Diplôme :</b> <span class="training-data-diploma">Bac +2</span></li>
+                                    <li class="list-group-item"><b>Année :</b> <span class="training-data-year">2014</span></li>
+                                    <li class="list-group-item"><b>Ville :</b> <span class="training-data-city">Bordeaux</span></li>
+                                    <li class="list-group-item">
+                                        <b>Descriptif :</b>
+                                        <br>
+                                        <p class="training-data-details">Le titulaire de ce BTS est un professionnel de l'import-export travaillant généralement pour une société de négoce.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel panel-primary training-cards">
+                            <div class="panel-heading" style="padding: 5px;">
+                                <h3 class="panel-title panel-custom-title pull-left">
+                                    Baccalauréat Scientifique
+                                </h3>
+                                <button class="btn btn-default"><i class="fa fa-pencil-square"></i></button>
+                                <button class="btn btn-default"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-default training-up-order"><i class="fa fa-arrow-up"></i></button>
                                 <button class="btn btn-default"><i class="fa fa-arrow-down"></i></button>
                                 <div class="clearfix"></div>
                             </div>
@@ -104,6 +106,7 @@
                                         <br>
                                         <p>Le titulaire de ce BTS est un professionnel de l'import-export travaillant généralement pour une société de négoce.</p>
                                     </li>
+                                    <li style="display: none;">1</li>
                                 </ul>
                             </div>
                         </div>
@@ -112,33 +115,33 @@
                         <div class="panel-body">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <form>
+                                    <form id="add_training_form">
                                         <fieldset>
                                             <legend>Ajouter une formation</legend>
                                             <div class="form-group">
                                                 <label for="company" class="control-label">Titre de la formation</label>
-                                                <input type="text" id="company" class="form-control" placeholder="Formation">
+                                                <input type="text" name="training" id="training" class="form-control" placeholder="Formation">
                                             </div>
                                             <div class="form-group">
                                                 <label for="diploma" class="control-label">Diplôme</label>
-                                                <input type="text" id="diploma" class="form-control" placeholder="Diplôme">
+                                                <input type="text" name="diploma" id="diploma" class="form-control" placeholder="Diplôme">
                                             </div>
                                             <div class="form-group">
                                                 <label for="year" class="control-label">Année</label>
-                                                <input type="text" id="year" class="form-control" placeholder="Année">
+                                                <input type="text" name="year" id="year" class="form-control" placeholder="Année">
                                             </div>
                                             <div class="form-group">
                                                 <label for="city" class="control-label">Ville</label>
-                                                <input type="text" id="city" class="form-control" placeholder="Ville">
+                                                <input type="text" name="city" id="city" class="form-control" placeholder="Ville">
                                             </div>
                                             <div class="form-group">
                                                 <label for="details" class="control-label">Descriptif</label>
-                                                <textarea class="form-control" id="details" rows="3"></textarea>
+                                                <textarea class="form-control" name="details" id="details" rows="3"></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="visible" class="control-label">Visible  <input type="checkbox" id="visible"></label>
+                                                <label for="visible" class="control-label">Visible  <input type="checkbox" name="visible" id="visible"></label>
                                             </div>
-                                            <button type="submit" id="submit" class="btn btn-primary pull-right">Ajouter</button>
+                                            <button type="submit" id="submit_training" class="btn btn-primary pull-right">Ajouter</button>
                                         </fieldset>
                                     </form>
                                 </div>
@@ -268,5 +271,85 @@
         </div>
     </section>
 </section>
+
+<script>
+    var divCardLayout = '<div class="panel-heading" style="padding: 5px;"> <h3 class="panel-title panel-custom-title pull-left"></h3> <button class="btn btn-default"><i class="fa fa-pencil-square"></i></button> <button class="btn btn-default"><i class="fa fa-trash"></i></button> <button class="btn btn-default training-up-order"><i class="fa fa-arrow-up"></i></button> <button class="btn btn-default"><i class="fa fa-arrow-down"></i></button> <div class="clearfix"></div> </div> <div class="panel-body"> <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;"> <li class="list-group-item "><b>Diplôme :</b> <span class="training-data-diploma"></span></li> <li class="list-group-item"><b>Année :</b> <span class="training-data-year"></span></li> <li class="list-group-item"><b>Ville :</b> <span class="training-data-city"></span></li> <li class="list-group-item"> <b>Descriptif :</b> <br> <p class="training-data-details"></p> </li> <li class="training-data-visible" style="display: none;"> </li> <li class="training-data-order" style="display: none;"> </li> </ul> </div>';
+    var submitTrainingButton = document.querySelector('#submit_training');
+    var upOrderButton = document.querySelector("#training-up-order");
+
+    var newCard = "";
+
+    submitTrainingButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        var cardsParent = document.querySelector('.panel-custom-height');
+        var newCard = document.createElement('div');
+        newCard.className = "panel panel-primary training-cards";
+        newCard.innerHTML = divCardLayout;
+        cardsParent.appendChild(newCard);
+
+        //Form
+        var formTraining = document.querySelector("#add_training_form");
+
+        //Card
+        newCard.querySelector(".panel-custom-title").innerText = formTraining.training.value;
+        newCard.querySelector(".training-data-diploma").innerText = formTraining.diploma.value;
+        newCard.querySelector(".training-data-year").innerText = formTraining.year.value;
+        newCard.querySelector(".training-data-city").innerText = formTraining.city.value;
+        newCard.querySelector(".training-data-details").innerText = formTraining.details.value;
+        //newCard.querySelector(".training-data-visible");
+        //newCard.querySelector(".training-data-order");
+
+        //var trainingVisible = formTraining.visible.value;
+
+        var xhr = new XMLHttpRequest();
+        var form = new FormData(formTraining);
+
+        xhr.open("POST", "/test.php");
+        xhr.send(form);
+
+        xhr.addEventListener("load", function(){
+            //console.dir(xhr.responseText);
+            console.log(newCard);
+
+            //querySelector span id
+        }, false);
+
+
+
+        attachEventToCard(newCard);
+
+    }, false);
+
+    function upCard(card) {
+        console.dir("OKOK");
+        var movedCard = card.cloneNode(true);
+        attachEventToCard(movedCard);
+        if(card.previousElementSibling) {
+            card.parentNode.insertBefore(movedCard, card.previousElementSibling);
+            card.parentNode.removeChild(card);
+        }
+
+    }
+
+    function attachEventToCard(newCard) {
+        //console.dir(newCard);
+        newCard.querySelector(".training-up-order").addEventListener("click", function(){ upCard(newCard); }, false);
+    }
+
+    function init() {
+        var allCards = document.querySelectorAll(".training-cards");
+        for(var i = 0; allCards.length > i; i++) {
+            attachEventToCard(allCards[i]);
+        }
+    }
+
+    //upOrderButton.parentNode.insertBefore(newCard, newCard.previousSibling);
+    /*upOrderButton.addEventListener("click", function() {
+        upOrderButton.parentNode.insertBefore(newCard, newCard.previousSibling);
+    }, false);*/
+
+    init();
+
+</script>
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
