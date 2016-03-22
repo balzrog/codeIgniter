@@ -23,6 +23,7 @@ class Administration extends CI_Controller
             $portfolio_id = $this->session->userdata['portfolio_id'];
             $data['trainings'] = $this->admin_model->get_all_trainings($portfolio_id);
             $data['experiences'] = $this->admin_model->get_all_experiences($portfolio_id);
+            $data['projects'] = $this->admin_model->get_all_projects($portfolio_id);
 
             $this->load->template("Administration_view", $data);
         }else{
@@ -116,6 +117,47 @@ class Administration extends CI_Controller
             $this->admin_model->add_experience($portfolio_id, $position, $year, $entreprise, $city, $details, $visible);
 
             redirect('Administration#Expériences');
+        }
+    }
+
+    public function add_user_project() {
+        //$data = array();
+
+        $this->form_validation->set_rules('title', 'Nom du projet', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('description', 'Description', 'trim|min_length[2]');
+        $this->form_validation->set_rules('link', 'Lien', 'trim|min_length[2]');
+        $this->form_validation->set_rules('visible', 'Visible', 'trim|numeric|max_length[1]');
+        if($this->form_validation->run() == false) {
+            $this->load->view('Home_view');
+        } else {
+            $title          = $this->input->post('title');
+            $description    = $this->input->post('description');
+            $link           = $this->input->post('link');
+            $visible        = $this->input->post('visible');
+            $portfolio_id   = (int)$this->session->userdata['portfolio_id'];
+
+            $config['upload_path'] = 'assets/images';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size']	= '100';
+            $config['max_width']  = '1024';
+            $config['max_height']  = '768';
+
+            $this->load->library('upload', $config);
+
+            if(!$this->upload->do_upload()) {
+                $error = array('error' => $this->upload->display_errors());
+                $this->load->template('Home_view', $error);
+            } else {
+                $file_name = $this->upload->data()['file_name'];
+
+                $image_id = $this->admin_model->add_image($file_name);
+
+                $this->admin_model->add_project($title, $description, $link, $visible, $portfolio_id, $image_id);
+
+                redirect('Administration#Projets');
+            }
+
+
         }
     }
 

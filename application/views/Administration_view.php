@@ -26,11 +26,11 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 panel-custom-height panel-experience">
-                        <?php /*foreach($experiences as $experience) :*/ ?>
+                        <?php foreach($projects as $project) : ?>
                             <div class="panel panel-primary project-cards">
                                 <div class="panel-heading" style="padding: 5px;">
                                     <h3 class="panel-title panel-custom-title pull-left">
-                                        <?=/*$experience['entreprise']*/""?>
+                                        <?=$project['intitule']?>
                                     </h3>
                                     <button class="btn btn-default proj-edit"><i class="fa fa-pencil-square"></i></button>
                                     <button class="btn btn-default proj-delete"><i class="fa fa-trash"></i></button>
@@ -42,22 +42,20 @@
                                     <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
                                         <li class="list-group-item"><b>Illustration :</b>
                                         <br>
-                                        <!--<img src="http://placehold.it/280x280" class="img-responsive center-block" style="max-width: 280px;">-->
-                                        <!--<img src="<?=img_url('fancy.jpg')?>" class="img-responsive center-block" style="max-width: 280px;">-->
-                                            <img src="<?=""?>" class="img-responsive center-block" style="max-width: 280px;">
-                                        <li class="list-group-item"><b>Lien :</b> <a href="#<?=/*$experience['annee']*/""?>" target="_blank"><button class="btn btn-default btn-sm data-link">Visualiser</button></a></li>
+                                        <img src="<?=img_url($project['url_image'])?>" class="img-responsive center-block" style="max-width: 280px;">
+                                        <li class="list-group-item"><b>Lien :</b> <a href="<?=$project['lien']?>" target="_blank"><button class="btn btn-default btn-sm data-link">Visualiser</button></a></li>
                                         <li class="list-group-item">
                                             <b>Description du projet :</b>
                                             <br>
-                                            <p class="data-details"><?=/*$experience['detail']*/""?></p>
+                                            <p class="data-details"><?=$project['description']?></p>
                                         </li>
-                                        <li class="data-visible none"><?=/*$experience['visible']*/""?></li>
-                                        <li class="data-order none"><?=/*$experience['ordre']*/""?></li>
-                                        <li class="data-id none"><?=/*$experience['id_experience']*/""?></li>
+                                        <li class="data-visible none"><?=$project['visible']?></li>
+                                        <li class="data-order none"><?=$experience['ordre']?></li>
+                                        <li class="data-id none"><?=$experience['id_projet']?></li>
                                     </ul>
                                 </div>
                             </div>
-                        <?php /*endforeach;*/ ?>
+                        <?php endforeach; ?>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
                         <div class="panel-body">
@@ -78,12 +76,9 @@
                                         <?=form_input(array('name' => 'link', 'id' => 'link', 'class' => 'form-control', 'placeholder' => 'Lien vers la réalisation'))?>
                                     </div>
                                     <div class="form-group">
-                                        <!--<?=form_label('Ajouter une image', 'image', array('class' => 'control-label'))?>
-                                        <?=form_upload(array('name' => 'image', 'id' => 'image', 'class' => 'file'))?>-->
-
                                         <?=form_label('Ajouter une image', 'image', array('class' => 'control-label', 'style' => 'display: block;'))?>
                                         <label class="btn btn-default" for="image">
-                                        <?=form_upload(array('name' => 'image', 'id' => 'image', 'class' => 'file', 'style' => 'display: none;'))?>
+                                        <?=form_upload(array('name' => 'userfile', 'id' => 'image', 'style' => 'display: none;'))?>
                                             Parcourir...
                                         </label>
                                     </div>
@@ -94,7 +89,7 @@
                                         </label>
                                     </div>
                                     <input type="hidden" name="id_project" id="id_project">
-                                    <button type="submit" name="submit" id="submit_project" class="btn btn-primary pull-right">Ajouter</button>
+                                    <button type="submit" id="submit_project" class="btn btn-primary pull-right" value="upload">Ajouter</button>
                                     <?=form_fieldset_close()?>
                                     <?=form_close()?>
                                     </form>
