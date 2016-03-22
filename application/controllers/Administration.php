@@ -18,7 +18,7 @@ class Administration extends CI_Controller
 
     function index(){
         if($this->session->userdata['user_id'] != null) {
-            $data['results'] = $this->admin_model->get_user_max_infos();
+            $data['results'] = $this->admin_model->get_user_max_infos($this->session->userdata['user_id']);
 
             $portfolio_id = $this->session->userdata['portfolio_id'];
             $data['trainings'] = $this->admin_model->get_all_trainings($portfolio_id);
@@ -132,7 +132,7 @@ class Administration extends CI_Controller
         $this->form_validation->set_rules('addressextra', 'Complément', 'trim|alpha|min_length[5]');
 
         if($this->form_validation->run() == false){
-            $data['results'] = $this->admin_model->get_user_max_infos();
+            $data['results'] = $this->admin_model->get_user_max_infos($this->session->userdata['user_id']);
             $portfolio_id = $this->session->userdata['portfolio_id'];
             $data['trainings'] = $this->admin_model->get_all_trainings($portfolio_id);
             $this->load->template("Administration_view", $data);

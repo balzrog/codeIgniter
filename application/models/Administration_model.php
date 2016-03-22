@@ -8,8 +8,8 @@
  */
 class Administration_model extends CI_Model
 {
-    public function get_user_max_infos() {
-        $query = $this->db->query("CALL sp_getUserMaxInfos(?)", '51')->result_array();
+    public function get_user_max_infos($user_id) {
+        $query = $this->db->query("CALL sp_getUserMaxInfos(?)", $user_id)->result_array();
         $this->db->free_result();
         return $query;
     }
