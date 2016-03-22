@@ -193,6 +193,20 @@
         <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-user"></i> Mes informations personnelles</div>
             <div class="panel-body">
+                <?php if(validation_errors()) : ?>
+                    <div class="col-md-12">
+                        <div class="alert alert-warning" role="alert">
+                            <?=validation_errors()?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <?php if(isset($error)) : ?>
+                    <div class="col-md-12">
+                        <div class="alert alert-warning" role="alert">
+                            <?=$error?>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 <?=form_open("Administration/save")?>
                 <?=form_fieldset('Informations personnelles')?>
                 <?php foreach($results as $result) : ;?>
@@ -230,39 +244,9 @@
                 </div>
                 <?php endforeach ;?>
                 <?=form_fieldset_close()?>
-                <?=form_fieldset('Visibilité des informations personnelles')?>
-                <div id="visibleInfos">
-                    <div class="form-group">
-                        <?=form_label('Nom', 'name', array('class' => 'control-label'))?>
-                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['nom_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Prénom', 'firstname', array('class' => 'control-label'))?>
-                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['prenom_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Téléphone', 'phone', array('class' => 'control-label'))?>
-                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['phone_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Adresse', 'adress', array('class' => 'control-label'))?>
-                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['adresse_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Code postal', 'zipcode', array('class' => 'control-label'))?>
-                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['code_postal_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Ville', 'city', array('class' => 'control-label'))?>
-                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['ville_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Complément d\'adresse', 'addressextra', array('class' => 'control-label'))?>
-                        <?=form_checkbox(array('name' => 'nom_visible','id' => 'nom_visible','value' => 'accept','checked'=> (bool) $result['complement_visible']))?>
-                    </div>
-                </div>
-                <?=form_fieldset_close()?>
+
                 <?=form_submit('', 'Modifier', array('class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
+
                 <?=form_close()?>
             </div>
         </div>

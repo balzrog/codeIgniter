@@ -82,26 +82,48 @@ class Administration extends CI_Controller
         $this->admin_model->delete_training($training_id, $user_id);
     }
 
-    function save(){
+    public function save(){
+
         $this->form_validation->set_rules('name', 'Nom', 'trim|required|customAlpha|min_length[2]');
         $this->form_validation->set_rules('firstname', 'Prénom', 'trim|required|customAlpha|min_length[2]');
         $this->form_validation->set_rules('phone', 'Téléphone', 'trim|max_length[10]');
         $this->form_validation->set_rules('address', 'Adresse', 'trim|required|min_length[5]');
         $this->form_validation->set_rules('city', 'Ville', 'trim|required|min_length[2]');
         $this->form_validation->set_rules('zipcode', 'Code postal', 'trim|required|numeric|max_length[5]');
-        $this->form_validation->set_rules('addressextra', 'Complément', 'trim|alpha|min_length[0]');
+        $this->form_validation->set_rules('addressextra', 'Complément', 'trim|alpha|min_length[5]');
 
+//        $this->form_validation->set_rules('radio_nom', 'Radio_Nom', '');
+//        $this->form_validation->set_rules('radio_prenom', 'Radio_Prenom', '');
+//        $this->form_validation->set_rules('radio_phone', 'Radio_Phone', '');
+//        $this->form_validation->set_rules('radio_adresse', 'Radio_Adresse', '');
+//        $this->form_validation->set_rules('radio_ville', 'Radio_Ville', '');
+//        $this->form_validation->set_rules('radio_code_postal', 'Radio_Code_Postal', '');
+//        $this->form_validation->set_rules('radio_complement', 'Radio_Complement', '');
         if($this->form_validation->run() == false){
+            echo 'erreur';
+            var_dump($this->input->post('name'));
             $data['results'] = $this->admin_model->get_user_max_infos();
+            $portfolio_id = $this->session->userdata['portfolio_id'];
+            $data['trainings'] = $this->admin_model->get_all_trainings($portfolio_id);
             $this->load->template("Administration_view", $data);
         } else {
+
             $name           = $this->input->post('name');
+            echo 'test';
+            var_dump($name);
             $firstname      = $this->input->post('firstname');
             $phone          = $this->input->post('phone');
             $address        = $this->input->post('address');
             $city           = $this->input->post('city');
             $zipcode        = $this->input->post('zipcode');
             $address_extra  = $this->input->post('addressextra');
+//            $name_visible         = $this->input->post('radio_nom');
+//            $firstname_visible      = $this->input->post('radio_prenom');
+//            $phone_visible          = $this->input->post('radio_phone');
+//            $address_visible        = $this->input->post('radio_adresse');
+//            $city_visible           = $this->input->post('radio_ville');
+//            $zipcode_visible        = $this->input->post('radio_code_postal');
+//            $address_extra_visible  = $this->input->post('radio_complement');
 
             $this->admin_model->update_user_infos(
                 $this->session->userdata['user_id'],
@@ -112,8 +134,14 @@ class Administration extends CI_Controller
                 $zipcode,
                 $city,
                 $address_extra);
-
-            redirect(base_url('Administration/index#Contact'));
+//                $name_visible,
+//                $firstname_visible,
+//                $phone_visible,
+//                $address_visible,
+//                $city_visible,
+//                $zipcode_visible,
+//                $address_extra_visible);
+            redirect(base_url('Administration/save'));
         }
     }
 }
