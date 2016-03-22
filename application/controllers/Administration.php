@@ -11,14 +11,24 @@ class Administration extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library(array('form_validation', 'email'));
         $this->load->model('Administration_model','admin_model');
     }
 
     function index(){
         $data['results'] = $this->admin_model->get_user_max_infos();
+
+        $portfolio_id = $this->session->userdata['portfolio_id'];
+        $data['trainings'] = $this->admin_model->get_all_trainings($portfolio_id);
+
         $this->load->template("Administration_view", $data);
+    }
+
+    public function get_all_trainings($portfolio_id) {
+        $query = $this->db->query('CALL sp_getAllTrainings(?)', $portfolio_id)->result_array();
+        $this->db->free_result();
+        return $query;
     }
 
     public function add_user_training() {
@@ -31,18 +41,42 @@ class Administration extends CI_Controller
         $this->form_validation->set_rules('details', 'Détails', 'trim|min_length[3]');
         $this->form_validation->set_rules('visible', 'Visible', 'trim|numeric|max_length[1]');
         if($this->form_validation->run() == false) {
-            echo "ERREUR";
+            echo "ADD : ERREUR SAISIE";
         } else {
-            $training   = $this->input->post('training');
-            $diploma    = $this->input->post('diploma');
-            $year       = $this->input->post('year');
-            $city       = $this->input->post('city');
-            $details    = $this->input->post('details');
-            $visible    = $this->input->post('visible');
-            $portfolio_id    = $this->session->userdata['portfolio_id'];
+            $training       = $this->input->post('training');
+            $diploma        = $this->input->post('diploma');
+            $year           = $this->input->post('year');
+            $city           = $this->input->post('city');
+            $details        = $this->input->post('details');
+            $visible        = $this->input->post('visible');
+            $portfolio_id   = $this->session->userdata['portfolio_id'];
 
-            $response = $this->admin_model->add_training($portfolio_id, $training, $diploma, $year, $city, $details);
-            echo $response;
+            $last_id = $this->admin_model->add_training($portfolio_id, $training, $diploma, $year, $city, $details);
+            echo $last_id;
+        }
+    }
+
+    public function update_user_training() {
+        $this->form_validation->set_rules('training', 'Formation', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('diploma', 'Diplôme', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('year', 'Année', 'trim|required|numeric|min_length[4]');
+        $this->form_validation->set_rules('city', 'Ville', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('details', 'Détails', 'trim|min_length[3]');
+        $this->form_validation->set_rules('visible', 'Visible', 'trim|numeric|max_length[1]');
+
+        if($this->form_validation->run() == false) {
+            echo "MAJ : ERREUR SAISIE";
+        } else {
+            $training_id    = $this->input->post('id_training');
+            $training       = $this->input->post('training');
+            $diploma        = $this->input->post('diploma');
+            $year           = $this->input->post('year');
+            $city           = $this->input->post('city');
+            $details        = $this->input->post('details');
+            $visible        = $this->input->post('visible');
+            $portfolio_id   = $this->session->userdata['portfolio_id'];
+
+            print_r($this->admin_model->update_training($training_id, $portfolio_id, $training, $year, $diploma, $city, $details, $visible));
         }
     }
 
@@ -80,5 +114,4 @@ class Administration extends CI_Controller
             redirect(base_url('Administration/index#Contact'));
         }
     }
-
 }

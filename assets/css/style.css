@@ -108,6 +108,10 @@
     }
 }
 
+.none {
+    display: none;
+}
+
 #visibleInfos{
     width :210px;
 }

@@ -27,7 +27,7 @@ class Registration_model extends CI_Model {
             $this->db->select_max('id_utilisateur');
             $lastInsertId = $this->db->get('utilisateur')->result_array()[0]['id_utilisateur'];
 
-            if(rowCount($lastInsertId) > 0) {
+            if(count($lastInsertId) > 0) {
                 $this->add_user_address($lastInsertId, $address, $city, $zipcode, $addressextra);
                 return true;
             } else {

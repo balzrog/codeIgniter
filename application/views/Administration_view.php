@@ -6,7 +6,6 @@
  * Time: 14:24
  */
 ?>
-<?=var_dump($this->session->userdata)?>
 <div class="col-lg">
     <div class="col-sm-2">
         <div class="sidebar-nav" id="fixedtop">
@@ -61,10 +60,11 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 panel-custom-height">
+                        <?php foreach($trainings as $training) : ?>
                         <div class="panel panel-primary training-cards">
                             <div class="panel-heading" style="padding: 5px;">
                                 <h3 class="panel-title panel-custom-title pull-left">
-                                    BTS Commerce International
+                                    <?=$training['intitule']?>
                                 </h3>
                                 <button class="btn btn-default training-edit"><i class="fa fa-pencil-square"></i></button>
                                 <button class="btn btn-default training-delete"><i class="fa fa-trash"></i></button>
@@ -74,42 +74,21 @@
                             </div>
                             <div class="panel-body">
                                 <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-                                    <li class="list-group-item"><b>Diplôme :</b> <span class="training-data-diploma">Bac +2</span></li>
-                                    <li class="list-group-item"><b>Année :</b> <span class="training-data-year">2014</span></li>
-                                    <li class="list-group-item"><b>Ville :</b> <span class="training-data-city">Bordeaux</span></li>
+                                    <li class="list-group-item"><b>Diplôme :</b> <span class="training-data-diploma"><?=$training['diplome']?></span></li>
+                                    <li class="list-group-item"><b>Année :</b> <span class="training-data-year"><?=$training['annee']?></span></li>
+                                    <li class="list-group-item"><b>Ville :</b> <span class="training-data-city"><?=$training['lieu']?></span></li>
                                     <li class="list-group-item">
                                         <b>Descriptif :</b>
                                         <br>
-                                        <p class="training-data-details">Le titulaire de ce BTS est un professionnel de l'import-export travaillant généralement pour une société de négoce.</p>
+                                        <p class="training-data-details"><?=$training['description']?></p>
                                     </li>
+                                    <li class="training-data-visible none"><?=$training['visible']?></li>
+                                    <li class="training-data-order none"><?=$training['ordre']?></li>
+                                    <li class="training-data-id none"><?=$training['id_formation']?></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="panel panel-primary training-cards">
-                            <div class="panel-heading" style="padding: 5px;">
-                                <h3 class="panel-title panel-custom-title pull-left">
-                                    Baccalauréat Scientifique
-                                </h3>
-                                <button class="btn btn-default training-edit"><i class="fa fa-pencil-square"></i></button>
-                                <button class="btn btn-default training-delete"><i class="fa fa-trash"></i></button>
-                                <button class="btn btn-default training-up-order"><i class="fa fa-arrow-up"></i></button>
-                                <button class="btn btn-default training-down-order"><i class="fa fa-arrow-down"></i></button>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="panel-body">
-                                <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-                                    <li class="list-group-item "><b>Diplôme :</b> Bac +2</li>
-                                    <li class="list-group-item"><b>Année :</b> 2014</li>
-                                    <li class="list-group-item"><b>Ville :</b> Bordeaux</li>
-                                    <li class="list-group-item">
-                                        <b>Descriptif :</b>
-                                        <br>
-                                        <p>Le titulaire de ce BTS est un professionnel de l'import-export travaillant généralement pour une société de négoce.</p>
-                                    </li>
-                                    <li style="display: none;"><span class="training-data-id"></span></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
                         <div class="panel-body">
@@ -119,7 +98,7 @@
                                         <fieldset>
                                             <legend>Ajouter une formation</legend>
                                             <div class="form-group">
-                                                <label for="company" class="control-label">Titre de la formation</label>
+                                                <label for="training" class="control-label">Titre de la formation</label>
                                                 <input type="text" name="training" id="training" class="form-control" placeholder="Formation">
                                             </div>
                                             <div class="form-group">
@@ -139,10 +118,13 @@
                                                 <textarea class="form-control" name="details" id="details" rows="3"></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="visible" class="control-label">Visible  <input type="checkbox" name="visible" id="visible"></label>
+                                                <label for="visible" class="control-label">Visible
+                                                    <input type="checkbox" name="visible" id="visible">
+                                                </label>
                                             </div>
                                             <input type="hidden" name="id_training" id="id_training">
                                             <button type="submit" name="submit" id="submit_training" class="btn btn-primary pull-right">Ajouter</button>
+                                            <button type="button" name="save" id="save_button_form" class="btn btn-primary pull-right" style="margin-right: 10px">Sauvegarder</button>
                                         </fieldset>
                                     </form>
                                 </div>
@@ -288,7 +270,7 @@
 </section>
 
 <script>
-    var divCardLayout = '<div class="panel-heading" style="padding: 5px;"> <h3 class="panel-title panel-custom-title pull-left"></h3> <button class="btn btn-default training-edit"><i class="fa fa-pencil-square"></i></button> <button class="btn btn-default training-delete"><i class="fa fa-trash"></i></button> <button class="btn btn-default training-up-order"><i class="fa fa-arrow-up"></i></button> <button class="btn btn-default training-down-order"><i class="fa fa-arrow-down"></i></button> <div class="clearfix"></div> </div> <div class="panel-body"> <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;"> <li class="list-group-item "><b>Diplôme :</b> <span class="training-data-diploma"></span></li> <li class="list-group-item"><b>Année :</b> <span class="training-data-year"></span></li> <li class="list-group-item"><b>Ville :</b> <span class="training-data-city"></span></li> <li class="list-group-item"> <b>Descriptif :</b> <br> <p class="training-data-details"></p> </li> <li class="training-data-visible" style="display: none;"> </li> <li class="training-data-order" style="display: none;"> </li> <li class="training-data-id" style="display: none;"> </li> </ul> </div>';
+    var divCardLayout = '<div class="panel-heading" style="padding: 5px;"> <h3 class="panel-title panel-custom-title pull-left"></h3> <button class="btn btn-default training-edit"><i class="fa fa-pencil-square"></i></button> <button class="btn btn-default training-delete"><i class="fa fa-trash"></i></button> <button class="btn btn-default training-up-order"><i class="fa fa-arrow-up"></i></button> <button class="btn btn-default training-down-order"><i class="fa fa-arrow-down"></i></button> <div class="clearfix"></div> </div> <div class="panel-body"> <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;"> <li class="list-group-item "><b>Diplôme :</b> <span class="training-data-diploma"></span></li> <li class="list-group-item"><b>Année :</b> <span class="training-data-year"></span></li> <li class="list-group-item"><b>Ville :</b> <span class="training-data-city"></span></li> <li class="list-group-item"> <b>Descriptif :</b> <br> <p class="training-data-details"></p> </li> <li class="training-data-visible none"> </li> <li class="training-data-order none"> </li> <li class="training-data-id none"> </li> </ul> </div>';
     var submitTrainingButton = document.querySelector('#submit_training');
     var upOrderButton = document.querySelector("#training-up-order");
 
@@ -304,8 +286,6 @@
 
         //Form
         var formTraining = document.querySelector("#add_training_form");
-
-        console.dir(formTraining);
 
         //Card
         newCard.querySelector(".panel-custom-title").innerText = formTraining.training.value;
@@ -330,9 +310,9 @@
         }, false);
 
 
-        /*for(var i = 0; i < formTraining.length; i++){
-            formTraining.elements[i].value = "";
-        }*/
+        //for(var i = 0; i < formTraining.length; i++){
+        //    formTraining.elements[i].value = "";
+        //}
 
 
         attachEventToCard(newCard);
@@ -353,19 +333,33 @@
         var movedCard = card.cloneNode(true);
         attachEventToCard(movedCard);
 
-        card.parentNode.insertBefore(movedCard, card.nextElementSibling.nextSibling);
-        card.parentNode.removeChild(card);
+        if(card.nextElementSibling) {
+            card.parentNode.insertBefore(movedCard, card.nextElementSibling.nextSibling);
+            card.parentNode.removeChild(card);
+        }
     }
 
     function editCard(card) {
         var formTraining = document.querySelector("#add_training_form");
+        var saveButton = document.querySelector('#save_button_form');
 
         formTraining.training.value = card.querySelector(".panel-custom-title").innerText;
         formTraining.diploma.value = card.querySelector(".training-data-diploma").innerText;
         formTraining.year.value = card.querySelector(".training-data-year").innerText;
         formTraining.city.value = card.querySelector(".training-data-city").innerText;
         formTraining.details.value = card.querySelector(".training-data-details").innerText;
-        formTraining.submit.innerText = "Sauvegarder";
+        formTraining.id_training.value = card.querySelector(".training-data-id").innerText;
+
+        saveButton.addEventListener("click", function() {
+            submitTrainingButton.disabled = true;
+            var xhr = new XMLHttpRequest();
+            var form = new FormData(formTraining);
+
+            xhr.open("POST", "<?=base_url()?>" + "index.php/Administration/update_user_training");
+            xhr.send(form);
+
+            xhr.addEventListener("load", function() { console.dir(xhr.responseText);}, false);
+        }, false);
     }
 
     function attachEventToCard(newCard) {
