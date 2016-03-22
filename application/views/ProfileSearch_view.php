@@ -1,5 +1,4 @@
 <?php
-//mecassepaslescouillesbatarddemerde
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
     <section class="container">

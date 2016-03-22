@@ -210,7 +210,7 @@
 							</div>
 							<?php
 						endif;
-					endforeach//mecassepaslescouillesbatarddemerde ?>
+					endforeach ?>
 				</div>
 			</div>
 		</section>

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Created by PhpStorm.//mecassepaslescouillesbatarddemerde
+ * Created by PhpStorm.
  * User: nicol_000
  * Date: 21/03/2016
  * Time: 08:57
