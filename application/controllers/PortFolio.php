@@ -60,7 +60,7 @@ class PortFolio extends CI_Controller{
             $subject        = $this->input->post('subject');
             $message        = $this->input->post('message');
             $portfolio_id   = $this->uri->segment(3);
-            $receiver_mail = $this->portfolio->get_user_email($portfolio_id);
+            $receiver_mail  = $this->portfolio->get_user_email($portfolio_id);
 
             $config['useragent']    = 'CodeIgniter';
             $config['protocol']     = 'smtp';
@@ -91,4 +91,13 @@ class PortFolio extends CI_Controller{
             }
         }
     }
+
+    public function p_change_theme(){
+        $data = array();
+
+        $this->portfolio->get_portfolio_theme();
+    }
+
+
+
 }

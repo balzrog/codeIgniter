@@ -121,6 +121,11 @@
     margin-left: 30px;
 }
 
+#id_body{
+    background-color: #FFFFFF;
+    font-family: Calibri;
+}
+
 .checkbox-inline, .radio-inline {
     margin-left: 10px; !important
 }
