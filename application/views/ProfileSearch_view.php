@@ -43,11 +43,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php foreach($results as $result) : ;?>
                         <div class="col-lg-3 col-sm-6 col-xs-6">
                             <div class=thumbnail>
-                                <img src="<?=site_url($result['url_image'])?>" alt="<?=$result['alt']?>" />
+                                <img src="<?=img_url($result['url_image'])?>" alt="<?=$result['alt']?>" />
                                 <div class=caption>
                                     <h3 class="text-center"><?=$result['prenom'] . ' ' . $result['nom']?></h3>
                                     <p><?=$result['about']?></p>
-                                    <p><a href="<?=site_url($result['url'])?>" class="btn btn-primary" role=button>Consulter</a></p>
+                                    <p><a href="<?=site_url('PortFolio')."/lookup/".$result['id_portfolio']?>" class="btn btn-primary" role=button>Consulter</a></p>
                                 </div>
                             </div>
                         </div>
