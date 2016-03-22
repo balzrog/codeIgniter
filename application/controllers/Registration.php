@@ -39,8 +39,8 @@ class Registration extends CI_Controller {
         $data = array();
         $data['h1'] = "Inscription";
 
-        $this->form_validation->set_rules('name', 'Nom', 'trim|required|alpha|min_length[2]');
-        $this->form_validation->set_rules('firstname', 'Prénom', 'trim|required|alpha|min_length[2]');
+        $this->form_validation->set_rules('name', 'Nom', 'trim|required|customAlpha|min_length[2]');
+        $this->form_validation->set_rules('firstname', 'Prénom', 'trim|required|customAlpha|min_length[2]');
         $this->form_validation->set_rules('phone', 'Téléphone', 'trim|max_length[10]');
         $this->form_validation->set_rules('password', 'Mot de passe', 'trim|required|min_length[6]');
         $this->form_validation->set_rules('passwordbis', 'Confirmation du mot de passe', 'trim|required|min_length[6]|matches[password]');

@@ -17,12 +17,16 @@ class Administration extends CI_Controller
     }
 
     function index(){
-        $data['results'] = $this->admin_model->get_user_max_infos();
+        if($this->session->userdata['user_id'] != null) {
+            $data['results'] = $this->admin_model->get_user_max_infos();
 
-        $portfolio_id = $this->session->userdata['portfolio_id'];
-        $data['trainings'] = $this->admin_model->get_all_trainings($portfolio_id);
+            $portfolio_id = $this->session->userdata['portfolio_id'];
+            $data['trainings'] = $this->admin_model->get_all_trainings($portfolio_id);
 
-        $this->load->template("Administration_view", $data);
+            $this->load->template("Administration_view", $data);
+        }else{
+            redirect(base_url("Home"));
+        }
     }
 
     public function add_user_training() {
@@ -83,6 +87,8 @@ class Administration extends CI_Controller
     }
 
     public function save(){
+        if($this->session->userdata['user_id'] != null) {
+
 
         $this->form_validation->set_rules('name', 'Nom', 'trim|required|customAlpha|min_length[2]');
         $this->form_validation->set_rules('firstname', 'Prénom', 'trim|required|customAlpha|min_length[2]');
@@ -138,6 +144,9 @@ class Administration extends CI_Controller
                 $address_extra_visible);
 
             redirect(base_url('Administration/index#Contact'));
+        }
+        }else{
+            redirect(base_url("Home"));
         }
     }
 }
