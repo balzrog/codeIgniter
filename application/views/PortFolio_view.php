@@ -21,7 +21,7 @@
 						<li><a href="#competences"><i class="fa fa-check"></i> Compétences</a></li>
 						<?php endif; if ($experiences!=null): ?>
 						<li><a href="#experiences"><i class="fa fa-cogs"></i> Expériences</a></li>
-						<?php endif; if ($user!=null): ?>
+						<?php endif; if ($users!=null): ?>
 						<li><a href="#contact"<i class="fa fa-user"></i> Contact</a></li>
 						<?php endif ?>
 						<li><a href="#"><i class="fa fa-arrow-up"></i> Retour en haut</a></li>
@@ -181,36 +181,26 @@
 		</div>
 	</section>
 	<?php endif;
-	if ($user!=null): ?>
+	if ($users!=null): ?>
 		<section id="contact">
 			<div class="panel panel-default">
 				<div class="panel-heading"><i class="fa fa-user"></i> Profil</div>
 				<div class="panel-body">
-					<?php foreach($experiences as $experience):
-						if ($experience['visible']==1):?>
-							<div class="panel panel-primary training-cards">
-								<div class="panel-heading" style="padding: 5px;">
-									<h3 class="panel-title panel-custom-title pull-left">
-										<?= $experience['poste']?>
-									</h3>
-									<div class="clearfix"></div>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-md-12">
-											<ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-												<li class="list-group-item"><b>Année :</b> <span class="training-data-year"><?= $experience['annee']?></span></li>
-												<li class="list-group-item"><b>Entreprise :</b> <span class="training-data-year"><?= $experience['entreprise']?></span></li>
-												<li class="list-group-item"><b>Lieu :</b> <span class="training-data-year"><?= $experience['lieu']?></span></li>
-												<li class="list-group-item"><b>Détails :</b> <span class="training-data-year"><?= $experience['detail']?></span></li>
-											</ul>
-										</div>
-									</div>
-								</div>
+					<?php foreach($users as $user):?>
+						<h3 class="panel-title panel-custom-title pull-left">
+							<?=$user['nom']." ".$user['prenom']?>
+						</h3>
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
+									<li class="list-group-item"><b>Année :</b> <span class="training-data-year"><?= ""?></span></li>
+									<li class="list-group-item"><b>Entreprise :</b> <span class="training-data-year"><?= ""?></span></li>
+									<li class="list-group-item"><b>Lieu :</b> <span class="training-data-year"><?= ""?></span></li>
+									<li class="list-group-item"><b>Détails :</b> <span class="training-data-year"><?= ""?></span></li>
+								</ul>
 							</div>
-							<?php
-						endif;
-					endforeach ?>
+						</div>
+					<?php endforeach ?>
 				</div>
 			</div>
 		</section>

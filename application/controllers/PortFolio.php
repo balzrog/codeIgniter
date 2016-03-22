@@ -22,7 +22,7 @@ class PortFolio extends CI_Controller{
 		$data = array();
 		$requested_id = $this->uri->segment(3);
 		$data['portfolio'] = $this->portfolio->get_portfolio($requested_id);
-		$data['user'] = $this->portfolio->get_seeker_by_id($data['portfolio'][0]['id_utilisateur']);
+		$data['users'] = $this->portfolio->get_seeker_by_id($data['portfolio'][0]['id_utilisateur']);
 		$data['projects'] = $this->portfolio->sp_get_all_projects($data['portfolio'][0]['id_utilisateur']);
 		$data['trainings'] = $this->portfolio->sp_get_all_trainings($requested_id);
 		$data['categories'] = $this->portfolio->sp_get_all_categories($requested_id);
