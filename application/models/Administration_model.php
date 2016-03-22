@@ -14,6 +14,16 @@ class Administration_model extends CI_Model
         return $query;
     }
 
+    public function get_portfolio_infos($user_id){
+        $query = $this->db->query("CALL sp_getPortfolioInfos(?)", $user_id)->result_array();
+        $this->db->free_result();
+        return $query;
+    }
+
+    public function update_portfolio_infos($user_id,$description,$id_img){
+        $this->db->query('CALL sp_updatePortfolioInfos(?,?,?)',array($user_id,$description,$id_img));
+    }
+
     public function update_user_infos($id, $name, $firstname,$phone, $address, $zipcode,$city, $addressextra){
         $this->db->query('CALL sp_updateUserInfos(?,?,?,?,?,?,?,?)',array($id, $name, $firstname,$phone, $address, $zipcode, $city, $addressextra));
     }
