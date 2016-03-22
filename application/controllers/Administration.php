@@ -178,13 +178,13 @@ class Administration extends CI_Controller
                 $this->load->library('upload', $config);
 
                 if(!$this->upload->do_upload()) {
+                    $error = array('error' => $this->upload->display_errors());
+                    var_dump($error);
                     $this->index();
                 } else {
                     $file_name = $this->upload->data()['file_name'];
-
                     $image_id = $this->admin_model->add_image($file_name);
-
-                $description           = $this->input->post('description');
+                    $description = $this->input->post('description');
 
                 $this->admin_model->update_portfolio_infos(
                     $this->session->userdata['user_id'],
