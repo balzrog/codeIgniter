@@ -31,24 +31,85 @@
        <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-leanpub"></i> Mes projets</div>
             <div class="panel-body">
-                <?= "Voici mes projets" ?>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 panel-custom-height panel-experience">
+                        <?php /*foreach($experiences as $experience) :*/ ?>
+                            <div class="panel panel-primary project-cards">
+                                <div class="panel-heading" style="padding: 5px;">
+                                    <h3 class="panel-title panel-custom-title pull-left">
+                                        <?=/*$experience['entreprise']*/""?>
+                                    </h3>
+                                    <button class="btn btn-default proj-edit"><i class="fa fa-pencil-square"></i></button>
+                                    <button class="btn btn-default proj-delete"><i class="fa fa-trash"></i></button>
+                                    <button class="btn btn-default proj-up-order"><i class="fa fa-arrow-up"></i></button>
+                                    <button class="btn btn-default proj-down-order"><i class="fa fa-arrow-down"></i></button>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
+                                        <li class="list-group-item"><b>Illustration :</b>
+                                        <br>
+                                        <!--<img src="http://placehold.it/280x280" class="img-responsive center-block" style="max-width: 280px;">-->
+                                        <!--<img src="<?=img_url('fancy.jpg')?>" class="img-responsive center-block" style="max-width: 280px;">-->
+                                            <img src="<?=""?>" class="img-responsive center-block" style="max-width: 280px;">
+                                        <li class="list-group-item"><b>Lien :</b> <a href="#<?=/*$experience['annee']*/""?>" target="_blank"><button class="btn btn-default btn-sm data-link">Visualiser</button></a></li>
+                                        <li class="list-group-item">
+                                            <b>Description du projet :</b>
+                                            <br>
+                                            <p class="data-details"><?=/*$experience['detail']*/""?></p>
+                                        </li>
+                                        <li class="data-visible none"><?=/*$experience['visible']*/""?></li>
+                                        <li class="data-order none"><?=/*$experience['ordre']*/""?></li>
+                                        <li class="data-id none"><?=/*$experience['id_experience']*/""?></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        <?php /*endforeach;*/ ?>
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
+                        <div class="panel-body">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <?=form_open_multipart('Administration/add_user_project', array('id' => 'add_project_form'))?>
+                                    <?=form_fieldset('Ajouter un projet')?>
+                                    <div class="form-group">
+                                        <?=form_label('Nom du projet', 'title', array('class' => 'control-label'))?>
+                                        <?=form_input(array('name' => 'title', 'id' => 'title', 'class' => 'form-control', 'placeholder' => 'Nom du projet'))?>
+                                    </div>
+                                    <div class="form-group">
+                                        <?=form_label('Description', 'description', array('class' => 'control-label'))?>
+                                        <?=form_textarea(array('name' => 'description', 'id' => 'description', 'class' => 'form-control', 'rows' => '7'))?>
+                                    </div>
+                                    <div class="form-group">
+                                        <?=form_label('Lien vers la réalisation', 'link', array('class' => 'control-label'))?>
+                                        <?=form_input(array('name' => 'link', 'id' => 'link', 'class' => 'form-control', 'placeholder' => 'Lien vers la réalisation'))?>
+                                    </div>
+                                    <div class="form-group">
+                                        <!--<?=form_label('Ajouter une image', 'image', array('class' => 'control-label'))?>
+                                        <?=form_upload(array('name' => 'image', 'id' => 'image', 'class' => 'file'))?>-->
 
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                        <?=form_label('Ajouter une image', 'image', array('class' => 'control-label', 'style' => 'display: block;'))?>
+                                        <label class="btn btn-default" for="image">
+                                        <?=form_upload(array('name' => 'image', 'id' => 'image', 'class' => 'file', 'style' => 'display: none;'))?>
+                                            Parcourir...
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" style="display: block;">Visible</label>
+                                            <label class="radio-inline"><input type="radio" name="visible" id="visible" value="1" checked>Oui</label>
+                                            <label class="radio-inline"><input type="radio" name="visible" id="visible" value="0">Non</label>
+                                        </label>
+                                    </div>
+                                    <input type="hidden" name="id_project" id="id_project">
+                                    <button type="submit" name="submit" id="submit_project" class="btn btn-primary pull-right">Ajouter</button>
+                                    <?=form_fieldset_close()?>
+                                    <?=form_close()?>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -352,7 +413,6 @@
                     </table>
                 <?=form_fieldset_close()?>
                 <?=form_submit('', 'Modifier', array('class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
-
                 <?=form_close()?>
             </div>
         </div>
