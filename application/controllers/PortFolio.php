@@ -92,10 +92,16 @@ class PortFolio extends CI_Controller{
         }
     }
 
-    public function p_change_theme(){
+    public function theme_portfolio(){
         $data = array();
 
-        $this->portfolio->get_portfolio_theme();
+        $portfolio_id  = $this->uri->segment(3);
+        $data['theme'] = $this->portfolio->get_portfolio_theme($portfolio_id);
+
+    }
+
+    public function change_theme_portfolio(){
+
     }
 
 

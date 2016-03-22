@@ -11,7 +11,7 @@ function theme_changer(){
     $("#change_theme").click(function(){
 
         $.ajax({
-            url : 'index.php/portfolio/p_change_theme',
+            url : 'index.php/portfolio/theme_portfolio',
             type : 'POST',
             dataType : 'html', // On désire recevoir du HTML
             success : function(code_html, statut){ // code_html contient le HTML renvoyé
