@@ -1,7 +1,6 @@
 <?php
 
 /**
- * Created by PhpStorm.
  * User: nicol_000
  * Date: 21/03/2016
  * Time: 08:57
@@ -27,6 +26,7 @@ class PortFolio extends CI_Controller{
 		$data['projects'] = $this->portfolio->sp_get_all_projects($data['portfolio'][0]['id_utilisateur']);
 		$data['trainings'] = $this->portfolio->sp_get_all_trainings($requested_id);
 		$data['categories'] = $this->portfolio->sp_get_all_categories($requested_id);
+		$data['experiences'] = $this->portfolio->sp_get_all_experiences($requested_id);
 		$i=0;
 		foreach ($data['projects'] as $project){
 			$data['projects'][$i]['image'] = $this->portfolio->sp_get_image($data['projects'][$i]['id_image']);
