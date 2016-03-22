@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?= css_url("style") ?>">
     <title>Bootstrap</title>
 </head>
-<body>
+<body id="id_body">
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
