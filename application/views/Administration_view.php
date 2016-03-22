@@ -6,6 +6,7 @@
                 <div class="navbar-collapse collapse sidebar-navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="navbar-brand">Barre d'administration</li>
+                        <li><a href="#Accueil"><i class="fa fa-home"></i> Accueil</a></li>
                         <li><a href="#Projets"><i class="fa fa-leanpub"></i> Projets</a></li>
                         <li><a href="#Formations"><i class="fa fa-university"></i> Formations</a></li>
                         <li><a href="#Compétences"><i class="fa fa-check"></i> Compétences</a></li>
@@ -20,6 +21,37 @@
 </div>
 
 <section class="container">
+    <section id="Accueil">
+        <div class="panel panel-default">
+            <div class="panel-heading"><i class="fa fa-home"></i> Configuration de l'accueil</div>
+            <div class="panel-body">
+                <?=form_open("Administration/savePortfolioInfos")?>
+                <?=form_fieldset('Configuration de l\'accueil')?>
+                <?php foreach($portfolio as $pf) : ;?>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <?=form_label('Image', 'img', array('class' => 'control-label'))?>
+                            <img src="<?=img_url($pf['url_image'])?>" class="img-responsive center-block" style="max-width: 280px;">
+                        </div>
+                        <div class="form-group">
+                            <?=form_label('Modifier l\'image', 'image', array('class' => 'control-label', 'style' => 'display: block;'))?>
+                            <label class="btn btn-default" for="image">
+                                <?=form_upload(array('name' => 'userfile', 'id' => 'image', 'style' => 'display: none;'))?>
+                                Parcourir...
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <?=form_label('Description', 'description', array('class' => 'control-label'))?>
+                            <?=form_textarea(array('value' => $pf['about'],'name' => 'description', 'id' => 'description', 'class' => 'form-control', 'rows' => '7'))?>
+                        </div>
+                    </div>
+                <?php endforeach ;?>
+                <?=form_fieldset_close()?>
+                <?=form_submit('', 'Modifier', array('class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
+                <?=form_close()?>
+            </div>
+        </div>
+    </section>
     <section id="Projets">
        <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-leanpub"></i> Mes projets</div>
@@ -318,7 +350,7 @@
                         </div>
                     </div>
                 <?php endif; ?>
-                <?=form_open("Administration/save")?>
+                <?=form_open("Administration/saveUserInfos")?>
                 <?=form_fieldset('Informations personnelles')?>
                 <?php foreach($results as $result) : ;?>
                 <div class="col-lg-6">

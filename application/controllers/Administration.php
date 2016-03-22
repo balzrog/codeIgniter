@@ -24,6 +24,7 @@ class Administration extends CI_Controller
             $data['trainings'] = $this->admin_model->get_all_trainings($portfolio_id);
             $data['experiences'] = $this->admin_model->get_all_experiences($portfolio_id);
             $data['projects'] = $this->admin_model->get_all_projects($portfolio_id);
+            $data['portfolio'] =  $this->admin_model->get_portfolio_infos($this->session->userdata['user_id']);
 
             $this->load->template("Administration_view", $data);
         }else{
@@ -160,8 +161,45 @@ class Administration extends CI_Controller
 
         }
     }
+    public function savePortfolioInfos(){
+        if($this->session->userdata['user_id'] != null) {
 
-    public function save(){
+            $this->form_validation->set_rules('description', 'Description', 'trim|min_length[2]');
+
+            if($this->form_validation->run() == false){
+                $this->index();
+            } else {
+                $config['upload_path'] = 'assets/images';
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size']	= '100';
+                $config['max_width']  = '1024';
+                $config['max_height']  = '768';
+
+                $this->load->library('upload', $config);
+
+                if(!$this->upload->do_upload()) {
+                    $this->index();
+                } else {
+                    $file_name = $this->upload->data()['file_name'];
+
+                    $image_id = $this->admin_model->add_image($file_name);
+
+                $description           = $this->input->post('description');
+
+                $this->admin_model->update_portfolio_infos(
+                    $this->session->userdata['user_id'],
+                    $description,
+                    $image_id
+                );
+
+                redirect(base_url('Administration/index#Accueil'));
+            }}
+        }else{
+            redirect(base_url("Home"));
+        }
+    }
+
+    public function saveUserInfos(){
         if($this->session->userdata['user_id'] != null) {
 
 
@@ -174,10 +212,7 @@ class Administration extends CI_Controller
         $this->form_validation->set_rules('addressextra', 'Complément', 'trim|alpha|min_length[5]');
 
         if($this->form_validation->run() == false){
-            $data['results'] = $this->admin_model->get_user_max_infos($this->session->userdata['user_id']);
-            $portfolio_id = $this->session->userdata['portfolio_id'];
-            $data['trainings'] = $this->admin_model->get_all_trainings($portfolio_id);
-            $this->load->template("Administration_view", $data);
+            $this->index();
         } else {
             $name           = $this->input->post('name');
             $firstname      = $this->input->post('firstname');

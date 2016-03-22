@@ -18,7 +18,12 @@ class Login extends CI_Controller {
     }
 
     public function index() {
-        $this->connection();
+        if($this->session->userdata['user_id'] != null) {
+            redirect(base_url("Home"));
+        }else{
+            $this->connection();
+        }
+
     }
 
     public function compare_password($storedPassword, $actualPassword) {
@@ -26,6 +31,9 @@ class Login extends CI_Controller {
     }
 
     public function connection() {
+        if($this->session->userdata['user_id'] != null) {
+            redirect(base_url("Home"));
+        }else{
         $data = array();
         $data['title_header'] = "Connexion";
 
@@ -64,7 +72,7 @@ class Login extends CI_Controller {
                 $this->load->template('Login_view', $data);
             }
         }
-    }
+    }}
 
     public function disconnection(){
         $this->session->sess_destroy();
