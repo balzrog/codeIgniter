@@ -34,10 +34,12 @@ class Administration_model extends CI_Model
         return $lastInsertId;
     }
 
-    public function update_training($training_id, $portfolio_id, $training, $diploma, $year, $city, $visible, $details = "") {
-        //return array($training_id, $portfolio_id, $training, $diploma, $year, $city, $visible, $details);
-        //$this->db->query('CALL sp_updateTraining(?, ?, ?, ?, ?, ?, ?, ?)', array($training_id, $portfolio_id, $training, $year, $city, $diploma, $details, $visible));
-        $this->db->query('CALL sp_updateTraining(?, ?, ?, ?, ?, ?, ?, ?)', array(9, 1, 'Bac', 2010, 'Bordeaux', 'Baccalauréat STG', 'HAHAHA', 1));
+    public function update_training($training_id, $portfolio_id, $training, $year, $diploma, $city, $details = "", $visible = 1) {
+        $this->db->query('CALL sp_updateTraining(?, ?, ?, ?, ?, ?, ?, ?)', array($training_id, $portfolio_id, $training, $year, $diploma, $city, $details, $visible));
+    }
+
+    public function delete_training($training_id, $user_id) {
+        $this->db->query('CALL sp_deleteTraining(?, ?)', $training_id, $user_id);
     }
 
     public function get_user_email($portfolio_id = 1) {

@@ -31,27 +31,34 @@
 		<div class="panel panel-default">
 			<div class="panel-heading"><i class="fa fa-leanpub"></i> Mes projets</div>
 			<div class="panel-body">
-				<?php foreach($projects as $project):?>
+				<?php /*foreach($projects as $project):*/?>
 				<div class="panel panel-primary training-cards">
 					<div class="panel-heading" style="padding: 5px;">
 						<h3 class="panel-title panel-custom-title pull-left">
-							<?= $project['intitule']?>
+							<?= /*$project['intitule']*/""?>
 						</h3>
 						<div class="clearfix"></div>
 					</div>
 					<div class="panel-body">
-						<ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-							<li class="list-group-item"><b>Année :</b> <span class="training-data-year">2014</span></li>
-							<li class="list-group-item">
-								<b>Descriptif :</b>
-								<br>
-								<p class="training-data-details"><?= $project['description']?></p>
-							</li>
-						</ul>
-						<img src="<?=img_url($project['image'][0]['url_image'])?>" alt="<?=img_url($project['image'][0]['alt'])?>" style="width: 220px;" />
+						<div class="row">
+							<div class="col-md-2">
+								<img src="http://placehold.it/340x340" class="img-rounded" style="width: 100px; height: 100px">
+							</div>
+							<div class="col-md-10">
+								<ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
+									<li class="list-group-item"><b>Année :</b> <span class="training-data-year">2014</span></li>
+									<li class="list-group-item">
+										<b>Descriptif :</b>
+										<br>
+										<p class="training-data-details"><?= /*$project['description']*/""?></p>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!--<img src="<?=/*($project['image'][0]['url_image'])?>" alt="<?=img_url($project['image'][0]['alt'])*/""?>" style="width: 220px;" />-->
 					</div>
 				</div>
-				<?php endforeach ?>
+				<?php /*endforeach */?>
 			</div>
 		</div>
 	</section>

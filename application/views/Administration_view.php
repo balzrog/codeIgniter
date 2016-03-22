@@ -358,14 +358,38 @@
             xhr.open("POST", "<?=base_url()?>" + "index.php/Administration/update_user_training");
             xhr.send(form);
 
-            xhr.addEventListener("load", function() { console.dir(xhr.responseText);}, false);
+            xhr.addEventListener("load", function() {
+                console.dir(xhr.responseText);
+            }, false);
+
+            card.querySelector(".panel-custom-title").innerText = formTraining.training.value;
+            card.querySelector(".training-data-diploma").innerText = formTraining.diploma.value;
+            card.querySelector(".training-data-year").innerText = formTraining.year.value;
+            card.querySelector(".training-data-city").innerText = formTraining.city.value;
+            card.querySelector(".training-data-details").innerText = formTraining.details.value;
+            card.querySelector(".training-data-id").innerText = formTraining.id_training.value;
         }, false);
+    }
+
+    function deleteCard(card) {
+        var idTraining = card.querySelector(".training-data-id").innerText;
+
+        var xhr = new XMLHttpRequest();
+        var form = new FormData();
+        form.append('id_training', idTraining);
+        xhr.open("POST", "<?=base_url()?>" + "index.php/Administration/delete_user_training");
+        xhr.send();
+
+        xhr.addEventListener("load", function(){ console.dir(xhr.responseText) }, false);
+
+        card.parentNode.removeChild(card);
     }
 
     function attachEventToCard(newCard) {
         newCard.querySelector(".training-up-order").addEventListener("click", function(){ upCard(newCard); }, false);
         newCard.querySelector(".training-down-order").addEventListener("click", function() { downCard(newCard); }, false);
         newCard.querySelector(".training-edit").addEventListener("click", function() { editCard(newCard); }, false);
+        newCard.querySelector(".training-delete").addEventListener("click", function() { deleteCard(newCard); }, false);
     }
 
     function init() {

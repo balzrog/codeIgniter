@@ -25,12 +25,6 @@ class Administration extends CI_Controller
         $this->load->template("Administration_view", $data);
     }
 
-    public function get_all_trainings($portfolio_id) {
-        $query = $this->db->query('CALL sp_getAllTrainings(?)', $portfolio_id)->result_array();
-        $this->db->free_result();
-        return $query;
-    }
-
     public function add_user_training() {
         $data = array();
 
@@ -73,11 +67,19 @@ class Administration extends CI_Controller
             $year           = $this->input->post('year');
             $city           = $this->input->post('city');
             $details        = $this->input->post('details');
-            $visible        = $this->input->post('visible');
+            //$visible      = $this->input->post('visible');
+            $visible        = 1;
             $portfolio_id   = $this->session->userdata['portfolio_id'];
 
-            print_r($this->admin_model->update_training($training_id, $portfolio_id, $training, $year, $diploma, $city, $details, $visible));
+            $this->admin_model->update_training($training_id, $portfolio_id, $training, $year, $diploma, $city, $details, $visible);
         }
+    }
+
+    public function delete_user_training() {
+        $training_id = $this->input->post('id_training');
+        $user_id = $this->session->userdata['user_id'];
+
+        $this->admin_model->delete_training($training_id, $user_id);
     }
 
     function save(){
