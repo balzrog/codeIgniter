@@ -25,7 +25,7 @@
         <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-home"></i> Configuration de l'accueil</div>
             <div class="panel-body">
-                <?=form_open("Administration/savePortfolioInfos")?>
+                <?=form_open_multipart('Administration/savePortfolioInfos', array('id' => 'save_portfolio_infos'))?>
                 <?=form_fieldset('Configuration de l\'accueil')?>
                 <?php foreach($portfolio as $pf) : ;?>
                     <div class="col-lg-12">
@@ -47,7 +47,7 @@
                     </div>
                 <?php endforeach ;?>
                 <?=form_fieldset_close()?>
-                <?=form_submit('', 'Modifier', array('class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
+                <?=form_submit('', 'Modifier', array('value' => 'upload', 'class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
                 <?=form_close()?>
             </div>
         </div>
@@ -110,7 +110,7 @@
                                     <div class="form-group">
                                         <?=form_label('Ajouter une image', 'image', array('class' => 'control-label', 'style' => 'display: block;'))?>
                                         <label class="btn btn-default" for="image">
-                                        <?=form_upload(array('name' => 'userfile', 'id' => 'image', 'style' => 'display: none;'))?>
+                                        <?=form_upload(array('value' => 'upload','name' => 'userfile', 'id' => 'image', 'style' => 'display: none;'))?>
                                             Parcourir...
                                         </label>
                                     </div>

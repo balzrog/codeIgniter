@@ -179,7 +179,7 @@ class Administration extends CI_Controller
 
                 if(!$this->upload->do_upload()) {
                     $error = array('error' => $this->upload->display_errors());
-                    var_dump($error);
+                    var_dump($this->upload->data());
                     $this->index();
                 } else {
                     $file_name = $this->upload->data()['file_name'];
