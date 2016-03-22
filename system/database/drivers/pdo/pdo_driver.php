@@ -369,4 +369,11 @@ class CI_DB_pdo_driver extends CI_DB {
 		return 'TRUNCATE TABLE '.$table;
 	}
 
+	public function free_result()
+	{
+		if (is_object($this->result_id))
+		{
+			$this->result_id = FALSE;
+		}
+	}
 }
