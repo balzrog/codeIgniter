@@ -25,4 +25,10 @@ class PortFolio_model extends CI_Model{
         $this->db->free_result();
         return $query;
     }
+
+    public function get_user_email($portfolio_id = 1) {
+        $query = $this->db->query('CALL sp_getUserEmail(?)', $portfolio_id)->row()->mail;
+        $this->db->free_result();
+        return $query;
+    }
 }
