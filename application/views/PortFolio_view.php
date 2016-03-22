@@ -54,7 +54,6 @@
 							</div>
 							<div class="col-md-10">
 								<ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-									<li class="list-group-item"><b>Année :</b> <span class="training-data-year"><?= $project['annee']?></span></li>
 									<li class="list-group-item">
 										<b>Descriptif :</b>
 										<br>
