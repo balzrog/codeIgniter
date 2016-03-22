@@ -244,7 +244,45 @@
                 </div>
                 <?php endforeach ;?>
                 <?=form_fieldset_close()?>
-
+                <?=form_fieldset('Visibilité des informations personnelles')?>
+                <div id="visibleInfos">
+                    <div class="form-group">
+                        <?=form_label('Nom', 'name', array('class' => 'control-label'))?>
+                        <?=form_radio(array('name' => 'radio_nom', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['nom_visible']))?>
+                        <?=form_radio(array('name' => 'radio_nom', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['nom_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Prénom', 'firstname', array('class' => 'control-label'))?>
+                        <?=form_radio(array('name' => 'radio_prenom', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['prenom_visible']))?>
+                        <?=form_radio(array('name' => 'radio_prenom', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['prenom_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Téléphone', 'phone', array('class' => 'control-label'))?>
+                        <?=form_radio(array('name' => 'radio_phone', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['phone_visible']))?>
+                        <?=form_radio(array('name' => 'radio_phone', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['phone_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Adresse', 'adress', array('class' => 'control-label'))?>
+                        <?=form_radio(array('name' => 'radio_adresse', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['adresse_visible']))?>
+                        <?=form_radio(array('name' => 'radio_adresse', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['adresse_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Code postal', 'zipcode', array('class' => 'control-label'))?>
+                        <?=form_radio(array('name' => 'radio_code_postal', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['code_postal_visible']))?>
+                        <?=form_radio(array('name' => 'radio_code_postal', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['code_postal_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Ville', 'city', array('class' => 'control-label'))?>
+                        <?=form_radio(array('name' => 'radio_ville', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['ville_visible']))?>
+                        <?=form_radio(array('name' => 'radio_ville', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['ville_visible']))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Complément d\'adresse', 'addressextra', array('class' => 'control-label'))?>
+                        <?=form_radio(array('name' => 'radio_complement', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['complement_visible']))?>
+                        <?=form_radio(array('name' => 'radio_complement', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['complement_visible']))?>
+                    </div>
+                </div>
+                <?=form_fieldset_close()?>
                 <?=form_submit('', 'Modifier', array('class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
 
                 <?=form_close()?>
