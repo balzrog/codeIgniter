@@ -81,7 +81,7 @@ function is_email(myVar){
 function is_zipcode(myVar){
     var regex = /^(2[ab]|0[1-9]|[1-9][0-9])[0-9]{3}$/;
     if(regex.test(myVar.value)){
-        change_background_color_white(form_register.city);
+        change_background_color_white(form_register.zipcode);
     }else{
         alert("Erreur de saisie");
         change_background_color_red(form_register.zipcode);
