@@ -1,11 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Balzrog
- * Date: 18/03/2016
- * Time: 14:24
- */
-?>
+
 <div class="col-lg">
     <div class="col-sm-2">
         <div class="sidebar-nav" id="fixedtop">
@@ -377,8 +370,8 @@
                         </tr>
                         <tr>
                             <td><?=form_label('Prénom', 'name', array('class' => 'control-label'))?></td>
-                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_nom', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['nom_visible']))?> Oui </label></td>
-                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_nom', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['nom_visible']))?> Non</label></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_prenom', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['prenom_visible']))?> Oui </label></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_prenom', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['prenom_visible']))?> Non</label></td>
                         </tr>
                         <tr>
                             <td><?=form_label('Téléphone', 'phone', array('class' => 'control-label'))?></td>
