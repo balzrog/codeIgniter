@@ -113,9 +113,10 @@
 }
 
 #visibleInfos{
-    width :210px;
+    width :250px;
 }
 
 #visibleInfos #nom_visible{
     float: right;
+    margin-left: 30px;
 }

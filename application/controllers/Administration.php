@@ -110,6 +110,7 @@ class Administration extends CI_Controller
             $name_visible         = $this->input->post('radio_nom');
             $firstname_visible      = $this->input->post('radio_prenom');
             $phone_visible          = $this->input->post('radio_phone');
+            $mail_visible           = $this->input->post('radio_mail');
             $address_visible        = $this->input->post('radio_adresse');
             $city_visible           = $this->input->post('radio_ville');
             $zipcode_visible        = $this->input->post('radio_code_postal');
@@ -130,6 +131,7 @@ class Administration extends CI_Controller
                 $name_visible,
                 $firstname_visible,
                 $phone_visible,
+                $mail_visible,
                 $address_visible,
                 $city_visible,
                 $zipcode_visible,

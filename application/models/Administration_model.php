@@ -18,8 +18,8 @@ class Administration_model extends CI_Model
         $this->db->query('CALL sp_updateUserInfos(?,?,?,?,?,?,?,?)',array($id, $name, $firstname,$phone, $address, $zipcode, $city, $addressextra));
     }
 
-    public function update_user_visibility_infos($id, $nom_visible, $prenom_visible, $phone_visible, $address_visible, $zipcode_visible, $city_visible, $addressextra_visibe){
-        $this->db->query('CALL sp_updateUserVisibilityInfos(?,?,?,?,?,?,?,?)' , array($id,$nom_visible, $prenom_visible, $phone_visible, $address_visible, $zipcode_visible, $city_visible, $addressextra_visibe));
+    public function update_user_visibility_infos($id, $nom_visible, $prenom_visible, $phone_visible, $mail_visible,$address_visible, $zipcode_visible, $city_visible, $addressextra_visibe){
+        $this->db->query('CALL sp_updateUserVisibilityInfos(?,?,?,?,?,?,?,?,?)' , array($id,$nom_visible, $prenom_visible, $phone_visible,$mail_visible, $address_visible, $zipcode_visible, $city_visible, $addressextra_visibe));
     }
 
     public function get_all_trainings($portfolio_id) {

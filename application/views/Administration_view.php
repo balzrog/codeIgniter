@@ -262,6 +262,11 @@
                         <?=form_radio(array('name' => 'radio_phone', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['phone_visible']))?>
                     </div>
                     <div class="form-group">
+                        <?=form_label('Email', 'mail', array('class' => 'control-label'))?>
+                        <?=form_radio(array('name' => 'radio_mail', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['mail_visible']))?>
+                        <?=form_radio(array('name' => 'radio_mail', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['mail_visible']))?>
+                    </div>
+                    <div class="form-group">
                         <?=form_label('Adresse', 'adress', array('class' => 'control-label'))?>
                         <?=form_radio(array('name' => 'radio_adresse', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['adresse_visible']))?>
                         <?=form_radio(array('name' => 'radio_adresse', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['adresse_visible']))?>
