@@ -30,34 +30,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php endif; ?>
 
             <div class="col-xs-12">
-                <?=form_open()?>
+                <?=form_open("", array("id" => "form_register"))?>
                     <?=form_fieldset('Informations personnelles')?>
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <?=form_label('Nom', 'name', array('class' => 'control-label'))?>
-                                <?=form_input(array('name' => 'name', 'class' => 'form-control', 'id' => 'name', 'placeholder' => 'Nom', 'tabindex' => '1'))?>
+                                <?=form_input(array('name' => 'name', 'class' => 'form-control', 'id' => 'name', 'placeholder' => 'Nom', 'tabindex' => '1', 'onblur' => 'is_name(this)'))?>
                             </div>
                             <div class="form-group">
                                 <?=form_label('Prénom', 'firstname', array('class' => 'control-label'))?>
-                                <?=form_input(array('name' => 'firstname', 'class' => 'form-control', 'id' => 'firstname', 'placeholder' => 'Prénom', 'tabindex' => '3'))?>
+                                <?=form_input(array('name' => 'firstname', 'class' => 'form-control', 'id' => 'firstname', 'placeholder' => 'Prénom', 'tabindex' => '3', 'onblur' => 'is_firstname(this)'))?>
                             </div>
                             <div class="form-group">
                                 <?=form_label('Téléphone', 'phone', array('class' => 'control-label'))?>
-                                <?=form_input(array('name' => 'phone', 'class' => 'form-control', 'id' => 'phone', 'placeholder' => 'Téléphone', 'tabindex' => '5'))?>
+                                <?=form_input(array('name' => 'phone', 'class' => 'form-control', 'id' => 'phone', 'placeholder' => 'Téléphone', 'tabindex' => '5', 'onblur' => 'is_phone(this)'))?>
                             </div>
                             <div class="form-group">
                                 <?=form_label('Mot de passe', 'password', array('class' => 'control-label'))?>
-                                <?=form_password(array('name' => 'password', 'class' => 'form-control', 'id' => 'password', 'placeholder' => 'Mot de passe', 'tabindex' => '7'))?>
+                                <?=form_password(array('name' => 'password', 'class' => 'form-control', 'id' => 'password', 'placeholder' => 'Mot de passe', 'tabindex' => '7', 'onblur' => 'is_password(this)'))?>
                             </div>
                             <div class="form-group">
                                 <?=form_label('Confirmation du mot de passe', 'passwordbis', array('class' => 'control-label'))?>
-                                <?=form_password(array('name' => 'passwordbis', 'class' => 'form-control', 'id' => 'passwordbis', 'placeholder' => 'Confirmation du mot de passe', 'tabindex' => '9'))?>
+                                <?=form_password(array('name' => 'passwordbis', 'class' => 'form-control', 'id' => 'passwordbis', 'placeholder' => 'Confirmation du mot de passe', 'tabindex' => '9', 'onblur' => 'is_password_bis(this)'))?>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <?=form_label('Adresse email', 'mail', array('class' => 'control-label'))?>
-                                <?=form_input(array('name' => 'mail', 'class' => 'form-control', 'id' => 'mail', 'placeholder' => 'exemple@domaine.fr', 'tabindex' => '2'))?>
+                                <?=form_input(array('name' => 'mail', 'class' => 'form-control', 'id' => 'mail', 'placeholder' => 'exemple@domaine.fr', 'tabindex' => '2', 'onblur' => 'is_email(this)'))?>
                             </div>
                             <div class="form-group">
                                 <?=form_label('Adresse', 'address', array('class' => 'control-label'))?>
@@ -65,17 +65,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                             <div class="form-group">
                                 <?=form_label('Code postal', 'zipcode', array('class' => 'control-label'))?>
-                                <?=form_input(array('name' => 'zipcode', 'class' => 'form-control', 'id' => 'zipcode', 'placeholder' => 'Code postal', 'tabindex' => '6'))?>
+                                <?=form_input(array('name' => 'zipcode', 'class' => 'form-control', 'id' => 'zipcode', 'placeholder' => 'Code postal', 'tabindex' => '6', 'onblur' => 'is_zipcode(this)'))?>
                             </div>
                             <div class="form-group">
                                 <?=form_label('Ville', 'city', array('class' => 'control-label'))?>
-                                <?=form_input(array('name' => 'city', 'class' => 'form-control', 'id' => 'city', 'placeholder' => 'Ville', 'tabindex' => '8'))?>
+                                <?=form_input(array('name' => 'city', 'class' => 'form-control', 'id' => 'city', 'placeholder' => 'Ville', 'tabindex' => '8', 'onblur' => 'is_town(this)'))?>
                             </div>
                             <div class="form-group">
                                 <?=form_label('Complément d\'adresse', 'addressextra', array('class' => 'control-label'))?>
                                 <?=form_input(array('name' => 'addressextra', 'class' => 'form-control', 'id' => 'addressextra', 'placeholder' => 'Complément d\'adresse', 'tabindex' => '10'))?>
                             </div>
-                            <?=form_submit('', 'Envoyer', array('class' => 'btn btn-default pull-right'))?>
+                            <?=form_submit('', 'Envoyer', array('class' => 'btn btn-default pull-right', 'id' => 'submit_button'))?>
                         </div>
                     <?=form_fieldset_close()?>
                 <?=form_close()?>
