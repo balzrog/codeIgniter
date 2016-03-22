@@ -53,20 +53,6 @@
         </div>
     </section>
     <section id="Formations">
-        <?php if(validation_errors()) : ?>
-            <div class="col-md-12">
-                <div class="alert alert-warning" role="alert">
-                    <?=validation_errors()?>
-                </div>
-            </div>
-        <?php endif; ?>
-        <?php if(isset($error)) : ?>
-            <div class="col-md-12">
-                <div class="alert alert-warning" role="alert">
-                    <?=$error?>
-                </div>
-            </div>
-        <?php endif; ?>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-university"></i> Mes formations
@@ -129,7 +115,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <?=form_label('Descriptif', 'details', array('class' => 'control-label'))?>
-                                                <?=form_input(array('name' => 'details', 'id' => 'details', 'class' => 'form-control', 'placeholder' => 'Descriptif'))?>
+                                                <?=form_textarea(array('name' => 'details', 'id' => 'details', 'class' => 'form-control', 'rows' => '3'))?>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" style="display: block;">Visible</label>
@@ -190,11 +176,11 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 panel-custom-height panel-experience">
-                        <?php /*foreach($trainings as $training) :*/ ?>
+                        <?php foreach($experiences as $experience) : ?>
                             <div class="panel panel-primary experience-cards">
                                 <div class="panel-heading" style="padding: 5px;">
                                     <h3 class="panel-title panel-custom-title pull-left">
-                                        <?=/*$training['intitule']*/""?>
+                                        <?=$experience['entreprise']?>
                                     </h3>
                                     <button class="btn btn-default exp-edit"><i class="fa fa-pencil-square"></i></button>
                                     <button class="btn btn-default exp-delete"><i class="fa fa-trash"></i></button>
@@ -204,59 +190,58 @@
                                 </div>
                                 <div class="panel-body">
                                     <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-                                        <li class="list-group-item"><b>Poste :</b> <span class="data-position"><?=/*$training['diplome']*/""?></span></li>
-                                        <li class="list-group-item"><b>Année :</b> <span class="data-year"><?=/*$training['annee']*/""?></span></li>
-                                        <li class="list-group-item"><b>Ville :</b> <span class="data-city"><?=/*$training['lieu']*/""?></span></li>
+                                        <li class="list-group-item"><b>Poste :</b> <span class="data-position"><?=$experience['poste']?></span></li>
+                                        <li class="list-group-item"><b>Année :</b> <span class="data-year"><?=$experience['annee']?></span></li>
+                                        <li class="list-group-item"><b>Ville :</b> <span class="data-city"><?=$experience['lieu']?></span></li>
                                         <li class="list-group-item">
                                             <b>Détail de la mission :</b>
                                             <br>
-                                            <p class="data-details"><?=/*$training['description']*/""?></p>
+                                            <p class="data-details"><?=$experience['detail']?></p>
                                         </li>
-                                        <li class="data-visible none"><?=/*$training['visible']*/""?></li>
-                                        <li class="data-order none"><?=/*$training['ordre']*/""?></li>
-                                        <li class="data-id none"><?=/*$training['id_formation']*/""?></li>
+                                        <li class="data-visible none"><?=$experience['visible']?></li>
+                                        <li class="data-order none"><?=$experience['ordre']?></li>
+                                        <li class="data-id none"><?=$experience['id_experience']?></li>
                                     </ul>
                                 </div>
                             </div>
-                        <?php /*endforeach;*/ ?>
+                        <?php endforeach; ?>
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
                         <div class="panel-body">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <form id="add_experience_form">
-                                        <fieldset>
-                                            <legend>Ajouter une expérience</legend>
+                                    <?=form_open('Administration/add_user_experience', array('id' => 'add_experience_form'))?>
+                                        <?=form_fieldset('Ajouter une expérience')?>
                                             <div class="form-group">
-                                                <label for="entreprise" class="control-label">Entreprise</label>
-                                                <input type="text" name="entreprise" id="entreprise" class="form-control" placeholder="Entreprise">
+                                                <?=form_label('Entreprise', 'entreprise', array('class' => 'control-label'))?>
+                                                <?=form_input(array('name' => 'entreprise', 'id' => 'entreprise', 'class' => 'form-control', 'placeholder' => 'Entreprise'))?>
                                             </div>
                                             <div class="form-group">
-                                                <label for="position" class="control-label">Poste</label>
-                                                <input type="text" name="position" id="position" class="form-control" placeholder="Poste">
+                                                <?=form_label('Poste', 'position', array('class' => 'control-label'))?>
+                                                <?=form_input(array('name' => 'position', 'id' => 'position', 'class' => 'form-control', 'placeholder' => 'Poste'))?>
                                             </div>
                                             <div class="form-group">
-                                                <label for="year" class="control-label">Année</label>
-                                                <input type="text" name="year" id="year" class="form-control" placeholder="Année">
+                                                <?=form_label('Année', 'year', array('class' => 'control-label'))?>
+                                                <?=form_input(array('name' => 'year', 'id' => 'year', 'class' => 'form-control', 'placeholder' => 'Année'))?>
                                             </div>
                                             <div class="form-group">
-                                                <label for="city" class="control-label">Ville</label>
-                                                <input type="text" name="city" id="city" class="form-control" placeholder="Ville">
+                                                <?=form_label('Ville', 'city', array('class' => 'control-label'))?>
+                                                <?=form_input(array('name' => 'city', 'id' => 'city', 'class' => 'form-control', 'placeholder' => 'Ville'))?>
                                             </div>
                                             <div class="form-group">
-                                                <label for="details" class="control-label">Détail de la mission</label>
-                                                <textarea class="form-control" name="details" id="details" rows="3"></textarea>
+                                                <?=form_label('Détail de la mission', 'details', array('class' => 'control-label'))?>
+                                                <?=form_textarea(array('name' => 'details', 'id' => 'details', 'class' => 'form-control', 'rows' => '3'))?>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" style="display: block;">Visible</label>
-                                                <label class="radio-inline" checked><input type="radio" name="visible" id="visible" value="1">Oui</label>
+                                                <label class="radio-inline"><input type="radio" name="visible" id="visible" value="1" checked>Oui</label>
                                                 <label class="radio-inline"><input type="radio" name="visible" id="visible" value="0">Non</label>
                                                 </label>
                                             </div>
                                             <input type="hidden" name="id_experience" id="id_experience">
                                             <button type="submit" name="submit" id="submit_experience" class="btn btn-primary pull-right">Ajouter</button>
-                                            <button type="button" name="save" id="save_experience_form" class="btn btn-primary pull-right" style="margin-right: 10px">Sauvegarder</button>
-                                        </fieldset>
+                                        <?=form_fieldset_close()?>
+                                    <?=form_close()?>
                                     </form>
                                 </div>
                             </div>
@@ -323,47 +308,48 @@
                 <?=form_fieldset_close()?>
                 <?=form_fieldset('Visibilité des informations personnelles')?>
                 <div id="visibleInfos">
-                    <div class="form-group">
-                        <?=form_label('Nom', 'name', array('class' => 'control-label'))?>
-                        <?=form_radio(array('name' => 'radio_nom', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['nom_visible']))?>
-                        <?=form_radio(array('name' => 'radio_nom', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['nom_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Prénom', 'firstname', array('class' => 'control-label'))?>
-                        <?=form_radio(array('name' => 'radio_prenom', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['prenom_visible']))?>
-                        <?=form_radio(array('name' => 'radio_prenom', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['prenom_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Téléphone', 'phone', array('class' => 'control-label'))?>
-                        <?=form_radio(array('name' => 'radio_phone', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['phone_visible']))?>
-                        <?=form_radio(array('name' => 'radio_phone', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['phone_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Email', 'mail', array('class' => 'control-label'))?>
-                        <?=form_radio(array('name' => 'radio_mail', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['mail_visible']))?>
-                        <?=form_radio(array('name' => 'radio_mail', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['mail_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Adresse', 'adress', array('class' => 'control-label'))?>
-                        <?=form_radio(array('name' => 'radio_adresse', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['adresse_visible']))?>
-                        <?=form_radio(array('name' => 'radio_adresse', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['adresse_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Code postal', 'zipcode', array('class' => 'control-label'))?>
-                        <?=form_radio(array('name' => 'radio_code_postal', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['code_postal_visible']))?>
-                        <?=form_radio(array('name' => 'radio_code_postal', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['code_postal_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Ville', 'city', array('class' => 'control-label'))?>
-                        <?=form_radio(array('name' => 'radio_ville', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['ville_visible']))?>
-                        <?=form_radio(array('name' => 'radio_ville', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['ville_visible']))?>
-                    </div>
-                    <div class="form-group">
-                        <?=form_label('Complément d\'adresse', 'addressextra', array('class' => 'control-label'))?>
-                        <?=form_radio(array('name' => 'radio_complement', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['complement_visible']))?>
-                        <?=form_radio(array('name' => 'radio_complement', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['complement_visible']))?>
-                    </div>
-                </div>
+                    <table>
+                        <tr>
+                            <td><?=form_label('Nom', 'name', array('class' => 'control-label'))?></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_nom', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['nom_visible']))?> Oui </label></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_nom', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['nom_visible']))?> Non</label></td>
+                        </tr>
+                        <tr>
+                            <td><?=form_label('Prénom', 'name', array('class' => 'control-label'))?></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_nom', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['nom_visible']))?> Oui </label></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_nom', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['nom_visible']))?> Non</label></td>
+                        </tr>
+                        <tr>
+                            <td><?=form_label('Téléphone', 'phone', array('class' => 'control-label'))?></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_phone', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['phone_visible']))?>Oui</label></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_phone', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['phone_visible']))?>Non</label></td>
+                        </tr>
+                        <tr>
+                            <td><?=form_label('Email', 'mail', array('class' => 'control-label'))?></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_mail', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['mail_visible']))?>Oui</label></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_mail', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['mail_visible']))?>Non</label></td>
+                        </tr>
+                        <tr>
+                            <td><?=form_label('Adresse', 'adress', array('class' => 'control-label'))?></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_adresse', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['adresse_visible']))?>Oui</label></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_adresse', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['adresse_visible']))?>Non</label></td>
+                        </tr>
+                        <tr>
+                            <td><?=form_label('Code postal', 'zipcode', array('class' => 'control-label'))?></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_code_postal', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['code_postal_visible']))?>Oui</label></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_code_postal', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['code_postal_visible']))?>Non</label></td>
+                        </tr>
+                        <tr>
+                            <td><?=form_label('Ville', 'city', array('class' => 'control-label'))?></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_ville', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['ville_visible']))?>Oui</label></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_ville', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['ville_visible']))?>Non</label></td>
+                        </tr>
+                        <tr>
+                            <td><?=form_label('Complément', 'addressextra', array('class' => 'control-label'))?></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_complement', 'id' => 'nom_visible', 'value' => 1,'checked'=> (bool) $result['complement_visible']))?>Oui</label></td>
+                            <td><label class="radio-inline"><?=form_radio(array('name' => 'radio_complement', 'id' => 'nom_visible', 'value' => 0,'checked'=> (bool) !$result['complement_visible']))?>Non</label></td>
+                        </tr>
+                    </table>
                 <?=form_fieldset_close()?>
                 <?=form_submit('', 'Modifier', array('class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
 
