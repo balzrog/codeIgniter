@@ -39,7 +39,7 @@ class Administration extends CI_Controller
         $this->form_validation->set_rules('details', 'Détails', 'trim|min_length[3]');
         $this->form_validation->set_rules('visible', 'Visible', 'trim|numeric|max_length[1]');
         if($this->form_validation->run() == false) {
-            echo "ADD : ERREUR SAISIE";
+            $this->load->view('Administration_view#Formations', $data);
         } else {
             $training       = $this->input->post('training');
             $diploma        = $this->input->post('diploma');
@@ -49,12 +49,18 @@ class Administration extends CI_Controller
             $visible        = $this->input->post('visible');
             $portfolio_id   = $this->session->userdata['portfolio_id'];
 
-            $last_id = $this->admin_model->add_training($portfolio_id, $training, $diploma, $year, $city, $details);
-            echo $last_id;
+            $this->admin_model->add_training($portfolio_id, $training, $diploma, $year, $city, $details, $visible);
+
+            redirect('Administration#Formations');
+
+            //$last_id = $this->admin_model->add_training($portfolio_id, $training, $diploma, $year, $city, $details, $visible);
+            //echo $last_id;
         }
     }
 
     public function update_user_training() {
+        $data = array();
+
         $this->form_validation->set_rules('training', 'Formation', 'trim|required|min_length[2]');
         $this->form_validation->set_rules('diploma', 'Diplôme', 'trim|required|min_length[2]');
         $this->form_validation->set_rules('year', 'Année', 'trim|required|numeric|min_length[4]');
@@ -64,6 +70,7 @@ class Administration extends CI_Controller
 
         if($this->form_validation->run() == false) {
             echo "MAJ : ERREUR SAISIE";
+            //$this->load->view('Administration_view#Formations', $data);
         } else {
             $training_id    = $this->input->post('id_training');
             $training       = $this->input->post('training');
@@ -71,8 +78,7 @@ class Administration extends CI_Controller
             $year           = $this->input->post('year');
             $city           = $this->input->post('city');
             $details        = $this->input->post('details');
-            //$visible      = $this->input->post('visible');
-            $visible        = 1;
+            $visible        = $this->input->post('visible');
             $portfolio_id   = $this->session->userdata['portfolio_id'];
 
             $this->admin_model->update_training($training_id, $portfolio_id, $training, $year, $diploma, $city, $details, $visible);
@@ -84,6 +90,33 @@ class Administration extends CI_Controller
         $user_id = $this->session->userdata['user_id'];
 
         $this->admin_model->delete_training($training_id, $user_id);
+    }
+
+    public function add_user_experience() {
+        $this->form_validation->set_rules('entreprise', 'Entreprise', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('position', 'Poste', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('year', 'Année', 'trim|required|numeric|min_length[4]');
+        $this->form_validation->set_rules('city', 'Ville', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('details', 'Détails', 'trim|min_length[3]');
+        $this->form_validation->set_rules('visible', 'Visible', 'trim|numeric|max_length[1]');
+        if($this->form_validation->run() == false) {
+            echo "ADD : ERREUR SAISIE";
+        } else {
+            $training       = $this->input->post('entreprise');
+            $diploma        = $this->input->post('position');
+            $year           = $this->input->post('year');
+            $city           = $this->input->post('city');
+            $details        = $this->input->post('details');
+            $visible        = $this->input->post('visible');
+            $portfolio_id   = $this->session->userdata['portfolio_id'];
+
+            $this->admin_model->add_experience($portfolio_id, $training, $diploma, $year, $city, $details, $visible);
+
+            //$last_id = $this->admin_model->add_experience($portfolio_id, $training, $diploma, $year, $city, $details, $visible);
+            //echo $last_id;
+
+            $this->load->view('Administration_view#Formations');
+        }
     }
 
     public function save(){
@@ -99,8 +132,6 @@ class Administration extends CI_Controller
         $this->form_validation->set_rules('addressextra', 'Complément', 'trim|alpha|min_length[5]');
 
         if($this->form_validation->run() == false){
-            echo 'erreur';
-            var_dump($this->input->post('name'));
             $data['results'] = $this->admin_model->get_user_max_infos();
             $portfolio_id = $this->session->userdata['portfolio_id'];
             $data['trainings'] = $this->admin_model->get_all_trainings($portfolio_id);

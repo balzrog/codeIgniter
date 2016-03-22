@@ -28,27 +28,25 @@ class Administration_model extends CI_Model
         return $query;
     }
 
-    public function add_training($portfolio_id, $training, $diploma, $year, $city, $details = "", $order = 0, $visible = 1) {
-        $this->db->query('CALL sp_addTraining(?, ?, ?, ?, ?, ?, ?, ?)', array($portfolio_id, $training, $diploma, $year, $city, $details, $visible, $order));
+    public function add_training($portfolio_id, $training, $diploma, $year, $city, $details = "", $visible) {
+        $this->db->query('CALL sp_addTraining(?, ?, ?, ?, ?, ?, ?)', array($portfolio_id, $training, $diploma, $year, $city, $details, $visible));
 
         /* Get last inserted id in formation table */
-        $this->db->select_max('id_formation');
+        /*$this->db->select_max('id_formation');
         $lastInsertId = $this->db->get('formation')->result_array()[0]['id_formation'];
 
-        return $lastInsertId;
+        return $lastInsertId;*/
     }
 
-    public function update_training($training_id, $portfolio_id, $training, $year, $diploma, $city, $details = "", $visible = 1) {
+    public function update_training($training_id, $portfolio_id, $training, $year, $diploma, $city, $details = "", $visible) {
         $this->db->query('CALL sp_updateTraining(?, ?, ?, ?, ?, ?, ?, ?)', array($training_id, $portfolio_id, $training, $year, $diploma, $city, $details, $visible));
     }
 
     public function delete_training($training_id, $user_id) {
-        $this->db->query('CALL sp_deleteTraining(?, ?)', $training_id, $user_id);
+        $this->db->query('CALL sp_deleteTraining(?, ?)', array($training_id, $user_id));
     }
 
-    public function get_user_email($portfolio_id = 1) {
-        $query = $this->db->query('CALL sp_getUserEmail(?)', $portfolio_id)->row()->mail;
-        $this->db->free_result();
-        return $query;
+    public function add_experience() {
+        //sp_addExperience (IN p_portfolioid INT(11), IN p_position VARCHAR(50), IN p_year INT(11), IN p_entreprise VARCHAR(50), IN p_details TEXT, IN p_city VARCHAR(40), IN p_visible INT(11))
     }
 }
