@@ -59,6 +59,9 @@
 										<br>
 										<p class="training-data-details"><?= $project['description']?></p>
 									</li>
+									<?php if ($project['lien']!=null): ?>
+										<a href="<?= $project['lien']?>"><i class="fa fa-leanpub"></i> En savoir plus!</a>
+									<?php endif ?>
 								</ul>
 							</div>
 						</div>
@@ -185,19 +188,37 @@
 			<div class="panel panel-default">
 				<div class="panel-heading"><i class="fa fa-user"></i> Profil</div>
 				<div class="panel-body">
-					<?php foreach($users as $user):?>
+					<?php foreach($users as $user): ?>
 						<h3 class="panel-title panel-custom-title pull-left">
-							<?=$user['nom']." ".$user['prenom']?>
+							<?php
+							if ($user['nom_visible']!=0) {
+								echo $user['nom'];
+							}
+							if ($user['prenom_visible']!=0) {
+								echo " ".$user['prenom'];
+							}?>
 						</h3>
 						<div class="row">
 							<div class="col-md-12">
 								<ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-									<li class="list-group-item"><b>Année :</b> <span class="training-data-year"><?= ""?></span></li>
-									<li class="list-group-item"><b>Entreprise :</b> <span class="training-data-year"><?= ""?></span></li>
-									<li class="list-group-item"><b>Lieu :</b> <span class="training-data-year"><?= ""?></span></li>
-									<li class="list-group-item"><b>Détails :</b> <span class="training-data-year"><?= ""?></span></li>
+									<?php if ($user['mail_visible']!=0): ?>
+									<li class="list-group-item"><b>E-mail :</b> <span class="training-data-year"><?= $user['mail']?></span></li>
+									<?php endif; if ($user['phone_visible']!=0): ?>
+									<li class="list-group-item"><b>Téléphone :</b> <span class="training-data-year"><?= $user['telephone']?></span></li>
+									<?php endif; if ($user['ville_visible']!=0): ?>
+									<li class="list-group-item"><b>Ville :</b> <span class="training-data-year"><?= $user['ville']?></span></li>
+									<?php endif; if ($user['code_postal_visible']!=0): ?>
+									<li class="list-group-item"><b>Code Postal :</b> <span class="training-data-year"><?= $user['code_postal']?></span></li>
+									<?php endif; if ($user['adresse_visible']!=0): ?>
+									<li class="list-group-item"><b>Adresse :</b> <span class="training-data-year"><?= $user['adresse']?></span></li>
+									<?php endif; if ($user['complement_visible']!=0): ?>
+									<li class="list-group-item"><b>Complément :</b> <span class="training-data-year"><?= $user['complement']?></span></li>
+									<?php endif ?>
 								</ul>
 							</div>
+						</div>
+						<div class="btn-nav" style="margin-right: 67px;">
+							<a class="btn btn-primary btn-small navbar-btn" href="<?= site_url("Portfolio/contact")."/".$user['id_portfolio']?>">Contacter</a>
 						</div>
 					<?php endforeach ?>
 				</div>

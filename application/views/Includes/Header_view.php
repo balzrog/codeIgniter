@@ -36,6 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="nav navbar-nav">
                     <li><a href="<?= site_url('/Home')?>">Accueil</a></li>
                     <?php if(count($this->session->user_id) > 0 && $this->session->logged_in == true) : ?>
+                        <li><a href="<?= site_url('/Portfolio/lookup')."/".$this->session->portfolio_id?>">Mon Porte-folio</a></li>
                         <li><a href="<?= site_url('/Administration')?>">Administration</a></li>
                     <?php else : ?>
                         <li><a href="<?= site_url('/Registration')?>">Inscription</a></li>
