@@ -14,8 +14,12 @@ class Administration_model extends CI_Model
         return $query;
     }
 
-    public function update_user_infos($id, $name, $firstname,$phone, $address, $zipcode,$city, $addressextra){ //$nom_visible, $prenom_visible, $phone_visible, $address_visible, $zipcode_visible, $city_visible, $addressextra_visibe){
-        $this->db->query('CALL sp_updateUserInfos(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', array($id, $name, $firstname,$phone, $address, $zipcode, $city, $addressextra,true,true,true,true,true,true,true)); //$nom_visible, $prenom_visible, $phone_visible ,$address_visible, $zipcode_visible, $city_visible, $addressextra_visibe));
+    public function update_user_infos($id, $name, $firstname,$phone, $address, $zipcode,$city, $addressextra){
+        $this->db->query('CALL sp_updateUserInfos(?,?,?,?,?,?,?,?)',array($id, $name, $firstname,$phone, $address, $zipcode, $city, $addressextra));
+    }
+
+    public function update_user_visibility_infos($id, $nom_visible, $prenom_visible, $phone_visible, $address_visible, $zipcode_visible, $city_visible, $addressextra_visibe){
+        $this->db->query('CALL sp_updateUserVisibilityInfos(?,?,?,?,?,?,?,?)' , array($id,$nom_visible, $prenom_visible, $phone_visible, $address_visible, $zipcode_visible, $city_visible, $addressextra_visibe));
     }
 
     public function get_all_trainings($portfolio_id) {
