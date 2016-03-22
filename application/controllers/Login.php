@@ -57,7 +57,7 @@ class Login extends CI_Controller {
                         'logged_in' => (bool)true
                     ));
 
-                    $this->load->template('Administration_view');
+                    redirect(base_url("Administration"));
                 }
             } else {
                 $data['error'] = "Mot de passe incorrect ou utilisateur inexistant.";
