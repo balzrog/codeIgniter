@@ -22,10 +22,14 @@ class PortFolio extends CI_Controller{
 	public function lookup() {
 		$data = array();
 		$requested_id = $this->uri->segment(3);
-		$data['user'] = $this->portfolio->get_seeker_by_id($requested_id);
-		$data['portfolio'] = $this->portfolio->get_portfolio($data['user'][0]['id_portfolio']);
-		$data['projects'] = $this->portfolio->sp_get_all_projects($requested_id);
-		var_dump($data['projects']);
+		$data['portfolio'] = $this->portfolio->get_portfolio($requested_id);
+		$data['user'] = $this->portfolio->get_seeker_by_id($data['portfolio'][0]['id_utilisateur']);
+		$data['projects'] = $this->portfolio->sp_get_all_projects($data['portfolio'][0]['id_utilisateur']);
+		$i=0;
+		foreach ($data['projects'] as $project){
+			$data['projects'][$i]['image'] = $this->portfolio->sp_get_image($data['projects'][$i]['id_image']);
+			$i++;
+		}
 		$this->load->template("PortFolio_view", $data);
 
 	}

@@ -37,10 +37,6 @@
 						<h3 class="panel-title panel-custom-title pull-left">
 							<?= $project['intitule']?>
 						</h3>
-						<button class="btn btn-default training-edit"><i class="fa fa-pencil-square"></i></button>
-						<button class="btn btn-default training-delete"><i class="fa fa-trash"></i></button>
-						<button class="btn btn-default training-up-order"><i class="fa fa-arrow-up"></i></button>
-						<button class="btn btn-default training-down-order"><i class="fa fa-arrow-down"></i></button>
 						<div class="clearfix"></div>
 					</div>
 					<div class="panel-body">
@@ -52,6 +48,7 @@
 								<p class="training-data-details"><?= $project['description']?></p>
 							</li>
 						</ul>
+						<img src="<?=img_url($project['image'][0]['url_image'])?>" alt="<?=img_url($project['image'][0]['alt'])?>" style="width: 220px;" />
 					</div>
 				</div>
 				<?php endforeach ?>
