@@ -110,7 +110,7 @@
                                     <div class="form-group">
                                         <?=form_label('Ajouter une image', 'image', array('class' => 'control-label', 'style' => 'display: block;'))?>
                                         <label class="btn btn-default" for="image">
-                                        <?=form_upload(array('value' => 'upload','name' => 'userfile', 'id' => 'image', 'style' => 'display: none;'))?>
+                                        <?=form_upload(array('name' => 'userfile', 'id' => 'image', 'style' => 'display: none;'))?>
                                             Parcourir...
                                         </label>
                                     </div>
