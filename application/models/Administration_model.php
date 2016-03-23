@@ -109,4 +109,16 @@ class Administration_model extends CI_Model
 
         return $lastInsertId;
     }
+
+    public function sp_get_all_categories($id_portfolio) {
+        $query = $this->db->query("CALL sp_getAllCategories(?)", $id_portfolio)->result_array();
+        $this->db->free_result();
+        return $query;
+    }
+
+    public function sp_get_all_skills($id_category) {
+        $query = $this->db->query("CALL sp_getAllSkills(?)", $id_category)->result_array();
+        $this->db->free_result();
+        return $query;
+    }
 }

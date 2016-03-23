@@ -260,34 +260,35 @@
                     <?=form_close()?>
                 </div>
             <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
-                <div class="panel panel-default col-lg-3" id="panelSkill">
-                    <div class="panel-heading"> Catégorie 1</div>
-                        <ul class="list-group">
-                            <li class="list-group-item"> Compétence 1 </li>
-                            <li class="list-group-item"> Compétence 2 </li>
-                        </ul>
-                </div>
-                <div class="panel panel-default col-lg-3" id="panelSkill">
-                    <div class="panel-heading"> Catégorie 2</div>
-                        <ul class="list-group">
-                            <li class="list-group-item"> Compétence 1 </li>
-                            <li class="list-group-item"> Compétence 2 </li>
-                        </ul>
-                </div>
-                <div class="panel panel-default col-lg-3" id="panelSkill">
-                    <div class="panel-heading"> Catégorie 3</div>
-                        <ul class="list-group">
-                            <li class="list-group-item"> Compétence 1 </li>
-                            <li class="list-group-item"> Compétence 2 </li>
-                        </ul>
-                </div>
-                <div class="panel panel-default col-lg-3" id="panelSkill">
-                    <div class="panel-heading"> Catégorie 4</div>
-                        <ul class="list-group">
-                            <li class="list-group-item"> Compétence 1 </li>
-                            <li class="list-group-item"> Compétence 2 </li>
-                        </ul>
-                </div>
+                <?php foreach($categories as $category): ?>
+                    <div class="panel panel-primary training-cards">
+                        <div class="panel-heading" style="padding: 5px;">
+                            <h3 class="panel-title panel-custom-title pull-left">
+                                <?= $category['libelle']?>
+                            </h3>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
+                                        <?php foreach($category['skills'] as $skill): ?>
+                                            <li class="list-group-item">
+                                                <b><?=$skill['libelle']?></b>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="<?= $skill['niveau']?>"
+                                                         aria-valuemin="0" aria-valuemax="100" style="width:<?= $skill['niveau']?>%">
+                                                        <span class="sr-only"><?= $skill['niveau']?>%</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        <?php endforeach ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach ?>
             </div>
         </div>
     </section>

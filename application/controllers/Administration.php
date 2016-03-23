@@ -25,7 +25,12 @@ class Administration extends CI_Controller
             $data['experiences'] = $this->admin_model->get_all_experiences($portfolio_id);
             $data['projects'] = $this->admin_model->get_all_projects($portfolio_id);
             $data['portfolio'] =  $this->admin_model->get_portfolio_infos($this->session->userdata['user_id']);
-            $data['categories'] = $this->admin_model->get_all_categories($portfolio_id);
+            $data['categories'] = $this->admin_model->sp_get_all_categories($portfolio_id);
+            $i=0;
+            foreach ($data['categories'] as $category){
+                $data['categories'][$i]['skills'] = $this->admin_model->sp_get_all_skills($category['id_categorie']);
+                $i++;
+            }
 
             $this->load->template("Administration_view", $data);
         }else{

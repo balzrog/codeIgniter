@@ -129,3 +129,8 @@
 .checkbox-inline, .radio-inline {
     margin-left: 10px; !important
 }
+
+#profile_picture{
+    height: 240px;
+    width: 240px;
+}
