@@ -66,7 +66,6 @@
                                         <?=form_input(array('name' => 'title', 'class' => 'form-control', 'value' => $project['intitule'], 'style' => 'width: 80%;'))?>
                                     </h3>
                                     <button type="submit" class="btn btn-default proj-edit"><i class="fa fa-pencil-square"></i></button>
-                                    <a href="<?=base_url().'Administration/delete_user_project/'.$project['id_projet']?>"><button class="btn btn-default proj-delete"><i class="fa fa-trash"></i></button></a>
                                     <button class="btn btn-default proj-up-order"><i class="fa fa-arrow-up"></i></button>
                                     <button class="btn btn-default proj-down-order"><i class="fa fa-arrow-down"></i></button>
                                     <div class="clearfix"></div>
@@ -87,8 +86,9 @@
                                         <li class="data-order none"><?=$project['ordre']?></li>
                                         <li class="data-id none"><?=$project['id_projet']?></li>
                                     </ul>
+                                    <?=form_close()?>
+                                    <!--<a class="pull-right" href="<?=base_url().'Administration/delete_user_project/'.$project['id_projet']?>"><i class="fa fa-trash"></i> <b>Supprimer</b></a>-->
                                 </div>
-                                <?=form_close()?>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -110,13 +110,13 @@
                                         <?=form_label('Lien vers la réalisation', 'link', array('class' => 'control-label'))?>
                                         <?=form_input(array('name' => 'link', 'id' => 'link', 'class' => 'form-control', 'placeholder' => 'Lien vers la réalisation'))?>
                                     </div>
-                                    <div class="form-group">
+                                    <!--<div class="form-group">
                                         <?=form_label('Ajouter une image', 'image', array('class' => 'control-label', 'style' => 'display: block;'))?>
                                         <label class="btn btn-default" for="image">
                                         <?=form_upload(array('name' => 'userfile', 'id' => 'image', 'style' => 'display: none;'))?>
                                             Parcourir...
                                         </label>
-                                    </div>
+                                    </div>-->
                                     <div class="form-group">
                                         <label class="control-label" style="display: block;">Visible</label>
                                             <label class="radio-inline"><input type="radio" name="visible" id="visible" value="1" checked>Oui</label>
@@ -230,6 +230,36 @@
         <div class="panel panel-default">
             <div class="panel-heading"><i class="fa fa-check"></i> Mes compétences</div>
             <div class="panel-body">
+                <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
+                    <div class="form-group">
+                    <?=form_open('Administration/add_user_categorie', array('id' => 'add_project_form'))?>
+                        <?=form_fieldset('Ajouter une catégorie')?>
+                        <?=form_label('Catégorie', 'categorie', array('class' => 'control-label'))?>
+                        <?=form_input(array('name' => 'categorie', 'id' => 'categorie', 'class' => 'form-control', 'placeholder' => 'Catégorie'))?>
+                    </div>
+                    <button type="submit" name="submit" id="submit_categorie" class="btn btn-primary">Ajouter</button>
+                    <?=form_fieldset_close()?>
+                    <?=form_close()?>
+                    <br><br>
+                    <div class="form-group">
+                        <?=form_open('Administration/add_user_skill', array('id' => 'add_skill_form'))?>
+                        <?=form_fieldset('Ajouter une compétence')?>
+                        <?=form_label('Compétence', 'skill', array('class' => 'control-label'))?>
+                        <?=form_input(array('name' => 'skill', 'id' => 'skill', 'class' => 'form-control', 'placeholder' => 'Compétence'))?>
+                    </div>
+                    <div class="form-group">
+                        <?=form_label('Catégorie', 'categorie', array('class' => 'control-label'))?>
+                        <select name="categorieid" id="categorieid" class="form-control">
+                            <?php foreach($categories as $categorie): ?>
+                            <option value="<?=$categorie['id_categorie']?>"><?=$categorie['libelle']?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <button type="submit" name="submit" id="submit_categorie" class="btn btn-primary">Ajouter</button>
+                    <?=form_fieldset_close()?>
+                    <?=form_close()?>
+                </div>
+            <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
                 <div class="panel panel-default col-lg-3" id="panelSkill">
                     <div class="panel-heading"> Catégorie 1</div>
                         <ul class="list-group">

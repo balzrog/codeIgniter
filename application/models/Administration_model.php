@@ -50,6 +50,12 @@ class Administration_model extends CI_Model
         return $query;
     }
 
+    public function get_all_categories($portfolio_id) {
+        $query = $this->db->query('CALL sp_getAllCategories(?)', $portfolio_id)->result_array();
+        $this->db->free_result();
+        return $query;
+    }
+
     public function add_training($portfolio_id, $training, $diploma, $year, $city, $details = "", $visible = 1) {
         $this->db->query('CALL sp_addTraining(?, ?, ?, ?, ?, ?, ?)', array($portfolio_id, $training, $diploma, $year, $city, $details, $visible));
     }
@@ -86,8 +92,17 @@ class Administration_model extends CI_Model
         $this->db->query('CALL sp_deleteProject(?)', $project_id);
     }
 
+    public function add_categorie($portfolio_id, $categorie) {
+        $this->db->query('CALL sp_addCategorie(?, ?)', array($portfolio_id, $categorie));
+    }
+
+    public function add_skill($categorie_id, $skill, $level, $visible) {
+        $this->db->query('CALL sp_addSkill(?, ?, ?, ?)', array($skill, $visible, $level, $categorie_id));
+    }
+
     public function add_image($file_name) {
         $this->db->query('CALL sp_addImageUrl(?)', $file_name);
+        $this->db->free_result();
 
         $this->db->select_max('id_image');
         $lastInsertId = $this->db->get('image')->result_array()[0]['id_image'];

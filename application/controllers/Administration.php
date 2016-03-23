@@ -25,6 +25,7 @@ class Administration extends CI_Controller
             $data['experiences'] = $this->admin_model->get_all_experiences($portfolio_id);
             $data['projects'] = $this->admin_model->get_all_projects($portfolio_id);
             $data['portfolio'] =  $this->admin_model->get_portfolio_infos($this->session->userdata['user_id']);
+            $data['categories'] = $this->admin_model->get_all_categories($portfolio_id);
 
             $this->load->template("Administration_view", $data);
         }else{
@@ -173,6 +174,8 @@ class Administration extends CI_Controller
             $visible        = (int)$this->input->post('visible');
             $portfolio_id   = (int)$this->session->userdata['portfolio_id'];
 
+            //var_dump($this->input->post());
+
             $config['upload_path'] = 'assets/images';
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size']	= '100';
@@ -181,18 +184,18 @@ class Administration extends CI_Controller
 
             $this->load->library('upload', $config);
 
-            if(!$this->upload->do_upload()) {
-                $error = array('error' => $this->upload->display_errors());
-                $this->load->template('Home_view', $error);
-            } else {
-                $file_name = $this->upload->data()['file_name'];
+            //if(!$this->upload->do_upload()) {
+                //$error = array('error' => $this->upload->display_errors());
+                //$this->load->template('Home_view', $error);
+            //} else {
+                //$file_name = $this->upload->data()['file_name'];
 
-                $image_id = (int)$this->admin_model->add_image($file_name);
+                //$image_id = (int)$this->admin_model->add_image($file_name);
 
-                $this->admin_model->add_project($title, $description, $link, $visible, $portfolio_id, $image_id);
+                $this->admin_model->add_project($title, $description, $link, $visible, $portfolio_id, $image_id = 30);
 
                 redirect('Administration#Projets');
-            }
+            //}
         }
     }
 
@@ -202,7 +205,7 @@ class Administration extends CI_Controller
         $this->form_validation->set_rules('link', 'Lien', 'trim|min_length[2]');
         //$this->form_validation->set_rules('visible', 'Visible', 'trim|numeric|max_length[1]');
         if($this->form_validation->run() == false) {
-            $this->load->view('Home_view');
+            $this->load->view('Administration#Projets');
         } else {
             $title          = $this->input->post('title');
             $description    = $this->input->post('description');
@@ -223,6 +226,35 @@ class Administration extends CI_Controller
         $this->admin_model->delete_project($project_id);
 
         redirect('Administration#Projets');
+    }
+
+    public function add_user_categorie() {
+        $this->form_validation->set_rules('categorie', 'Catégorie', 'trim|required|min_length[2]');
+        if($this->form_validation->run() == false) {
+            $this->load->view('Administration#Compétences');
+        } else {
+            $categorie      = $this->input->post('categorie');
+            $portfolio_id   = (int)$this->session->userdata['portfolio_id'];
+
+            $this->admin_model->add_categorie($portfolio_id, $categorie);
+
+            redirect('Administration#Compétences');
+        }
+    }
+
+    public function add_user_skill() {
+        $this->form_validation->set_rules('skill', 'Compétence', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('categorieid', 'Catégorie', 'trim|required|numeric|max_length[10]');
+        if($this->form_validation->run() == false) {
+            redirect('Home');
+        } else {
+            $categorie_id   = (int)$this->input->post('categorieid');
+            $skill          = $this->input->post('skill');
+
+            $this->admin_model->add_skill($categorie_id, $skill, $level = 50, $visible = 1);
+
+            redirect('Administration#Compétences');
+        }
     }
 
     public function savePortfolioInfos(){
