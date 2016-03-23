@@ -74,10 +74,10 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=164.138.29.106; dbname=eportfolio; charset=utf8;',
+	'dsn'	=> 'mysql:host=; dbname=eportfolio; charset=utf8;',
 	'hostname' => '',
-	'username' => 'dgls',
-	'password' => 'dglsweb#2016',
+	'username' => '',
+	'password' => '',
 	'database' => '',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
