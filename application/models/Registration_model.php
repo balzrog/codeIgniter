@@ -22,11 +22,16 @@ class Registration_model extends CI_Model {
         //echo $this->check_user_email($mail);
         //if($this->check_user($mail) == true) {
             $this->db->query('CALL sp_addUser(?, ?, ?, ?, ?, ?)', array($name, $firstname, $mail, $password, $phone, $timestamp));
+            $this->db->free_result();
 
             /* Get last inserted id in utilisateur table */
             $this->db->select_max('id_utilisateur');
             $lastInsertId = $this->db->get('utilisateur')->result_array()[0]['id_utilisateur'];
-
+            $this->db->query('CALL sp_addPortfolio(?)', $lastInsertId)->result_array();
+            $this->db->free_result();
+            $this->db->select_max('id_portfolio');;
+            $lastInsertPortfolio = $this->db->get('portfolio')->result_array()[0]['id_portfolio'];
+            $this->update_user_portfolio($lastInsertId, $lastInsertPortfolio);
             if(count($lastInsertId) > 0) {
                 $this->add_user_address($lastInsertId, $address, $city, $zipcode, $addressextra);
                 return true;
@@ -37,5 +42,11 @@ class Registration_model extends CI_Model {
         //} else {
             //echo "Utilisateur déjà existant";
         //}
+    }
+
+    public function update_user_portfolio($id_user, $portfolio_id){
+        $query = $this->db->query('CALL sp_updateUserPortfolio(?, ?)', array($id_user, $portfolio_id))->result_array();
+        $this->db->free_result();
+        return $query;
     }
 }
