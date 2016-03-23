@@ -52,38 +52,45 @@ class Administration_model extends CI_Model
 
     public function add_training($portfolio_id, $training, $diploma, $year, $city, $details = "", $visible = 1) {
         $this->db->query('CALL sp_addTraining(?, ?, ?, ?, ?, ?, ?)', array($portfolio_id, $training, $diploma, $year, $city, $details, $visible));
-
-        /* Get last inserted id in formation table */
-        /*$this->db->select_max('id_formation');
-        $lastInsertId = $this->db->get('formation')->result_array()[0]['id_formation'];
-
-        return $lastInsertId;*/
     }
 
     public function update_training($training_id, $portfolio_id, $training, $year, $diploma, $city, $details = "", $visible) {
         $this->db->query('CALL sp_updateTraining(?, ?, ?, ?, ?, ?, ?, ?)', array($training_id, $portfolio_id, $training, $year, $diploma, $city, $details, $visible));
     }
 
-    public function delete_training($training_id, $user_id) {
-        $this->db->query('CALL sp_deleteTraining(?, ?)', array($training_id, $user_id));
+    public function delete_training($training_id) {
+        $this->db->query('CALL sp_deleteTraining(?)', $training_id);
     }
 
     public function add_experience($portfolio_id, $position, $year, $entreprise, $city, $details, $visible) {
         $this->db->query('CALL sp_addExperience(?, ?, ?, ?, ?, ?, ?)', array($portfolio_id, $position, $year, $entreprise, $details, $city, $visible));
     }
 
+    public function update_experience($experience_id, $portfolio_id, $position, $year, $entreprise, $city, $details, $visible) {
+        $this->db->query('CALL sp_updateExperience(?, ?, ?, ?, ?, ?, ?, ?)', array($experience_id, $portfolio_id, $position, $year, $entreprise, $city, $details, $visible));
+    }
+
+    public function delete_experience($experience_id) {
+        $this->db->query('CALL sp_deleteExperience(?)', $experience_id);
+    }
+
     public function add_project($title, $description, $link, $visible, $portfolio_id, $image_id) {
         $this->db->query('CALL sp_addProject(?, ?, ?, ?, ?, ?)', array($title, $description, $link, $visible, $portfolio_id, $image_id));
     }
 
+    public function update_project($projectid, $portfolio_id, $title, $description, $link, $visible) {
+        $this->db->query('CALL sp_updateProject(?, ?, ?, ?, ?, ?)', array($projectid, $portfolio_id, $title, $description, $link, $visible));
+    }
+
+    public function delete_project($project_id) {
+        $this->db->query('CALL sp_deleteProject(?)', $project_id);
+    }
+
     public function add_image($file_name) {
         $this->db->query('CALL sp_addImageUrl(?)', $file_name);
-        //$this->db->free_result();
 
-        /* Get last inserted id in image table */
         $this->db->select_max('id_image');
         $lastInsertId = $this->db->get('image')->result_array()[0]['id_image'];
-        //$this->db->free_result();
 
         return $lastInsertId;
     }

@@ -61,11 +61,12 @@
                         <?php foreach($projects as $project) : ?>
                             <div class="panel panel-primary project-cards">
                                 <div class="panel-heading" style="padding: 5px;">
+                                    <?=form_open('Administration/update_user_project/'.$project['id_projet'])?>
                                     <h3 class="panel-title panel-custom-title pull-left">
-                                        <?=$project['intitule']?>
+                                        <?=form_input(array('name' => 'title', 'class' => 'form-control', 'value' => $project['intitule'], 'style' => 'width: 80%;'))?>
                                     </h3>
-                                    <button class="btn btn-default proj-edit"><i class="fa fa-pencil-square"></i></button>
-                                    <button class="btn btn-default proj-delete"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" class="btn btn-default proj-edit"><i class="fa fa-pencil-square"></i></button>
+                                    <a href="<?=base_url().'Administration/delete_user_project/'.$project['id_projet']?>"><button class="btn btn-default proj-delete"><i class="fa fa-trash"></i></button></a>
                                     <button class="btn btn-default proj-up-order"><i class="fa fa-arrow-up"></i></button>
                                     <button class="btn btn-default proj-down-order"><i class="fa fa-arrow-down"></i></button>
                                     <div class="clearfix"></div>
@@ -74,18 +75,20 @@
                                     <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
                                         <li class="list-group-item"><b>Illustration :</b>
                                         <br>
-                                        <img src="<?=img_url($project['url_image'])?>" class="img-responsive center-block" style="max-width: 280px;">
-                                        <li class="list-group-item"><b>Lien :</b> <a href="<?=$project['lien']?>" target="_blank"><button class="btn btn-default btn-sm data-link">Visualiser</button></a></li>
+                                        <img src="<?=img_url($project['url_image'])?>" class="img-responsive center-block" style="max-width: 250px;">
+                                        <li class="list-group-item"><b>Lien :</b>
+                                            <?=form_input(array('name' => 'link', 'class' => 'form-control data-link', 'value' => $project['lien']))?>
+                                        </li>
                                         <li class="list-group-item">
                                             <b>Description du projet :</b>
-                                            <br>
-                                            <p class="data-details"><?=$project['description']?></p>
+                                            <?=form_textarea(array('value' => $project['description'], 'name' => 'description', 'id' => 'description', 'class' => 'form-control data-details', 'rows' => '3'))?>
                                         </li>
                                         <li class="data-visible none"><?=$project['visible']?></li>
-                                        <li class="data-order none"><?=$experience['ordre']?></li>
-                                        <li class="data-id none"><?=$experience['id_projet']?></li>
+                                        <li class="data-order none"><?=$project['ordre']?></li>
+                                        <li class="data-id none"><?=$project['id_projet']?></li>
                                     </ul>
                                 </div>
+                                <?=form_close()?>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -101,7 +104,7 @@
                                     </div>
                                     <div class="form-group">
                                         <?=form_label('Description', 'description', array('class' => 'control-label'))?>
-                                        <?=form_textarea(array('name' => 'description', 'id' => 'description', 'class' => 'form-control', 'rows' => '7'))?>
+                                        <?=form_textarea(array('name' => 'description', 'id' => 'description', 'class' => 'form-control', 'rows' => '6'))?>
                                     </div>
                                     <div class="form-group">
                                         <?=form_label('Lien vers la réalisation', 'link', array('class' => 'control-label'))?>
@@ -144,30 +147,37 @@
                         <?php foreach($trainings as $training) : ?>
                         <div class="panel panel-primary training-cards">
                             <div class="panel-heading" style="padding: 5px;">
+                                <?=form_open('Administration/update_user_training/'.$training['id_formation'])?>
                                 <h3 class="panel-title panel-custom-title pull-left">
-                                    <?=$training['intitule']?>
+                                    <?=form_input(array('name' => 'training', 'class' => 'form-control', 'value' => $training['intitule'], 'style' => 'width: 80%;'))?>
                                 </h3>
-                                <button class="btn btn-default training-edit"><i class="fa fa-pencil-square"></i></button>
-                                <button class="btn btn-default training-delete"><i class="fa fa-trash"></i></button>
+                                <button type="submit" class="btn btn-default training-edit"><i class="fa fa-pencil-square"></i></button>
+                                <a href="<?=base_url().'Administration/delete_user_training/'.$training['id_formation']?>"><button class="btn btn-default training-delete"><i class="fa fa-trash"></i></button></a>
                                 <button class="btn btn-default training-up-order"><i class="fa fa-arrow-up"></i></button>
                                 <button class="btn btn-default training-down-order"><i class="fa fa-arrow-down"></i></button>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="panel-body">
                                 <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-                                    <li class="list-group-item"><b>Diplôme :</b> <span class="training-data-diploma"><?=$training['diplome']?></span></li>
-                                    <li class="list-group-item"><b>Année :</b> <span class="training-data-year"><?=$training['annee']?></span></li>
-                                    <li class="list-group-item"><b>Ville :</b> <span class="training-data-city"><?=$training['lieu']?></span></li>
+                                    <li class="list-group-item"><b>Diplôme :</b>
+                                        <?=form_input(array('name' => 'diploma', 'class' => 'form-control training-data-diploma', 'value' => $training['diplome']))?>
+                                    </li>
+                                    <li class="list-group-item"><b>Année :</b>
+                                        <?=form_input(array('name' => 'year', 'class' => 'form-control training-data-year', 'value' => $training['annee']))?>
+                                    </li>
+                                    <li class="list-group-item"><b>Ville :</b>
+                                        <?=form_input(array('name' => 'city', 'class' => 'form-control training-data-city', 'value' => $training['lieu']))?>
+                                    </li>
                                     <li class="list-group-item">
                                         <b>Descriptif :</b>
-                                        <br>
-                                        <p class="training-data-details"><?=$training['description']?></p>
+                                        <?=form_textarea(array('value' => $training['description'], 'name' => 'description', 'id' => 'description', 'class' => 'form-control training-data-details', 'rows' => '3'))?>
                                     </li>
                                     <li class="training-data-visible none"><?=$training['visible']?></li>
                                     <li class="training-data-order none"><?=$training['ordre']?></li>
                                     <li class="training-data-id none"><?=$training['id_formation']?></li>
                                 </ul>
                             </div>
+                            <?=form_close()?>
                         </div>
                         <?php endforeach; ?>
                     </div>
@@ -260,30 +270,37 @@
                         <?php foreach($experiences as $experience) : ?>
                             <div class="panel panel-primary experience-cards">
                                 <div class="panel-heading" style="padding: 5px;">
+                                    <?=form_open('Administration/update_user_experience/'.$experience['id_experience'])?>
                                     <h3 class="panel-title panel-custom-title pull-left">
-                                        <?=$experience['entreprise']?>
+                                        <?=form_input(array('name' => 'entreprise', 'class' => 'form-control', 'value' => $experience['entreprise'], 'style' => 'width: 80%;'))?>
                                     </h3>
-                                    <button class="btn btn-default exp-edit"><i class="fa fa-pencil-square"></i></button>
-                                    <button class="btn btn-default exp-delete"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" class="btn btn-default exp-edit"><i class="fa fa-pencil-square"></i></button>
+                                    <a href="<?=base_url().'Administration/delete_user_experience/'.$experience['id_experience']?>"><button class="btn btn-default exp-delete"><i class="fa fa-trash"></i></button></a>
                                     <button class="btn btn-default exp-up-order"><i class="fa fa-arrow-up"></i></button>
                                     <button class="btn btn-default exp-down-order"><i class="fa fa-arrow-down"></i></button>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="panel-body">
                                     <ul class="list-group" id="list-group-admin" style="margin-bottom: 0;">
-                                        <li class="list-group-item"><b>Poste :</b> <span class="data-position"><?=$experience['poste']?></span></li>
-                                        <li class="list-group-item"><b>Année :</b> <span class="data-year"><?=$experience['annee']?></span></li>
-                                        <li class="list-group-item"><b>Ville :</b> <span class="data-city"><?=$experience['lieu']?></span></li>
+                                        <li class="list-group-item"><b>Poste :</b>
+                                            <?=form_input(array('name' => 'position', 'class' => 'form-control data-position', 'value' => $experience['poste']))?>
+                                        </li>
+                                        <li class="list-group-item"><b>Année :</b>
+                                            <?=form_input(array('name' => 'year', 'class' => 'form-control data-year', 'value' => $experience['annee']))?>
+                                        </li>
+                                        <li class="list-group-item"><b>Ville :</b>
+                                            <?=form_input(array('name' => 'city', 'class' => 'form-control data-city', 'value' => $experience['lieu']))?>
+                                        </li>
                                         <li class="list-group-item">
                                             <b>Détail de la mission :</b>
-                                            <br>
-                                            <p class="data-details"><?=$experience['detail']?></p>
+                                            <?=form_textarea(array('value' => $experience['detail'], 'name' => 'description', 'id' => 'description', 'class' => 'form-control data-details', 'rows' => '3'))?>
                                         </li>
                                         <li class="data-visible none"><?=$experience['visible']?></li>
                                         <li class="data-order none"><?=$experience['ordre']?></li>
                                         <li class="data-id none"><?=$experience['id_experience']?></li>
                                     </ul>
                                 </div>
+                                <?=form_close()?>
                             </div>
                         <?php endforeach; ?>
                     </div>

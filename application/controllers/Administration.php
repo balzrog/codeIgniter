@@ -89,10 +89,11 @@ class Administration extends CI_Controller
     }
 
     public function delete_user_training() {
-        $training_id = $this->input->post('id_training');
-        $user_id = $this->session->userdata['user_id'];
+        $training_id = (int)$this->uri->segment(3);
 
-        $this->admin_model->delete_training($training_id, $user_id);
+        $this->admin_model->delete_training($training_id);
+
+        redirect('Administration#Formations');
     }
 
     public function add_user_experience() {
@@ -121,20 +122,55 @@ class Administration extends CI_Controller
         }
     }
 
+    public function update_user_experience() {
+        $data = array();
+
+        $this->form_validation->set_rules('entreprise', 'Entreprise', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('position', 'Poste', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('year', 'Année', 'trim|required|numeric|min_length[4]');
+        $this->form_validation->set_rules('city', 'Ville', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('details', 'Détails', 'trim|min_length[3]');
+        //$this->form_validation->set_rules('visible', 'Visible', 'trim|numeric|max_length[1]');
+        if($this->form_validation->run() == false) {
+            $this->load->view('Administration_view', $data);
+        } else {
+            $entreprise     = $this->input->post('entreprise');
+            $position       = $this->input->post('position');
+            $year           = (int)$this->input->post('year');
+            $city           = $this->input->post('city');
+            $details        = $this->input->post('description');
+            //$visible      = (int)$this->input->post('visible');
+            $experience_id  = (int)$this->uri->segment(3);
+            $portfolio_id   = (int)$this->session->userdata['portfolio_id'];
+
+            $this->admin_model->update_experience($experience_id, $portfolio_id, $position, $year, $entreprise, $city, $details, $visible = 1);
+
+            redirect('Administration#Expériences');
+        }
+    }
+
+    public function delete_user_experience() {
+        $experience_id = (int)$this->uri->segment(3);
+
+        $this->admin_model->delete_experience($experience_id);
+
+        redirect('Administration#Expériences');
+    }
+
     public function add_user_project() {
-        //$data = array();
+        $data = array();
 
         $this->form_validation->set_rules('title', 'Nom du projet', 'trim|required|min_length[2]');
         $this->form_validation->set_rules('description', 'Description', 'trim|min_length[2]');
         $this->form_validation->set_rules('link', 'Lien', 'trim|min_length[2]');
         $this->form_validation->set_rules('visible', 'Visible', 'trim|numeric|max_length[1]');
         if($this->form_validation->run() == false) {
-            $this->load->view('Home_view');
+            $this->load->view('Administration_view', $data);
         } else {
             $title          = $this->input->post('title');
             $description    = $this->input->post('description');
             $link           = $this->input->post('link');
-            $visible        = $this->input->post('visible');
+            $visible        = (int)$this->input->post('visible');
             $portfolio_id   = (int)$this->session->userdata['portfolio_id'];
 
             $config['upload_path'] = 'assets/images';
@@ -151,16 +187,44 @@ class Administration extends CI_Controller
             } else {
                 $file_name = $this->upload->data()['file_name'];
 
-                $image_id = $this->admin_model->add_image($file_name);
+                $image_id = (int)$this->admin_model->add_image($file_name);
 
                 $this->admin_model->add_project($title, $description, $link, $visible, $portfolio_id, $image_id);
 
                 redirect('Administration#Projets');
             }
-
-
         }
     }
+
+    public function update_user_project() {
+        $this->form_validation->set_rules('title', 'Nom du projet', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('description', 'Description', 'trim|min_length[2]');
+        $this->form_validation->set_rules('link', 'Lien', 'trim|min_length[2]');
+        //$this->form_validation->set_rules('visible', 'Visible', 'trim|numeric|max_length[1]');
+        if($this->form_validation->run() == false) {
+            $this->load->view('Home_view');
+        } else {
+            $title          = $this->input->post('title');
+            $description    = $this->input->post('description');
+            $link           = $this->input->post('link');
+            $project_id     = (int)$this->uri->segment(3);
+            //$visible        = (int)$this->input->post('visible');
+            $portfolio_id   = (int)$this->session->userdata['portfolio_id'];
+
+            $this->admin_model->update_project($project_id, $portfolio_id, $title, $description, $link, $visible = 1);
+
+            redirect('Administration#Projets');
+        }
+    }
+
+    public function delete_user_project() {
+        $project_id = (int)$this->uri->segment(3);
+
+        $this->admin_model->delete_project($project_id);
+
+        redirect('Administration#Projets');
+    }
+
     public function savePortfolioInfos(){
         if($this->session->userdata['user_id'] != null) {
 
