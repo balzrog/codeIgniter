@@ -1,6 +1,32 @@
 /**
  * Created by OGC on 21/03/2016.
  */
+function change_background_color_red(elemnt)
+{
+    if (elemnt) {
+        elemnt.style.backgroundColor = "red";
+    }
+    return;
+}
+
+function change_background_color_white(elemnt)
+{
+    if (elemnt) {
+        elemnt.style.backgroundColor = "white";
+    }
+    return;
+}
+
+function is_name(myVar){
+    var regex = /^[a-zA-Z]+$/;
+    if (regex.test(myVar.value)){
+        change_background_color_white(form_register.name);
+    }else{
+        alert("Veuillez entrer un nom valide");
+        change_background_color_red(form_register.name);
+    }
+}
+
 function is_firstname(myVar){
     var regex = /^[a-zA-Z]+$/;
     if (regex.test(myVar.value)){
@@ -55,7 +81,7 @@ function is_email(myVar){
 function is_zipcode(myVar){
     var regex = /^(2[ab]|0[1-9]|[1-9][0-9])[0-9]{3}$/;
     if(regex.test(myVar.value)){
-        change_background_color_white(form_register.zipcode);
+        change_background_color_white(form_register.city);
     }else{
         alert("Erreur de saisie");
         change_background_color_red(form_register.zipcode);
@@ -70,4 +96,5 @@ function is_town(myVar){
         alert("Erreur de saisie");
         change_background_color_red(form_register.city);
     }
+
 }
