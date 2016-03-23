@@ -74,7 +74,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=; dbname=eportfolio; charset=utf8;',
+	'dsn'	=> 'mysql:host=; dbname=; charset=utf8;',
 	'hostname' => '',
 	'username' => '',
 	'password' => '',
