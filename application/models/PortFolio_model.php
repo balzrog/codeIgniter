@@ -62,12 +62,6 @@ class PortFolio_model extends CI_Model{
         return $query;
     }
 
-    public function get_portfolio_theme($portfolio_id){
-        $query = $this->db->query('CALL sp_getTheme(?)', $portfolio_id)->result_array();
-        $this->db->free_result();
-        return $query;
-    }
-
     public function set_portfolio_theme($portfolio_id, $theme_id){
         $this->db->query('CALL sp_UpdateThemeId(?, ?)', $portfolio_id, $theme_id);
     }

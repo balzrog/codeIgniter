@@ -3,31 +3,20 @@
  */
 
 $(document).ready(function() {
-    refreshNavBar();
+    change_theme("#id_body");
 });
 
-function refreshNavBar(){
-   $(".navBar_item").removeClass("active");
-    var fileName = returnFileName();
-    var allDocs = $(".navBar_item");
-    allDocs.children().each(function(){
-        var kid = $(this);
-        if(kid.attr("href") == fileName){
-            kid.parent("li").addClass("active");
+function change_theme(elemnt)
+{
+    $.ajax({
+        url : " http://localhost/codeIgniter/Actions/theme_portfolio"+"/"+window.location.pathname.split('/')[4],
+        type : 'POST',
+        dataType : 'html', // On désire recevoir du HTML
+        success : function(code_html, statut){ // code_html contient le HTML renvoyé
+            $("#id_body").css("background-color", code_html.split('/')[0]);
+            $("#id_body").css("font-family", code_html.split('/')[1]);
         }
-    })
-}
-
-function returnFileName(){
-    var fileName = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
-    return fileName;
-}
-function activeButtonProfile() {
-    $('body').on('click', '.btn-group button', function (e) {
-        $(this).addClass('active');
-        $(this).siblings().removeClass('active');
-
-        //do any other button related things
     });
 
+    return;
 }
