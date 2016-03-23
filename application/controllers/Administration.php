@@ -197,7 +197,7 @@ class Administration extends CI_Controller
 
                 //$image_id = (int)$this->admin_model->add_image($file_name);
 
-                $this->admin_model->add_project($title, $description, $link, $visible, $portfolio_id, $image_id = 30);
+                $this->admin_model->add_project($title, $description, $link, $visible, $portfolio_id, $image_id = 33);
 
                 redirect('Administration#Projets');
             //}

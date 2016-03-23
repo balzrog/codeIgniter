@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                 </button>
                 <a href="<?= site_url('/Home')?>" class="navbar-brand">
-                    <img style="max-width:100px; margin-top: -7px;" src="#" alt="Logo" width="100px" />
+                    <img style="max-width:100px; margin-top: -7px;" src="<?= img_url("logo.png")?>" alt="Logo" width="100px" />
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">

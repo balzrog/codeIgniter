@@ -66,7 +66,7 @@ class PortFolio extends CI_Controller{
             $config['protocol']     = 'smtp';
             $config['smtp_host']    = 'ssl://smtp.gmail.com';
             $config['smtp_user']    = 'app.doowit@gmail.com';
-            $config['smtp_pass']    = '';
+            $config['smtp_pass']    = 'doowit3322';
             $config['smtp_port']    = 465;
             $config['wordwrap']     = TRUE;
             $config['wrapchars']    = 76;
