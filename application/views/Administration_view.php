@@ -27,11 +27,10 @@
             <div class="panel-body">
                 <?=form_open_multipart('Administration/savePortfolioInfos', array('id' => 'save_portfolio_infos'))?>
                 <?=form_fieldset('Configuration de l\'accueil')?>
-                <?php foreach($portfolio as $pf) : ;?>
                     <div class="col-lg-12">
                         <div class="form-group">
                             <?=form_label('Image', 'img', array('class' => 'control-label'))?>
-                            <img src="<?=img_url($pf['url_image'])?>" class="img-responsive center-block" style="max-width: 280px;">
+                            <img src="<?=img_url($portfolio[0]['url_image'])?>" class="img-responsive center-block" style="max-width: 280px;">
                         </div>
                         <div class="form-group">
                             <?=form_label('Modifier l\'image', 'image', array('class' => 'control-label', 'style' => 'display: block;'))?>
@@ -42,10 +41,9 @@
                         </div>
                         <div class="form-group">
                             <?=form_label('Description', 'description', array('class' => 'control-label'))?>
-                            <?=form_textarea(array('value' => $pf['about'],'name' => 'description', 'id' => 'description', 'class' => 'form-control', 'rows' => '7'))?>
+                            <?=form_textarea(array('value' => $portfolio[0]['about'],'name' => 'description', 'id' => 'description', 'class' => 'form-control', 'rows' => '7'))?>
                         </div>
                     </div>
-                <?php endforeach ;?>
                 <?=form_fieldset_close()?>
                 <?=form_submit('', 'Modifier', array('value' => 'upload', 'class' => 'btn btn-default pull-right', 'tabindex' => '11'))?>
                 <?=form_close()?>
@@ -87,7 +85,7 @@
                                         <li class="data-id none"><?=$project['id_projet']?></li>
                                     </ul>
                                     <?=form_close()?>
-                                    <!--<a class="pull-right" href="<?=base_url().'Administration/delete_user_project/'.$project['id_projet']?>"><i class="fa fa-trash"></i> <b>Supprimer</b></a>-->
+                                    <a class="pull-right" href="<?=base_url().'Administration/delete_user_project/'.$project['id_projet']?>"><i class="fa fa-trash"></i> <b>Supprimer</b></a>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -152,7 +150,6 @@
                                     <?=form_input(array('name' => 'training', 'class' => 'form-control', 'value' => $training['intitule'], 'style' => 'width: 80%;'))?>
                                 </h3>
                                 <button type="submit" class="btn btn-default training-edit"><i class="fa fa-pencil-square"></i></button>
-                                <a href="<?=base_url().'Administration/delete_user_training/'.$training['id_formation']?>"><button class="btn btn-default training-delete"><i class="fa fa-trash"></i></button></a>
                                 <button class="btn btn-default training-up-order"><i class="fa fa-arrow-up"></i></button>
                                 <button class="btn btn-default training-down-order"><i class="fa fa-arrow-down"></i></button>
                                 <div class="clearfix"></div>
@@ -176,8 +173,9 @@
                                     <li class="training-data-order none"><?=$training['ordre']?></li>
                                     <li class="training-data-id none"><?=$training['id_formation']?></li>
                                 </ul>
+                                <?=form_close()?>
+                                <a class="pull-right" href="<?=base_url().'Administration/delete_user_project/'.$training['id_formation']?>"><i class="fa fa-trash"></i> <b>Supprimer</b></a>
                             </div>
-                            <?=form_close()?>
                         </div>
                         <?php endforeach; ?>
                     </div>
@@ -306,7 +304,6 @@
                                         <?=form_input(array('name' => 'entreprise', 'class' => 'form-control', 'value' => $experience['entreprise'], 'style' => 'width: 80%;'))?>
                                     </h3>
                                     <button type="submit" class="btn btn-default exp-edit"><i class="fa fa-pencil-square"></i></button>
-                                    <a href="<?=base_url().'Administration/delete_user_experience/'.$experience['id_experience']?>"><button class="btn btn-default exp-delete"><i class="fa fa-trash"></i></button></a>
                                     <button class="btn btn-default exp-up-order"><i class="fa fa-arrow-up"></i></button>
                                     <button class="btn btn-default exp-down-order"><i class="fa fa-arrow-down"></i></button>
                                     <div class="clearfix"></div>
@@ -330,8 +327,9 @@
                                         <li class="data-order none"><?=$experience['ordre']?></li>
                                         <li class="data-id none"><?=$experience['id_experience']?></li>
                                     </ul>
+                                    <?=form_close()?>
+                                    <a class="pull-right" href="<?=base_url().'Administration/delete_user_project/'.$experience['id_experience']?>"><i class="fa fa-trash"></i> <b>Supprimer</b></a>
                                 </div>
-                                <?=form_close()?>
                             </div>
                         <?php endforeach; ?>
                     </div>
