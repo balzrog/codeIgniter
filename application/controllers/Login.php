@@ -18,7 +18,7 @@ class Login extends CI_Controller {
     }
 
     public function index() {
-        if($this->session->userdata['user_id'] != null) {
+        if(isset($this->session->userdata['user_id'])) {
             redirect(base_url("Home"));
         }else{
             $this->connection();
@@ -31,7 +31,7 @@ class Login extends CI_Controller {
     }
 
     public function connection() {
-        if($this->session->userdata['user_id'] != null) {
+        if(isset($this->session->userdata['user_id'])) {
             redirect(base_url("Home"));
         }else{
         $data = array();

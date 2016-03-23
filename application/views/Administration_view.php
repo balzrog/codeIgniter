@@ -174,7 +174,7 @@
                                     <li class="training-data-id none"><?=$training['id_formation']?></li>
                                 </ul>
                                 <?=form_close()?>
-                                <a class="pull-right" href="<?=base_url().'Administration/delete_user_project/'.$training['id_formation']?>"><i class="fa fa-trash"></i> <b>Supprimer</b></a>
+                                <a class="pull-right" href="<?=base_url().'Administration/delete_user_training/'.$training['id_formation']?>"><i class="fa fa-trash"></i> <b>Supprimer</b></a>
                             </div>
                         </div>
                         <?php endforeach; ?>
@@ -328,7 +328,7 @@
                                         <li class="data-id none"><?=$experience['id_experience']?></li>
                                     </ul>
                                     <?=form_close()?>
-                                    <a class="pull-right" href="<?=base_url().'Administration/delete_user_project/'.$experience['id_experience']?>"><i class="fa fa-trash"></i> <b>Supprimer</b></a>
+                                    <a class="pull-right" href="<?=base_url().'Administration/delete_user_experience/'.$experience['id_experience']?>"><i class="fa fa-trash"></i> <b>Supprimer</b></a>
                                 </div>
                             </div>
                         <?php endforeach; ?>

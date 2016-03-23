@@ -87,7 +87,7 @@ class PortFolio extends CI_Controller{
             if(!$this->email->send()){
                 echo "ERROR<br>" . $this->email->print_debugger();
             } else {
-                redirect('/Home');
+                redirect('/Administration');
             }
         }
     }
